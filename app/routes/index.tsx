@@ -22,6 +22,7 @@ export default function index(){
                         </span>
                         <p>
                                 Deze checklist dient ingevuld te worden alvorens een website op te leveren aan een klant.
+                                fuuuuuuuuuuuuu
                         </p>
                         <div className="container-contact2-form-btn">
                                 <div className="wrap-contact2-form-btn">

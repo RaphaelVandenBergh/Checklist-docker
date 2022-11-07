@@ -25,12 +25,14 @@ model CheckList{
   isWebshop Boolean @default(false)
   CheckListItemsId String @unique
   CheckListItems CheckListItems @relation(fields: [CheckListItemsId], references: [Id])
+  Logs Logs[]
 
 }
 
 model CheckListItems{
   Id String @id @default(uuid())
   Checklist CheckList?
+  Version Int
 
   Compressie Boolean @default(false)
   Copyright Boolean @default(false)
@@ -99,4 +101,79 @@ model CheckListItems{
   lastUser String @default("")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Logs{
+  Id String @id @default(uuid())
+  Checklist CheckList @relation(fields: [CheckListId], references: [Id])
+  CheckListId String
+  Version Int
+  createdAt DateTime
+
+  Compressie Boolean @default(false)
+  Copyright Boolean @default(false)
+  SocialMediaMeta Boolean @default(false)
+  SSL Boolean @default(false)
+  FacebookDebug Boolean @default(false)
+  LinkedInShare Boolean @default(false)
+
+  PlaceholderMail Boolean @default(false)
+  SMTP Boolean @default(false)
+  EmailKlant Boolean @default(false)
+
+  Loadspeed Boolean @default(false)
+  LoadspeedTime String @default("")
+  ImageSize Boolean @default(false)
+  AltTags Boolean @default(false)
+
+  Htaccess Boolean @default(false)
+  Robots Boolean @default(false)
+  Sitemap Boolean @default(false)
+
+  Privacy Boolean @default(false)
+  AlgemeneVoorwaarden Boolean @default(false)
+  CookiePolicy Boolean @default(false)
+  CookiePolicyBanner Boolean @default(false)
+  GDPR Boolean @default(false)
+
+  ColorLib Boolean @default(false)
+  EasyWPSMTP Boolean @default(false)
+  WPS Boolean @default(false)
+  W3 Boolean @default(false)
+  GDPRCookies Boolean @default(false)
+  SendCloud Boolean @default(false)
+  WooCommerce Boolean @default(false)
+  WooCommerceAdmin Boolean @default(false)
+  WooCommerceBlocks Boolean @default(false)
+  WooCommercePayPal Boolean @default(false)
+  WooCommercePDF Boolean @default(false)
+  WooCommerceServices Boolean @default(false) 
+  WooCommerceStripe Boolean @default(false)
+  KlantAanpassingen Boolean @default(false)
+  CapabilityManager Boolean @default(false)
+
+  Stripe Boolean @default(false)
+  Betaalmethodes Boolean @default(false)
+  Testen Boolean @default(false)
+
+  SendCloudUser Boolean @default(false)
+  SendCloudVerrify Boolean @default(false)
+
+  Mobile Boolean @default(false)
+
+  Optimalisatie Boolean @default(false)
+  SSLCheckup Boolean @default(false)
+  MailCheckup Boolean @default(false)
+  FactuurHosting Boolean @default(false)
+  KlantgegevensWHMCS Boolean @default(false)
+
+  FactuurOpvolging Boolean @default(false)
+  MailOfferte Boolean @default(false)
+  TelefonischOpvolging Boolean @default(false)
+  OpvolgingWeken Boolean @default(false)
+  EindFactuur Boolean @default(false)
+
+  Opmerkingen String @default("")
+  lastUser String @default("")
+
 }

@@ -191,6 +191,7 @@ export const action: ActionFunction = async ({ request }) => {
             isWebshop: true,
             CheckListItems: {
                 create: {
+                    Version: 1,
                     Compressie: Compressie,
                     Copyright: Copyright,
                     SocialMediaMeta: SocialMediaMeta,

@@ -1,3 +1,4 @@
+import { Textarea } from "@material-tailwind/react";
 import { Form } from "@remix-run/react";
 import { GrDocumentPdf } from "react-icons/gr";
 
@@ -30,7 +31,7 @@ export default function FormTemplate(data: any) {
                 <label htmlFor="Verantwoordelijke">Verantwoordelijke project: </label>
                 <input defaultValue={data.data.list.Verantwoordelijke} className={"appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"Verantwoordelijke"}></input>
                 <br />
-                <h2 className="text-2xl pt-2 font-semibold">data</h2>
+                <h2 className="text-2xl pt-2 font-semibold">Checklist</h2>
 
                 <h3 className="text-xl pt-2 font-semibold">Algemeen</h3>
 
@@ -276,6 +277,12 @@ export default function FormTemplate(data: any) {
 
                 <input defaultChecked={data.data.items.EindFactuur} type={"checkbox"} name={"EindFactuur"}></input>
                 <label htmlFor="EindFactuur">Eindfactuur versturen</label>
+                <br />
+
+                <label className="text-xl pt-2 font-semibold" htmlFor="Opmerkingen">Opmerkingen</label>
+                <br />
+                <Textarea color="blue" size="lg" variant="standard" defaultValue={data.data.items.Opmerkingen} name={"Opmerkingen"} placeholder={"Opmerkingen"}></Textarea>
+                
                 <br />
 
 

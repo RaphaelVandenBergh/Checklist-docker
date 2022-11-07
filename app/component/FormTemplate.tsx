@@ -9,19 +9,19 @@ export default function FormTemplate(data: any) {
             <Form reloadDocument className="contact2-form" method="post">
                 <h2 className="text-2xl font-semibold">Gegevens Klant</h2>
                 <label htmlFor="KlantNummer">Klant Nummer: </label>
-                <input defaultValue={data.data.list.KlantNummer} className={"appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"KlantNummer"}></input>
+                <input required defaultValue={data.data.list.KlantNummer} className={"appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"KlantNummer"}></input>
                 <br />
 
                 <label htmlFor="KlantNaam">Klant Naam: </label>
-                <input defaultValue={data.data.list.KlantNaam} className={"appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"KlantNaam"}></input>
+                <input required defaultValue={data.data.list.KlantNaam} className={"appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"KlantNaam"}></input>
                 <br />
 
                 <label htmlFor="ProjectNaam">Projectnaam van klant: </label>
-                <input defaultValue={data.data.list.ProjectNaam} className={"appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"ProjectNaam"}></input>
+                <input required defaultValue={data.data.list.ProjectNaam} className={"appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"ProjectNaam"}></input>
                 <br />
 
                 <label htmlFor="ProjectNummer">PO nummer project: </label>
-                <input defaultValue={data.data.list.ProjectNummer} className={"appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"ProjectNummer"}></input>
+                <input required defaultValue={data.data.list.ProjectNummer} className={"appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"ProjectNummer"}></input>
                 <br />
 
                 <label htmlFor="Budget">Budget: €</label>
@@ -29,7 +29,7 @@ export default function FormTemplate(data: any) {
                 <br />
 
                 <label htmlFor="Verantwoordelijke">Verantwoordelijke project: </label>
-                <input defaultValue={data.data.list.Verantwoordelijke} className={"appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"Verantwoordelijke"}></input>
+                <input required defaultValue={data.data.list.Verantwoordelijke} className={"appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"Verantwoordelijke"}></input>
                 <br />
                 <h2 className="text-2xl pt-2 font-semibold">Checklist</h2>
 
@@ -197,23 +197,23 @@ export default function FormTemplate(data: any) {
                 {/* fields that are only in the webshop list are not rendered in website checklist */}
                 {data.data.list.isWebshop ? (
                     <>
+                        <h3 className="text-xl pt-2 font-semibold">Betaling</h3>
 
+                        <input defaultChecked={data.data.items.Stripe} type={"checkbox"} name={"Stripe"}></input>
+                        <label htmlFor="Stripe">Stripe account aanmaken en configureren voor Mastercard/Visa & Bancontact</label>
+                        <br />
+
+                        <input defaultChecked={data.data.items.Betaalmethodes} type={"checkbox"} name={"Betaalmethodes"}></input>
+                        <label htmlFor="Betaalmethodes">Betaalmethodes correct configureren</label>
+                        <br />
+
+                        <input defaultChecked={data.data.items.Testen} type={"checkbox"} name={"Testen"}></input>
+                        <label htmlFor="Testen">Testen van betalingssystemen</label>
+                        <br />
                     </>
                 ) : null}
 
-                <h3 className="text-xl pt-2 font-semibold">Betaling</h3>
 
-                <input defaultChecked={data.data.items.Stripe} type={"checkbox"} name={"Stripe"}></input>
-                <label htmlFor="Stripe">Stripe account aanmaken en configureren voor Mastercard/Visa & Bancontact</label>
-                <br />
-
-                <input defaultChecked={data.data.items.Betaalmethodes} type={"checkbox"} name={"Betaalmethodes"}></input>
-                <label htmlFor="Betaalmethodes">Betaalmethodes correct configureren</label>
-                <br />
-
-                <input defaultChecked={data.data.items.Testen} type={"checkbox"} name={"Testen"}></input>
-                <label htmlFor="Testen">Testen van betalingssystemen</label>
-                <br />
 
                 <h3 className="text-xl pt-2 font-semibold">Mobiel</h3>
                 {/* fields that are only in the webshop list are not rendered in website checklist */}
@@ -281,9 +281,13 @@ export default function FormTemplate(data: any) {
 
                 <label className="text-xl pt-2 font-semibold" htmlFor="Opmerkingen">Opmerkingen</label>
                 <br />
-                <Textarea color="blue" size="lg" variant="standard" defaultValue={data.data.items.Opmerkingen} name={"Opmerkingen"} placeholder={"Opmerkingen"}></Textarea>
-                
+                <Textarea resize className="bg-gray-200 no-padding bg-clip-content" color="blue" size="lg" variant="standard" defaultValue={data.data.items.Opmerkingen} name={"Opmerkingen"} placeholder={"Opmerkingen"}></Textarea>
+
                 <br />
+                
+                <label className="print:hidden" htmlFor="nameDev">Naam developer</label>
+                <br />
+                <input className={" print:hidden appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500"}  required type="text" name="nameDev" placeholder="git blame"/>
 
 
 

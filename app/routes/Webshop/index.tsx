@@ -173,6 +173,8 @@ export const action: ActionFunction = async ({ request }) => {
     const TelefonischOpvolging = form.get("TelefonischOpvolging") == "on" ? true : false;
     const OpvolgingWeken = form.get("OpvolgingWeken") == "on" ? true : false;
     const EindFactuur = form.get("EindFactuur") == "on" ? true : false;
+    const Opmerkingen = form.get("Opmerkingen")?.toString() == null ? "" : form.get("Opmerkingen")?.toString();
+    const lastUser = form.get("nameDev")?.toString() == null ? "" : form.get("nameDev")?.toString();
 
     //check if the values are valid
     if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string" || typeof Compressie !== "boolean" || typeof Copyright !== "boolean" || typeof SocialMediaMeta !== "boolean" || typeof SSL !== "boolean" || typeof FacebookDebug !== "boolean" || typeof LinkedInShare !== "boolean" || typeof PlaceholderMail !== "boolean" || typeof SMTP !== "boolean" || typeof EmailKlant !== "boolean" || typeof Loadspeed !== "boolean" || typeof LoadspeedTime !== "string" || typeof ImageSize !== "boolean" || typeof AltTags !== "boolean" || typeof Htaccess !== "boolean" || typeof Sitemap !== "boolean" || typeof Robots !== "boolean" || typeof Privacy !== "boolean" || typeof AlgemeneVoorwaarden !== "boolean" || typeof CookiePolicy !== "boolean" || typeof GDPR !== "boolean" || typeof CookiePolicyBanner !== "boolean" || typeof ColorLib !== "boolean" || typeof EasyWPSMTP !== "boolean" || typeof WPS !== "boolean" || typeof W3 !== "boolean" || typeof GDPRCookies !== "boolean" || typeof KlantAanpassingen !== "boolean" || typeof CapabilityManager !== "boolean" || typeof Mobile !== "boolean" || typeof Optimalisatie !== "boolean" || typeof SSLCheckup !== "boolean" || typeof MailCheckup !== "boolean" || typeof FactuurHosting !== "boolean" || typeof KlantgegevensWHMCS !== "boolean" || typeof FactuurOpvolging !== "boolean" || typeof MailOfferte !== "boolean" || typeof TelefonischOpvolging !== "boolean" || typeof OpvolgingWeken !== "boolean" || typeof EindFactuur !== "boolean") { return badRequest({ formError: "Form not submitted correctly" }) }
@@ -187,7 +189,6 @@ export const action: ActionFunction = async ({ request }) => {
             Budget: Budget,
             Verantwoordelijke: Verantwoordelijke,
             isWebshop: true,
-            updatedAt: new Date(),
             CheckListItems: {
                 create: {
                     Compressie: Compressie,
@@ -242,6 +243,8 @@ export const action: ActionFunction = async ({ request }) => {
                     TelefonischOpvolging: TelefonischOpvolging,
                     OpvolgingWeken: OpvolgingWeken,
                     EindFactuur: EindFactuur,
+                    Opmerkingen: Opmerkingen,
+                    lastUser: lastUser,
                 }
             }
         }
@@ -318,7 +321,8 @@ export default function Webshop() {
             MailOfferte: false,
             TelefonischOpvolging: false,
             OpvolgingWeken: false,
-            EindFactuur: false
+            EindFactuur: false,
+            Opmerkingen: "",
         }
 
 

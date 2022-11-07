@@ -25,6 +25,8 @@ model CheckList{
   isWebshop Boolean @default(false)
   CheckListItemsId String @unique
   CheckListItems CheckListItems @relation(fields: [CheckListItemsId], references: [Id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model CheckListItems{
@@ -93,6 +95,8 @@ model CheckListItems{
   TelefonischOpvolging Boolean @default(false)
   OpvolgingWeken Boolean @default(false)
   EindFactuur Boolean @default(false)
+
+  Opmerkingen String @default("")
 
 
 

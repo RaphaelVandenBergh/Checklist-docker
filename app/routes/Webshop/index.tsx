@@ -187,6 +187,7 @@ export const action: ActionFunction = async ({ request }) => {
             Budget: Budget,
             Verantwoordelijke: Verantwoordelijke,
             isWebshop: true,
+            updatedAt: new Date(),
             CheckListItems: {
                 create: {
                     Compressie: Compressie,

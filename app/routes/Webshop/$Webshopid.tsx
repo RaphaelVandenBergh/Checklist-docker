@@ -4,11 +4,19 @@ import type { ActionFunction, LoaderFunction } from '@remix-run/node';
 import { json, redirect } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 import { db } from '~/utils/db.server';
-
+import {
+    Button,
+    Dialog,
+    DialogHeader,
+    DialogBody,
+    DialogFooter,
+} from "@material-tailwind/react";
 //import stylesheets for the page
 import styles from '../../styles/app.css';
 import main from '../../styles/main.css';
 import FormTemplate from '~/component/FormTemplate';
+
+import React, { Fragment } from 'react';
 
 // link imported styles to the page
 export function links() {
@@ -206,6 +214,7 @@ export const action: ActionFunction = async ({ request, params }) => {
             Budget: Budget,
             Verantwoordelijke: Verantwoordelijke,
             isWebshop: true,
+            updatedAt: new Date(),
             CheckListItems: {
                 create: {
                     Compressie: Compressie,
@@ -275,6 +284,15 @@ export default function webshopid() {
     //get loaderdata
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const data = useLoaderData<LoaderData>()
+
+    const [open, setOpen] = React.useState(true)
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     return (
         <div className="bg-contact2">
             <div className="container-contact2">
@@ -283,8 +301,25 @@ export default function webshopid() {
                         <h1>Checklist Webshop</h1>
                     </span>
                     {/* form for the checklist */}
+                    {data.items.Opmerkingen == "" ? null :
+                        <Fragment>
+                        <Dialog open={open} handler={handleClickOpen}>
+                          <DialogHeader className="text-red-600">WARNING!</DialogHeader>
+                          <DialogBody className="grid" divider>
+                            {data.items.Opmerkingen.split("\r\n").map((item, index) => {
+                                return <p className="text-black" key={index}>{item}</p>
+                            })}
+                          </DialogBody>
+                          <DialogFooter>
+                            <Button variant="gradient" color="green" onClick={handleClose}>
+                              <span>Confirm</span>
+                            </Button>
+                          </DialogFooter>
+                        </Dialog>
+                      </Fragment>
+                    }
                     <FormTemplate data={data} />
-                
+
                 </div>
             </div>
         </div>

@@ -7,6 +7,14 @@ import styles from '../../styles/app.css';
 import main from '../../styles/main.css';
 import FormTemplate from "~/component/FormTemplate";
 import { useLoaderData } from "@remix-run/react";
+import React, { Fragment } from "react";
+import {
+    Button,
+    Dialog,
+    DialogHeader,
+    DialogBody,
+    DialogFooter,
+  } from "@material-tailwind/react";
 
 //link imported styles to page
 export function links() {
@@ -15,6 +23,8 @@ export function links() {
         { rel: "stylesheet", href: main },
     ];
 }
+
+
 
 //define types for the data returned by the loader function
 type LoaderData = { list: CheckList, items: CheckListItems };
@@ -155,6 +165,7 @@ export const action: ActionFunction = async ({ params, request }) => {
     const TelefonischOpvolging = form.get("TelefonischOpvolging") == "on" ? true : false;
     const OpvolgingWeken = form.get("OpvolgingWeken") == "on" ? true : false;
     const EindFactuur = form.get("EindFactuur") == "on" ? true : false;
+    const Opmerkingen = form.get("Opmerkingen")?.toString() == null ? "" : form.get("Opmerkingen")?.toString();
 
     //check if all required fields are filled in
     if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string" || typeof Compressie !== "boolean" || typeof Copyright !== "boolean" || typeof SocialMediaMeta !== "boolean" || typeof SSL !== "boolean" || typeof FacebookDebug !== "boolean" || typeof LinkedInShare !== "boolean" || typeof PlaceholderMail !== "boolean" || typeof SMTP !== "boolean" || typeof Loadspeed !== "boolean" || typeof LoadspeedTime !== "string" || typeof ImageSize !== "boolean" || typeof AltTags !== "boolean" || typeof Htaccess !== "boolean" || typeof Sitemap !== "boolean" || typeof Robots !== "boolean" || typeof Privacy !== "boolean" || typeof AlgemeneVoorwaarden !== "boolean" || typeof CookiePolicy !== "boolean" || typeof GDPR !== "boolean" || typeof CookiePolicyBanner !== "boolean" || typeof ColorLib !== "boolean" || typeof EasyWPSMTP !== "boolean" || typeof WPS !== "boolean" || typeof W3 !== "boolean" || typeof GDPRCookies !== "boolean" || typeof KlantAanpassingen !== "boolean" || typeof CapabilityManager !== "boolean" || typeof Mobile !== "boolean" || typeof Optimalisatie !== "boolean" || typeof SSLCheckup !== "boolean" || typeof MailCheckup !== "boolean" || typeof FactuurHosting !== "boolean" || typeof KlantgegevensWHMCS !== "boolean" || typeof FactuurOpvolging !== "boolean" || typeof MailOfferte !== "boolean" || typeof TelefonischOpvolging !== "boolean" || typeof OpvolgingWeken !== "boolean" || typeof EindFactuur !== "boolean") { return badRequest({ formError: "Form not submitted correctly" }) }
@@ -171,8 +182,9 @@ export const action: ActionFunction = async ({ params, request }) => {
             ProjectNaam: ProjectNaam,
             Budget: Budget,
             Verantwoordelijke: Verantwoordelijke,
+            updatedAt: new Date(),
             CheckListItems: {
-                create: {
+                update: {
                     Compressie: Compressie,
                     Copyright: Copyright,
                     SocialMediaMeta: SocialMediaMeta,
@@ -211,6 +223,8 @@ export const action: ActionFunction = async ({ params, request }) => {
                     TelefonischOpvolging: TelefonischOpvolging,
                     OpvolgingWeken: OpvolgingWeken,
                     EindFactuur: EindFactuur,
+                    Opmerkingen: Opmerkingen
+                    
                 }
             }
         }
@@ -223,7 +237,14 @@ export const action: ActionFunction = async ({ params, request }) => {
 export default function listid() {
     //get loaderdata
     const data = useLoaderData<LoaderData>();
-
+    const [open, setOpen] = React.useState(true)
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
+    console.log(data.items.Opmerkingen.split("\r\n"))
     return (
         <div className="bg-contact2">
             <div className="container-contact2">
@@ -232,6 +253,22 @@ export default function listid() {
                         <h1>Checklist Website</h1>
                     </span>
                     {/* use form component */}
+                    {data.items.Opmerkingen == "" ? null :
+                        <Fragment>
+                        <Dialog open={open} handler={handleClickOpen}>
+                          <DialogHeader className="text-red-600">WARNING!</DialogHeader>
+                          <DialogBody className="grid" divider>
+                            {data.items.Opmerkingen.split("\r\n").map((item, index) => {
+                                return <p className="text-black" key={index}>{item}</p>
+                            })}
+                          </DialogBody>
+                          <DialogFooter>
+                            <Button variant="gradient" color="green" onClick={handleClose}>
+                              <span>Confirm</span>
+                            </Button>
+                          </DialogFooter>
+                        </Dialog>
+                      </Fragment>}
                     <FormTemplate data={data} />
                 </div>
             </div>

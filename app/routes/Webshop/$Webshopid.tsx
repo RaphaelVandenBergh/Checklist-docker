@@ -216,7 +216,7 @@ export const action: ActionFunction = async ({ request, params }) => {
             Budget: Budget,
             Verantwoordelijke: Verantwoordelijke,
             isWebshop: true,
-            lastUser: lastUser,
+            
             CheckListItems: {
                 update: {
                     Compressie: Compressie,
@@ -272,6 +272,7 @@ export const action: ActionFunction = async ({ request, params }) => {
                     OpvolgingWeken: OpvolgingWeken,
                     EindFactuur: EindFactuur,
                     Opmerkingen: Opmerkingen,
+                    lastUser: lastUser,
                 }
             }
         }
@@ -295,7 +296,7 @@ export default function webshopid() {
     const handleClose = () => {
         setOpen(false);
     };
-    let test = new Date(data.list.updatedAt).toLocaleDateString() +" "+ new Date(data.list.updatedAt).toLocaleTimeString()
+    let test = new Date(data.items.updatedAt).toLocaleDateString() +" "+ new Date(data.items.updatedAt).toLocaleTimeString()
     return (
         <div className="bg-contact2">
             <div className="container-contact2">
@@ -304,7 +305,7 @@ export default function webshopid() {
                         <h1>Checklist Webshop</h1>
                         <span className="text-sm text-center block ">
                         last updated: {test} <br/>
-                        by: {data.list.lastUser}
+                        by: {data.items.lastUser}
                         
                         
                         </span>

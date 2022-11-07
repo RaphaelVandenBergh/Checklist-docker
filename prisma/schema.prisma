@@ -25,9 +25,7 @@ model CheckList{
   isWebshop Boolean @default(false)
   CheckListItemsId String @unique
   CheckListItems CheckListItems @relation(fields: [CheckListItemsId], references: [Id])
-  lastUser String @default("")
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+
 }
 
 model CheckListItems{
@@ -98,7 +96,7 @@ model CheckListItems{
   EindFactuur Boolean @default(false)
 
   Opmerkingen String @default("")
-
-
-
+  lastUser String @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

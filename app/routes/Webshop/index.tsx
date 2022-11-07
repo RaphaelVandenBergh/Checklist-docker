@@ -189,7 +189,6 @@ export const action: ActionFunction = async ({ request }) => {
             Budget: Budget,
             Verantwoordelijke: Verantwoordelijke,
             isWebshop: true,
-            lastUser: lastUser,
             CheckListItems: {
                 create: {
                     Compressie: Compressie,
@@ -245,6 +244,7 @@ export const action: ActionFunction = async ({ request }) => {
                     OpvolgingWeken: OpvolgingWeken,
                     EindFactuur: EindFactuur,
                     Opmerkingen: Opmerkingen,
+                    lastUser: lastUser,
                 }
             }
         }

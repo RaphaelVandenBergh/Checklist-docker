@@ -199,6 +199,8 @@ export const action: ActionFunction = async ({ request, params }) => {
     const TelefonischOpvolging = form.get("TelefonischOpvolging") == "on" ? true : false;
     const OpvolgingWeken = form.get("OpvolgingWeken") == "on" ? true : false;
     const EindFactuur = form.get("EindFactuur") == "on" ? true : false;
+    const Opmerkingen = form.get("Opmerkingen")?.toString() == null ? "" : form.get("Opmerkingen")?.toString();
+    const lastUser = form.get("nameDev")?.toString() == null ? "" : form.get("nameDev")?.toString();
 
     //check if all required fields are filled in
     if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string" || typeof Compressie !== "boolean" || typeof Copyright !== "boolean" || typeof SocialMediaMeta !== "boolean" || typeof SSL !== "boolean" || typeof FacebookDebug !== "boolean" || typeof LinkedInShare !== "boolean" || typeof PlaceholderMail !== "boolean" || typeof SMTP !== "boolean" || typeof EmailKlant !== "boolean" || typeof Loadspeed !== "boolean" || typeof LoadspeedTime !== "string" || typeof ImageSize !== "boolean" || typeof AltTags !== "boolean" || typeof Htaccess !== "boolean" || typeof Sitemap !== "boolean" || typeof Robots !== "boolean" || typeof Privacy !== "boolean" || typeof AlgemeneVoorwaarden !== "boolean" || typeof CookiePolicy !== "boolean" || typeof GDPR !== "boolean" || typeof CookiePolicyBanner !== "boolean" || typeof ColorLib !== "boolean" || typeof EasyWPSMTP !== "boolean" || typeof WPS !== "boolean" || typeof W3 !== "boolean" || typeof GDPRCookies !== "boolean" || typeof KlantAanpassingen !== "boolean" || typeof CapabilityManager !== "boolean" || typeof Mobile !== "boolean" || typeof Optimalisatie !== "boolean" || typeof SSLCheckup !== "boolean" || typeof MailCheckup !== "boolean" || typeof FactuurHosting !== "boolean" || typeof KlantgegevensWHMCS !== "boolean" || typeof FactuurOpvolging !== "boolean" || typeof MailOfferte !== "boolean" || typeof TelefonischOpvolging !== "boolean" || typeof OpvolgingWeken !== "boolean" || typeof EindFactuur !== "boolean") { return badRequest({ formError: "Form not submitted correctly" }) }
@@ -214,9 +216,9 @@ export const action: ActionFunction = async ({ request, params }) => {
             Budget: Budget,
             Verantwoordelijke: Verantwoordelijke,
             isWebshop: true,
-            updatedAt: new Date(),
+            lastUser: lastUser,
             CheckListItems: {
-                create: {
+                update: {
                     Compressie: Compressie,
                     Copyright: Copyright,
                     SocialMediaMeta: SocialMediaMeta,
@@ -269,6 +271,7 @@ export const action: ActionFunction = async ({ request, params }) => {
                     TelefonischOpvolging: TelefonischOpvolging,
                     OpvolgingWeken: OpvolgingWeken,
                     EindFactuur: EindFactuur,
+                    Opmerkingen: Opmerkingen,
                 }
             }
         }
@@ -292,31 +295,38 @@ export default function webshopid() {
     const handleClose = () => {
         setOpen(false);
     };
-
+    let test = new Date(data.list.updatedAt).toLocaleDateString() +" "+ new Date(data.list.updatedAt).toLocaleTimeString()
     return (
         <div className="bg-contact2">
             <div className="container-contact2">
                 <div className="wrap-contact2">
                     <span className="contact2-form-title">
                         <h1>Checklist Webshop</h1>
+                        <span className="text-sm text-center block ">
+                        last updated: {test} <br/>
+                        by: {data.list.lastUser}
+                        
+                        
+                        </span>
                     </span>
+                    
                     {/* form for the checklist */}
                     {data.items.Opmerkingen == "" ? null :
                         <Fragment>
-                        <Dialog open={open} handler={handleClickOpen}>
-                          <DialogHeader className="text-red-600">WARNING!</DialogHeader>
-                          <DialogBody className="grid" divider>
-                            {data.items.Opmerkingen.split("\r\n").map((item, index) => {
-                                return <p className="text-black" key={index}>{item}</p>
-                            })}
-                          </DialogBody>
-                          <DialogFooter>
-                            <Button variant="gradient" color="green" onClick={handleClose}>
-                              <span>Confirm</span>
-                            </Button>
-                          </DialogFooter>
-                        </Dialog>
-                      </Fragment>
+                            <Dialog open={open} handler={handleClickOpen}>
+                                <DialogHeader className="text-red-600">WARNING!</DialogHeader>
+                                <DialogBody className="grid" divider>
+                                    {data.items.Opmerkingen.split("\r\n").map((item, index) => {
+                                        return <p className="text-black" key={index}>{item}</p>
+                                    })}
+                                </DialogBody>
+                                <DialogFooter>
+                                    <Button variant="gradient" color="green" onClick={handleClose}>
+                                        <span>Confirm</span>
+                                    </Button>
+                                </DialogFooter>
+                            </Dialog>
+                        </Fragment>
                     }
                     <FormTemplate data={data} />
 

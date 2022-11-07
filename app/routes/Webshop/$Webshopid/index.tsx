@@ -12,8 +12,8 @@ import {
     DialogFooter,
 } from "@material-tailwind/react";
 //import stylesheets for the page
-import styles from '../../styles/app.css';
-import main from '../../styles/main.css';
+import styles from '../../../styles/app.css';
+import main from '../../../styles/main.css';
 import FormTemplate from '~/component/FormTemplate';
 
 import React, { Fragment } from 'react';
@@ -30,7 +30,6 @@ export function links() {
 type LoaderData = { list: CheckList, items: CheckListItems };
 //loader function fetches data from the database every time the page is loaded
 export const loader: LoaderFunction = async ({ params }) => {
-
 
     const list = await db.checkList.findUnique({
         where: {
@@ -205,6 +204,76 @@ export const action: ActionFunction = async ({ request, params }) => {
     //check if all required fields are filled in
     if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string" || typeof Compressie !== "boolean" || typeof Copyright !== "boolean" || typeof SocialMediaMeta !== "boolean" || typeof SSL !== "boolean" || typeof FacebookDebug !== "boolean" || typeof LinkedInShare !== "boolean" || typeof PlaceholderMail !== "boolean" || typeof SMTP !== "boolean" || typeof EmailKlant !== "boolean" || typeof Loadspeed !== "boolean" || typeof LoadspeedTime !== "string" || typeof ImageSize !== "boolean" || typeof AltTags !== "boolean" || typeof Htaccess !== "boolean" || typeof Sitemap !== "boolean" || typeof Robots !== "boolean" || typeof Privacy !== "boolean" || typeof AlgemeneVoorwaarden !== "boolean" || typeof CookiePolicy !== "boolean" || typeof GDPR !== "boolean" || typeof CookiePolicyBanner !== "boolean" || typeof ColorLib !== "boolean" || typeof EasyWPSMTP !== "boolean" || typeof WPS !== "boolean" || typeof W3 !== "boolean" || typeof GDPRCookies !== "boolean" || typeof KlantAanpassingen !== "boolean" || typeof CapabilityManager !== "boolean" || typeof Mobile !== "boolean" || typeof Optimalisatie !== "boolean" || typeof SSLCheckup !== "boolean" || typeof MailCheckup !== "boolean" || typeof FactuurHosting !== "boolean" || typeof KlantgegevensWHMCS !== "boolean" || typeof FactuurOpvolging !== "boolean" || typeof MailOfferte !== "boolean" || typeof TelefonischOpvolging !== "boolean" || typeof OpvolgingWeken !== "boolean" || typeof EindFactuur !== "boolean") { return badRequest({ formError: "Form not submitted correctly" }) }
 
+
+    //get current data for log
+    const currentData = await db.checkList.findFirst({
+        where: {
+            Id: params.Webshopid
+        },
+        include: { CheckListItems: true }
+    })
+    if (currentData == null) return badRequest({ formError: "Form not submitted correctly" })
+    await db.logs.create({
+        data: {
+            CheckListId: currentData.Id,
+            createdAt: currentData.CheckListItems.updatedAt,
+            Version: currentData.CheckListItems.Version,
+            Compressie: currentData.CheckListItems.Compressie,
+            Copyright: currentData.CheckListItems.Copyright,
+            SocialMediaMeta: currentData.CheckListItems.SocialMediaMeta,
+            SSL: currentData.CheckListItems.SSL,
+            FacebookDebug: currentData.CheckListItems.FacebookDebug,
+            LinkedInShare: currentData.CheckListItems.LinkedInShare,
+            PlaceholderMail: currentData.CheckListItems.PlaceholderMail,
+            SMTP: currentData.CheckListItems.SMTP,
+            EmailKlant: currentData.CheckListItems.EmailKlant,
+            Loadspeed: currentData.CheckListItems.Loadspeed,
+            LoadspeedTime: currentData.CheckListItems.LoadspeedTime,
+            ImageSize: currentData.CheckListItems.ImageSize,
+            AltTags: currentData.CheckListItems.AltTags,
+            Htaccess: currentData.CheckListItems.Htaccess,
+            Sitemap: currentData.CheckListItems.Sitemap,
+            Robots: currentData.CheckListItems.Robots,
+            Privacy: currentData.CheckListItems.Privacy,
+            AlgemeneVoorwaarden: currentData.CheckListItems.AlgemeneVoorwaarden,
+            CookiePolicy: currentData.CheckListItems.CookiePolicy,
+            GDPR: currentData.CheckListItems.GDPR,
+            CookiePolicyBanner: currentData.CheckListItems.CookiePolicyBanner,
+            ColorLib: currentData.CheckListItems.ColorLib,
+            EasyWPSMTP: currentData.CheckListItems.EasyWPSMTP,
+            WPS: currentData.CheckListItems.WPS,
+            W3: currentData.CheckListItems.W3,
+            GDPRCookies: currentData.CheckListItems.GDPRCookies,
+            SendCloud: currentData.CheckListItems.SendCloud,
+            WooCommerce: currentData.CheckListItems.WooCommerce,
+            WooCommerceAdmin: currentData.CheckListItems.WooCommerceAdmin,
+            WooCommerceBlocks: currentData.CheckListItems.WooCommerceBlocks,
+            WooCommercePayPal: currentData.CheckListItems.WooCommercePayPal,
+            WooCommercePDF: currentData.CheckListItems.WooCommercePDF,
+            WooCommerceServices: currentData.CheckListItems.WooCommerceServices,
+            WooCommerceStripe: currentData.CheckListItems.WooCommerceStripe,
+            KlantAanpassingen: currentData.CheckListItems.KlantAanpassingen,
+            CapabilityManager: currentData.CheckListItems.CapabilityManager,
+            Stripe: currentData.CheckListItems.Stripe,
+            Betaalmethodes: currentData.CheckListItems.Betaalmethodes,
+            Testen: currentData.CheckListItems.Testen,
+            SendCloudUser: currentData.CheckListItems.SendCloudUser,
+            SendCloudVerrify: currentData.CheckListItems.SendCloudVerrify,
+            Mobile: currentData.CheckListItems.Mobile,
+            Optimalisatie: currentData.CheckListItems.Optimalisatie,
+            SSLCheckup: currentData.CheckListItems.SSLCheckup,
+            MailCheckup: currentData.CheckListItems.MailCheckup,
+            FactuurHosting: currentData.CheckListItems.FactuurHosting,
+            KlantgegevensWHMCS: currentData.CheckListItems.KlantgegevensWHMCS,
+            FactuurOpvolging: currentData.CheckListItems.FactuurOpvolging,
+            MailOfferte: currentData.CheckListItems.MailOfferte,
+            TelefonischOpvolging: currentData.CheckListItems.TelefonischOpvolging,
+            OpvolgingWeken: currentData.CheckListItems.OpvolgingWeken,
+            EindFactuur: currentData.CheckListItems.EindFactuur,
+            Opmerkingen: currentData.CheckListItems.Opmerkingen,
+            lastUser: currentData.CheckListItems.lastUser,
+        }
+    })
     //update the database entry
     await db.checkList.update({
         where: { Id: params.Webshopid },
@@ -216,9 +285,10 @@ export const action: ActionFunction = async ({ request, params }) => {
             Budget: Budget,
             Verantwoordelijke: Verantwoordelijke,
             isWebshop: true,
-            
+
             CheckListItems: {
                 update: {
+                    Version:{increment:1},
                     Compressie: Compressie,
                     Copyright: Copyright,
                     SocialMediaMeta: SocialMediaMeta,
@@ -296,7 +366,7 @@ export default function webshopid() {
     const handleClose = () => {
         setOpen(false);
     };
-    let test = new Date(data.items.updatedAt).toLocaleDateString() +" "+ new Date(data.items.updatedAt).toLocaleTimeString()
+    let test = new Date(data.items.updatedAt).toLocaleDateString() + " " + new Date(data.items.updatedAt).toLocaleTimeString()
     return (
         <div className="bg-contact2">
             <div className="container-contact2">
@@ -304,13 +374,13 @@ export default function webshopid() {
                     <span className="contact2-form-title">
                         <h1>Checklist Webshop</h1>
                         <span className="text-sm text-center block ">
-                        last updated: {test} <br/>
-                        by: {data.items.lastUser}
-                        
-                        
+                            last updated: {test} <br />
+                            by: {data.items.lastUser}
+
+
                         </span>
                     </span>
-                    
+
                     {/* form for the checklist */}
                     {data.items.Opmerkingen == "" ? null :
                         <Fragment>

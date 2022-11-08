@@ -5,7 +5,7 @@
 }
 
 
-input[type="checkbox"] {
+input[type="checkbox"]#logcheck {
   appearance: none;
   background-color: #fff;
   font: inherit;
@@ -18,7 +18,7 @@ input[type="checkbox"] {
   margin-right: 5px;
 }
 
-input[type="checkbox"]:checked {
+input[type="checkbox"]:checked#logcheck {
   appearance: none;
   box-shadow: inset 1em 1em #2de6a2;
   padding-right: 10px;

@@ -48,37 +48,37 @@ export default function LogTemplate(data: any) {
                 <h3 className="text-xl pt-2 font-semibold">Algemeen</h3>
 
                 <label className="form-control" htmlFor="Compressie">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Compressie} type={"checkbox"} name={"Compressie"} ></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Compressie} type={"checkbox"} id="logcheck" name={"Compressie"} ></input>
                     Compressie aanzetten
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="Copyright">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Copyright} type={"checkbox"} name={"Copyright"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Copyright} type={"checkbox"} id="logcheck" name={"Copyright"}></input>
                     Copyright met dynamisch jaartal in footer zetten
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="SocialMediaMeta">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].SocialMediaMeta} type={"checkbox"} name={"SocialMediaMeta"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].SocialMediaMeta} type={"checkbox"} id="logcheck" name={"SocialMediaMeta"}></input>
                     Social media metatags + Google Analytics
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="SSL">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].SSL} type={"checkbox"} name={"SSL"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].SSL} type={"checkbox"} id="logcheck" name={"SSL"}></input>
                     SSL actief
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="FacebookDebug">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].FacebookDebug} type={"checkbox"} name={"FacebookDebug"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].FacebookDebug} type={"checkbox"} id="logcheck" name={"FacebookDebug"}></input>
                     Facebook Debug testen
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="LinkedInShare">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].LinkedInShare} type={"checkbox"} name={"LinkedInShare"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].LinkedInShare} type={"checkbox"} id="logcheck" name={"LinkedInShare"}></input>
                     LinkedIn Share testen
                 </label>
                 <br />
@@ -86,13 +86,13 @@ export default function LogTemplate(data: any) {
                 <h3 className="text-xl pt-2 font-semibold">Mail</h3>
 
                 <label className="form-control" htmlFor="PlaceholderMail">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].PlaceholderMail} type={"checkbox"} name={"PlaceholderMail"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].PlaceholderMail} type={"checkbox"} id="logcheck" name={"PlaceholderMail"}></input>
                     Placeholder email aanmaken voor klant
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="SMTP">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].SMTP} type={"checkbox"} name={"SMTP"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].SMTP} type={"checkbox"} id="logcheck" name={"SMTP"}></input>
                     SMTP configureren en aanzetten
                 </label>
                 <br />
@@ -100,7 +100,7 @@ export default function LogTemplate(data: any) {
                 {data.data.list.isWebshop ? (
                     <>
                         <label className="form-control" htmlFor="EmailKlant">
-                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].EmailKlant} type={"checkbox"} name={"EmailKlant"}></input>
+                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].EmailKlant} type={"checkbox"} id="logcheck" name={"EmailKlant"}></input>
                             Emails laten sturen naar klant (nieuwe orders, failed orders,...)
                         </label>
                         <br />
@@ -110,20 +110,20 @@ export default function LogTemplate(data: any) {
                 <h3 className="text-xl pt-2 font-semibold">Afbeeldingen</h3>
 
                 <label className="form-control" htmlFor="Loadspeed">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Loadspeed} type={"checkbox"} name={"Loadspeed"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Loadspeed} type={"checkbox"} id="logcheck" name={"Loadspeed"}></input>
                     Loadspeed (ms):
                 </label>
                 <input disabled defaultValue={data.data.items[data.data.items.findIndex(findlog)].LoadspeedTime} className={"appearance-none bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"LoadspeedTime"}></input>
                 <br />
 
                 <label className="form-control" htmlFor="ImageSize">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].ImageSize} type={"checkbox"} name={"ImageSize"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].ImageSize} type={"checkbox"} id="logcheck" name={"ImageSize"}></input>
                     Grootte van afbeeldingen (comprimeren)
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="AltTags">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].AltTags} type={"checkbox"} name={"AltTags"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].AltTags} type={"checkbox"} id="logcheck" name={"AltTags"}></input>
                     Alt tags voor elke afbeelding zetten
                 </label>
                 <br />
@@ -131,19 +131,19 @@ export default function LogTemplate(data: any) {
                 <h3 className="text-xl pt-2 font-semibold">Bestanden</h3>
 
                 <label className="form-control" htmlFor="Htaccess">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Htaccess} type={"checkbox"} name={"Htaccess"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Htaccess} type={"checkbox"} id="logcheck" name={"Htaccess"}></input>
                     .htaccess plaatsen
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="Robots">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Robots} type={"checkbox"} name={"Robots"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Robots} type={"checkbox"} id="logcheck" name={"Robots"}></input>
                     Robots.txt plaatsen
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="Sitemap">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Sitemap} type={"checkbox"} name={"Sitemap"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Sitemap} type={"checkbox"} id="logcheck" name={"Sitemap"}></input>
                     Sitemap.xml plaatsen
                 </label>
                 <br />
@@ -151,31 +151,31 @@ export default function LogTemplate(data: any) {
                 <h3 className="text-xl pt-2 font-semibold">Policies&Voorwaarden</h3>
 
                 <label className="form-control" htmlFor="Privacy">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Privacy} type={"checkbox"} name={"Privacy"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Privacy} type={"checkbox"} id="logcheck" name={"Privacy"}></input>
                     Privacy Policy
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="AlgemeneVoorwaarden">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].AlgemeneVoorwaarden} type={"checkbox"} name={"AlgemeneVoorwaarden"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].AlgemeneVoorwaarden} type={"checkbox"} id="logcheck" name={"AlgemeneVoorwaarden"}></input>
                     Algemene voorwaarden
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="CookiePolicy">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].CookiePolicy} type={"checkbox"} name={"CookiePolicy"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].CookiePolicy} type={"checkbox"} id="logcheck" name={"CookiePolicy"}></input>
                     Cookie policy
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="CookiePolicyBanner">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].CookiePolicyBanner} type={"checkbox"} name={"CookiePolicyBanner"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].CookiePolicyBanner} type={"checkbox"} id="logcheck" name={"CookiePolicyBanner"}></input>
                     Cookie policy pop up
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="GDPR">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].GDPR} type={"checkbox"} name={"GDPR"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].GDPR} type={"checkbox"} id="logcheck" name={"GDPR"}></input>
                     GDPR: bij formulieren een akkoord zetten
                 </label>
                 <br />
@@ -183,31 +183,31 @@ export default function LogTemplate(data: any) {
                 <h3 className="text-xl pt-2 font-semibold">Plugins</h3>
 
                 <label className="form-control" htmlFor="ColorLib">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].ColorLib} type={"checkbox"} name={"ColorLib"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].ColorLib} type={"checkbox"} id="logcheck" name={"ColorLib"}></input>
                     ColorLib Login Customer: loginpagina aangepast met logo, huiskleur en afbeelding
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="EasyWPSMTP">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].EasyWPSMTP} type={"checkbox"} name={"EasyWPSMTP"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].EasyWPSMTP} type={"checkbox"} id="logcheck" name={"EasyWPSMTP"}></input>
                     Easy WP SMTP: SMTP configureren en aanzetten
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="WPS">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WPS} type={"checkbox"} name={"WPS"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WPS} type={"checkbox"} id="logcheck" name={"WPS"}></input>
                     WPS Hide Login: redirect van login-url naar /login zetten
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="W3">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].W3} type={"checkbox"} name={"W3"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].W3} type={"checkbox"} id="logcheck" name={"W3"}></input>
                     W3 Total Cache: caching van pagina's juist zetten
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="GDPRCookies">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].GDPRCookies} type={"checkbox"} name={"GDPRCookies"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].GDPRCookies} type={"checkbox"} id="logcheck" name={"GDPRCookies"}></input>
                     GDPR Cookie Consent: cookie popup.
                 </label>
                 <br />
@@ -215,49 +215,49 @@ export default function LogTemplate(data: any) {
                 {data.data.list.isWebshop ? (
                     <>
                         <label className="form-control" htmlFor="SendCloud">
-                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].SendCloud} type={"checkbox"} name={"SendCloud"}></input>
+                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].SendCloud} type={"checkbox"} id="logcheck" name={"SendCloud"}></input>
                             SendCloud | Smart Shipping Service: connectie maken met WooCommerce en Sendcloud.
                         </label>
                         <br />
 
                         <label className="form-control" htmlFor="WooCommerce">
-                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WooCommerce} type={"checkbox"} name={"WooCommerce"}></input>
+                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WooCommerce} type={"checkbox"} id="logcheck" name={"WooCommerce"}></input>
                             WooCommerce
                         </label>
                         <br />
 
                         <label className="form-control" htmlFor="WooCommerceAdmin">
-                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WooCommerceAdmin} type={"checkbox"} name={"WooCommerceAdmin"}></input>
+                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WooCommerceAdmin} type={"checkbox"} id="logcheck" name={"WooCommerceAdmin"}></input>
                             WooCommerce Admin
                         </label>
                         <br />
 
                         <label className="form-control" htmlFor="WooCommerceBlocks">
-                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WooCommerceBlocks} type={"checkbox"} name={"WooCommerceBlocks"}></input>
+                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WooCommerceBlocks} type={"checkbox"} id="logcheck" name={"WooCommerceBlocks"}></input>
                             WooCommerce Blocks
                         </label>
                         <br />
 
                         <label className="form-control" htmlFor="WooCommercePayPal">
-                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WooCommercePayPal} type={"checkbox"} name={"WooCommercePayPal"}></input>
+                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WooCommercePayPal} type={"checkbox"} id="logcheck" name={"WooCommercePayPal"}></input>
                             WooCommerce Paypal Checkout Gateway
                         </label>
                         <br />
 
                         <label className="form-control" htmlFor="WooCommercePDF">
-                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WooCommercePDF} type={"checkbox"} name={"WooCommercePDF"}></input>
+                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WooCommercePDF} type={"checkbox"} id="logcheck" name={"WooCommercePDF"}></input>
                             WooCommerce PDF Invoices & Packing Slips: facturen juist configureren met logo en gegevens van klant. In de footer verwijzing naar algemene voorwaarden.
                         </label>
                         <br />
 
                         <label className="form-control" htmlFor="WooCommerceServices">
-                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WooCommerceServices} type={"checkbox"} name={"WooCommerceServices"}></input>
+                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WooCommerceServices} type={"checkbox"} id="logcheck" name={"WooCommerceServices"}></input>
                             WooCommerce Services
                         </label>
                         <br />
 
                         <label className="form-control" htmlFor="WooCommerceStripe">
-                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WooCommerceStripe} type={"checkbox"} name={"WooCommerceStripe"}></input>
+                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WooCommerceStripe} type={"checkbox"} id="logcheck" name={"WooCommerceStripe"}></input>
                             WooCommerce Stripe Gateway: connectie maken met WooCommerce en Stripe.
                         </label>
                         <br />
@@ -266,13 +266,13 @@ export default function LogTemplate(data: any) {
 
 
                 <label className="form-control" htmlFor="KlantAanpassingen">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].KlantAanpassingen} type={"checkbox"} name={"KlantAanpassingen"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].KlantAanpassingen} type={"checkbox"} id="logcheck" name={"KlantAanpassingen"}></input>
                     Klant moet aanpassingen kunnen doen
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="CapabilityManager">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].CapabilityManager} type={"checkbox"} name={"CapabilityManager"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].CapabilityManager} type={"checkbox"} id="logcheck" name={"CapabilityManager"}></input>
                     Capability Manager Enhanced: restricted gebruiker aanmaken en configureren
                 </label>
                 <br />
@@ -282,19 +282,19 @@ export default function LogTemplate(data: any) {
                         <h3 className="text-xl pt-2 font-semibold">Betaling</h3>
 
                         <label className="form-control" htmlFor="Stripe">
-                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Stripe} type={"checkbox"} name={"Stripe"}></input>
+                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Stripe} type={"checkbox"} id="logcheck" name={"Stripe"}></input>
                             Stripe account aanmaken en configureren voor Mastercard/Visa & Bancontact
                         </label>
                         <br />
 
                         <label className="form-control" htmlFor="Betaalmethodes">
-                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Betaalmethodes} type={"checkbox"} name={"Betaalmethodes"}></input>
+                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Betaalmethodes} type={"checkbox"} id="logcheck" name={"Betaalmethodes"}></input>
                             Betaalmethodes correct configureren
                         </label>
                         <br />
 
                         <label className="form-control" htmlFor="Testen">
-                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Testen} type={"checkbox"} name={"Testen"}></input>
+                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Testen} type={"checkbox"} id="logcheck" name={"Testen"}></input>
                             Testen van betalingssystemen
                         </label>
                         <br />
@@ -308,13 +308,13 @@ export default function LogTemplate(data: any) {
                 {data.data.list.isWebshop ? (
                     <>
                         <label className="form-control" htmlFor="SendCloudUser">
-                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].SendCloudUser} type={"checkbox"} name={"SendCloudUser"}></input>
+                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].SendCloudUser} type={"checkbox"} id="logcheck" name={"SendCloudUser"}></input>
                             Gebruiker aanmaken op SendCloud met placeholder_klant email. Klant zijn email ook koppelen.
                         </label>
                         <br />
 
                         <label className="form-control" htmlFor="SendCloudVerrify">
-                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].SendCloudVerrify} type={"checkbox"} name={"SendCloudVerrify"}></input>
+                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].SendCloudVerrify} type={"checkbox"} id="logcheck" name={"SendCloudVerrify"}></input>
                             Bankaccount verifiëren van klant met SendCloud
                         </label>
                         <br />
@@ -324,7 +324,7 @@ export default function LogTemplate(data: any) {
 
 
                 <label className="form-control" htmlFor="Mobile">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Mobile} type={"checkbox"} name={"Mobile"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Mobile} type={"checkbox"} id="logcheck" name={"Mobile"}></input>
                     Verifiëren dat site werkt en er goed uitziet op mobiel
                 </label>
                 <br />
@@ -332,31 +332,31 @@ export default function LogTemplate(data: any) {
                 <h3 className="text-xl pt-2 font-semibold">Hosting</h3>
 
                 <label className="form-control" htmlFor="Optimalisatie">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Optimalisatie} type={"checkbox"} name={"Optimalisatie"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Optimalisatie} type={"checkbox"} id="logcheck" name={"Optimalisatie"}></input>
                     Site optimalisatie aanzetten
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="SSLCheckup">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].SSLCheckup} type={"checkbox"} name={"SSLCheckup"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].SSLCheckup} type={"checkbox"} id="logcheck" name={"SSLCheckup"}></input>
                     SSL Checkup
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="MailCheckup">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].MailCheckup} type={"checkbox"} name={"MailCheckup"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].MailCheckup} type={"checkbox"} id="logcheck" name={"MailCheckup"}></input>
                     Mail Checkup
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="FactuurHosting">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].FactuurHosting} type={"checkbox"} name={"FactuurHosting"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].FactuurHosting} type={"checkbox"} id="logcheck" name={"FactuurHosting"}></input>
                     Factuur opsturen voor hosting
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="KlantgegevensWHMCS">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].KlantgegevensWHMCS} type={"checkbox"} name={"KlantgegevensWHMCS"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].KlantgegevensWHMCS} type={"checkbox"} id="logcheck" name={"KlantgegevensWHMCS"}></input>
                     Klantgegevens in WHMCS portal steken
                 </label>
                 <br />
@@ -364,34 +364,34 @@ export default function LogTemplate(data: any) {
                 <h3 className="text-xl pt-2 font-semibold">Finalisatie</h3>
 
                 <label className="form-control" htmlFor="FactuurOpvolging">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].FactuurOpvolging} type={"checkbox"} name={"FactuurOpvolging"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].FactuurOpvolging} type={"checkbox"} id="logcheck" name={"FactuurOpvolging"}></input>
                     Factuur opsturen en betaling opvolgen
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="MailOfferte">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].MailOfferte} type={"checkbox"} name={"MailOfferte"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].MailOfferte} type={"checkbox"} id="logcheck" name={"MailOfferte"}></input>
                     Mail offerte afdrukken
 
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="TelefonischOpvolging">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].TelefonischOpvolging} type={"checkbox"} name={"TelefonischOpvolging"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].TelefonischOpvolging} type={"checkbox"} id="logcheck" name={"TelefonischOpvolging"}></input>
                     Telefonisch verifiëren bij klant
 
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="OpvolgingWeken">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].OpvolgingWeken} type={"checkbox"} name={"OpvolgingWeken"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].OpvolgingWeken} type={"checkbox"} id="logcheck" name={"OpvolgingWeken"}></input>
                     Opvolgen na aantal weken
 
                 </label>
                 <br />
 
                 <label className="form-control" htmlFor="EindFactuur">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].EindFactuur} type={"checkbox"} name={"EindFactuur"}></input>
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].EindFactuur} type={"checkbox"} id="logcheck" name={"EindFactuur"}></input>
                     Eindfactuur versturen
 
                 </label>

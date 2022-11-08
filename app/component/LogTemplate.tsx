@@ -1,5 +1,6 @@
 import { Textarea } from "@material-tailwind/react";
 import { Form } from "@remix-run/react";
+import React from "react";
 import { GrDocumentPdf } from "react-icons/gr";
 
 export default function LogTemplate(data: any) {

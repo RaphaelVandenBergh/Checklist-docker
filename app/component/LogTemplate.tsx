@@ -56,7 +56,7 @@ export default function LogTemplate(data: any) {
                 <label htmlFor="SSL">SSL actief</label>
                 <br />
 
-                <input  disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].FacebookDebug} type={"checkbox"} name={"FacebookDebug"}></input>
+                <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].FacebookDebug} type={"checkbox"} name={"FacebookDebug"}></input>
                 <label htmlFor="FacebookDebug">Facebook Debug testen</label>
                 <br />
 

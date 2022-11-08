@@ -1,6 +1,7 @@
 import { Textarea } from "@material-tailwind/react";
-import { Form } from "@remix-run/react";
+import { Form, Link } from "@remix-run/react";
 import { GrDocumentPdf } from "react-icons/gr";
+import { MdOutlineHistory } from "react-icons/md";
 
 export default function FormTemplate(data: any) {
     return (
@@ -299,11 +300,18 @@ export default function FormTemplate(data: any) {
                         </div>
                     </div>
                 </div>
+                
+                <div>
+                <Link to={'/logs/'+data.data.list.Id} >
+                    <MdOutlineHistory className="print:hidden float-left" size={'35px'}/>
+                </Link>
 
                 {/* button for PDF print note type=button to not submit the form */}
                 <button type="button" className="float-right print:hidden">
                     <GrDocumentPdf onClick={() => print()} size={'30px'} />
                 </button>
+                </div>
+                
             </Form>
         </>
     )

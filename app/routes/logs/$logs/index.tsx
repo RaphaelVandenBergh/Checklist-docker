@@ -15,7 +15,7 @@ export function links() {
     ];
 }
 
-const paginationAmount = 2;
+const paginationAmount = 5;
 
 type LoaderData = { Logs: Array<Logs>, page: number }
 export const loader: LoaderFunction = async ({ request, params }) => {

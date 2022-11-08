@@ -369,7 +369,7 @@ export default function webshopid() {
     };
 
     const getdate = new Date(data.items.createdAt)
-    const date = moment(getdate).format('DD/MM/yyyy hh:mm:ss')
+    const date = moment(getdate).format('DD/MM/yyyy HH:mm:ss')
    
     return (
         <div className="bg-contact2">

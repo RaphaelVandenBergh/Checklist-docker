@@ -55,7 +55,7 @@ export default function Index(){
         else return false
     }
     const getdate = new Date(data.items[data.items.findIndex(findlog)].createdAt)
-    const date = moment(getdate).format('DD/MM/yyyy hh:mm:ss')
+    const date = moment(getdate).format('DD/MM/yyyy HH:mm:ss')
     console.log(date)
     
     return(

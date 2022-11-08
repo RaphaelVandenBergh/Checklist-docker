@@ -20,7 +20,7 @@ input[type="checkbox"] {
 
 input[type="checkbox"]:checked {
   appearance: none;
-  box-shadow: inset 1em 1em rgb(11, 11, 237);
+  box-shadow: inset 1em 1em #2de6a2;
   padding-right: 10px;
   font: inherit;
   color: currentColor;

@@ -3,7 +3,6 @@ import { Logs } from '@prisma/client';
 import { json, LoaderFunction } from '@remix-run/node';
 import { Form, Link, useLoaderData } from '@remix-run/react';
 import moment from 'moment';
-import { BsSearch } from 'react-icons/bs';
 import { db } from '~/utils/db.server';
 import styles from '../../../styles/app.css';
 import main from '../../../styles/main.css';
@@ -31,7 +30,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
         throw new Error('No logs found');
     }
     const data: LoaderData = { Logs: logs, page: parseInt(page) }
-    return json(data, { headers: { 'cache-control': 'max-age=3600' } })
+    return json(data)
 }
 
 export default function logs() {

@@ -39,7 +39,7 @@ export const loader: LoaderFunction = async ({request}) => {
         })
         //return the found lists and the page number
         const data: LoaderData = { lists: list, page: parseInt(page) }
-        return json(data, { headers: { "cache-control": "max-age=3600" } })
+        return json(data)
     }
     //if no search parameter is given, return all lists with pagination
     const lists = await db.checkList.findMany({

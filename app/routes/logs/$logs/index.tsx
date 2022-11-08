@@ -62,7 +62,7 @@ export default function logs() {
                                 <Link to={"/logs/" + log.CheckListId + "/" + log.Version} key={log.Id}>
                                     <div className="w-full my-5 bg-gray-200 rounded-xl overflow-hdden shadow-md p-4 undefined" >
                                         <h4 className='text-lg'>Version: {log.Version}</h4>
-                                        <h4 className="text-lg text-left">Created on: {moment(new Date(log.createdAt)).format("DD/MM/yyyy hh:mm:ss")}</h4>
+                                        <h4 className="text-lg text-left">Created on: {moment(new Date(log.createdAt)).format("DD/MM/yyyy HH:mm:ss")}</h4>
                                         <h4 className="text-lg">Edited by: {log.lastUser}</h4>
                                     </div>
                                 </Link>

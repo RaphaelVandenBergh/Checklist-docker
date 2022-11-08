@@ -45,7 +45,15 @@ export default function FormTemplate(data: any) {
                 <br />
 
                 <input defaultChecked={data.data.items.SocialMediaMeta} type={"checkbox"} name={"SocialMediaMeta"}></input>
-                <label htmlFor="SocialMediaMeta">Social media metatags + Google Analytics</label>
+                <label htmlFor="SocialMediaMeta">Social media metatags</label>
+                <br />
+
+                <input defaultChecked={data.data.items.GoogleAnalytics} type={"checkbox"} name={"GoogleAnalytics"}></input>
+                <label htmlFor="GoogleAnalytics">Google Analytics opgezet</label>
+                <br />
+
+                <input defaultChecked={data.data.items.TagManager} type={"checkbox"} name={"TagManager"}></input>
+                <label htmlFor="TagManager">Tag Manager code geintegreerd</label>
                 <br />
 
                 <input defaultChecked={data.data.items.SSL} type={"checkbox"} name={"SSL"}></input>
@@ -60,6 +68,14 @@ export default function FormTemplate(data: any) {
                 <label htmlFor="LinkedInShare">LinkedIn Share testen</label>
                 <br />
 
+                <input defaultChecked={data.data.items.Lorem} type={"checkbox"} name={"Lorem"}></input>
+                <label htmlFor="Lorem">Geen Lorem Ipsum of placeholder teksten meer</label>
+                <br />
+
+                <input defaultChecked={data.data.items.Links} type={"checkbox"} name={"Links"}></input>
+                <label htmlFor="Links">Alle linken en knoppen werken en gaan naar de juiste pagina's</label>
+                <br />
+
                 <h3 className="text-xl pt-2 font-semibold">Mail</h3>
 
                 <input defaultChecked={data.data.items.PlaceholderMail} type={"checkbox"} name={"PlaceholderMail"}></input>
@@ -69,11 +85,15 @@ export default function FormTemplate(data: any) {
                 <input defaultChecked={data.data.items.SMTP} type={"checkbox"} name={"SMTP"}></input>
                 <label htmlFor="SMTP">SMTP configureren en aanzetten</label>
                 <br />
+
+                <input defaultChecked={data.data.items.TestMail} type={"checkbox"} name={"TestMail"}></input>
+                <label htmlFor="TestMail">Test email laten sturen naar klant voor elk formulier en antwoord gehad van klant</label>
+                <br />
                 {/* fields that are only in the webshop list are not rendered in website checklist */}
                 {data.data.list.isWebshop ? (
                     <>
-                        <input defaultChecked={data.data.items.EmailKlant} type={"checkbox"} name={"EmailKlant"}></input>
-                        <label htmlFor="EmailKlant">Emails laten sturen naar klant (nieuwe orders, failed orders,...)</label>
+                        <input defaultChecked={data.data.items.EmailTemplates} type={"checkbox"} name={"EmailTemplates"}></input>
+                        <label htmlFor="EmailTemplates">Email templates goed gezet voor orders</label>
                         <br />
                     </>
                 ) : null}
@@ -131,8 +151,8 @@ export default function FormTemplate(data: any) {
 
                 <h3 className="text-xl pt-2 font-semibold">Plugins</h3>
 
-                <input defaultChecked={data.data.items.ColorLib} type={"checkbox"} name={"ColorLib"}></input>
-                <label htmlFor="ColorLib">ColorLib Login Customer: loginpagina aangepast met logo, huiskleur en afbeelding</label>
+                <input defaultChecked={data.data.items.MaterialWP} type={"checkbox"} name={"MaterialWP"}></input>
+                <label htmlFor="MaterialWP">Material WP: Aangepast met logo, huiskleur en afbeelding</label>
                 <br />
 
                 <input defaultChecked={data.data.items.EasyWPSMTP} type={"checkbox"} name={"EasyWPSMTP"}></input>
@@ -143,12 +163,16 @@ export default function FormTemplate(data: any) {
                 <label htmlFor="WPS">WPS Hide Login: redirect van login-url naar /login zetten</label>
                 <br />
 
-                <input defaultChecked={data.data.items.W3} type={"checkbox"} name={"W3"}></input>
-                <label htmlFor="W3">W3 Total Cache: caching van pagina's juist zetten</label>
+                <input defaultChecked={data.data.items.WPfast} type={"checkbox"} name={"WPfast"}></input>
+                <label htmlFor="WPfast">WP Fastestcache: caching van pagina's juist zetten (ContactForms excluden) + koppeling cloudflare cdn</label>
                 <br />
 
-                <input defaultChecked={data.data.items.GDPRCookies} type={"checkbox"} name={"GDPRCookies"}></input>
-                <label htmlFor="GDPRCookies">GDPR Cookie Consent: cookie popup.</label>
+                <input defaultChecked={data.data.items.shortpixel} type={"checkbox"} name={"shortpixel"}></input>
+                <label htmlFor="shortpixel">ShortPixel + ShortPixel AI (API Ket aan Kristof vragen)</label>
+                <br />
+
+                <input defaultChecked={data.data.items.yoast} type={"checkbox"} name={"yoast"}></input>
+                <label htmlFor="yoast">Yoast SEO + geconfigureerd.</label>
                 <br />
                 {/* fields that are only in the webshop list are not rendered in website checklist */}
                 {data.data.list.isWebshop ? (
@@ -161,12 +185,12 @@ export default function FormTemplate(data: any) {
                         <label htmlFor="WooCommerce">WooCommerce</label>
                         <br />
 
-                        <input defaultChecked={data.data.items.WooCommerceAdmin} type={"checkbox"} name={"WooCommerceAdmin"}></input>
-                        <label htmlFor="WooCommerceAdmin">WooCommerce Admin</label>
+                        <input defaultChecked={data.data.items.WooCommerceAJAX} type={"checkbox"} name={"WooCommerceAJAX"}></input>
+                        <label htmlFor="WooCommerceAJAX">WooCommerce Ajax Sidecart + Velden in juiste taal zetten</label>
                         <br />
 
-                        <input defaultChecked={data.data.items.WooCommerceBlocks} type={"checkbox"} name={"WooCommerceBlocks"}></input>
-                        <label htmlFor="WooCommerceBlocks">WooCommerce Blocks</label>
+                        <input defaultChecked={data.data.items.WPML} type={"checkbox"} name={"WPML"}></input>
+                        <label htmlFor="WPML">WPML (Indien multi-language)</label>
                         <br />
 
                         <input defaultChecked={data.data.items.WooCommercePayPal} type={"checkbox"} name={"WooCommercePayPal"}></input>
@@ -177,12 +201,12 @@ export default function FormTemplate(data: any) {
                         <label htmlFor="WooCommercePDF">WooCommerce PDF Invoices & Packing Slips: facturen juist configureren met logo en gegevens van klant. In de footer verwijzing naar algemene voorwaarden.</label>
                         <br />
 
-                        <input defaultChecked={data.data.items.WooCommerceServices} type={"checkbox"} name={"WooCommerceServices"}></input>
-                        <label htmlFor="WooCommerceServices">WooCommerce Services</label>
+                        <input defaultChecked={data.data.items.WooCommerceLoad} type={"checkbox"} name={"WooCommerceLoad"}></input>
+                        <label htmlFor="WooCommerceLoad">WooCommerce Load More (Van Be Rocket)</label>
                         <br />
 
                         <input defaultChecked={data.data.items.WooCommerceStripe} type={"checkbox"} name={"WooCommerceStripe"}></input>
-                        <label htmlFor="WooCommerceStripe">WooCommerce Stripe Gateway: connectie maken met WooCommerce en Stripe.</label>
+                        <label htmlFor="WooCommerceStripe">WooCommerce Stripe Gateway: connectie maken met WooCommerce en Stripe. (NA OVERZET NAAR LIVE ZEKER SANDBOX MODE UITZETTEN EN CONFIGUREREN!!)</label>
                         <br />
                     </>
                 ) : null}
@@ -211,15 +235,9 @@ export default function FormTemplate(data: any) {
                         <input defaultChecked={data.data.items.Testen} type={"checkbox"} name={"Testen"}></input>
                         <label htmlFor="Testen">Testen van betalingssystemen</label>
                         <br />
-                    </>
-                ) : null}
 
+                        <h3 className="text-xl pt-2 font-semibold">Verzendingen</h3>
 
-
-                <h3 className="text-xl pt-2 font-semibold">Mobiel</h3>
-                {/* fields that are only in the webshop list are not rendered in website checklist */}
-                {data.data.list.isWebshop ? (
-                    <>
                         <input defaultChecked={data.data.items.SendCloudUser} type={"checkbox"} name={"SendCloudUser"}></input>
                         <label htmlFor="SendCloudUser">Gebruiker aanmaken op SendCloud met placeholder_klant email. Klant zijn email ook koppelen.</label>
                         <br />
@@ -229,6 +247,10 @@ export default function FormTemplate(data: any) {
                         <br />
                     </>
                 ) : null}
+
+
+
+                <h3 className="text-xl pt-2 font-semibold">Mobiel</h3>
 
 
 
@@ -251,33 +273,21 @@ export default function FormTemplate(data: any) {
                 <br />
 
                 <input defaultChecked={data.data.items.FactuurHosting} type={"checkbox"} name={"FactuurHosting"}></input>
-                <label htmlFor="FactuurHosting">Factuur opsturen voor hosting</label>
+                <label htmlFor="FactuurHosting">Facturatie opgestart voor hosting en onderhoud? Communiceren naar Kristof</label>
                 <br />
 
-                <input defaultChecked={data.data.items.KlantgegevensWHMCS} type={"checkbox"} name={"KlantgegevensWHMCS"}></input>
-                <label htmlFor="KlantgegevensWHMCS">Klantgegevens in WHMCS portal steken</label>
+                <input defaultChecked={data.data.items.KlantgegevensWHMCS} type={"checkbox"} name={"KlantgegevensATMOS"}></input>
+                <label htmlFor="KlantgegevensWHMCS">Klantgegevens in ATMOS portal?</label>
+                <br />
+
+                <input defaultChecked={data.data.items.Cloudflare} type={"checkbox"} name={"Cloudflare"}></input>
+                <label htmlFor="Cloudflare">Cloudflare opstart + Config + Rules (Door Atmos Admin)</label>
                 <br />
 
                 <h3 className="text-xl pt-2 font-semibold">Finalisatie</h3>
 
-                <input defaultChecked={data.data.items.FactuurOpvolging} type={"checkbox"} name={"FactuurOpvolging"}></input>
-                <label htmlFor="FactuurOpvolging">Factuur opsturen en betaling opvolgen</label>
-                <br />
-
-                <input defaultChecked={data.data.items.MailOfferte} type={"checkbox"} name={"MailOfferte"}></input>
-                <label htmlFor="MailOfferte">Mail offerte afdrukken</label>
-                <br />
-
-                <input defaultChecked={data.data.items.TelefonischOpvolging} type={"checkbox"} name={"TelefonischOpvolging"}></input>
-                <label htmlFor="TelefonischOpvolging">Telefonisch verifiëren bij klant</label>
-                <br />
-
-                <input defaultChecked={data.data.items.OpvolgingWeken} type={"checkbox"} name={"OpvolgingWeken"}></input>
-                <label htmlFor="OpvolgingWeken">Opvolgen na aantal weken</label>
-                <br />
-
-                <input defaultChecked={data.data.items.EindFactuur} type={"checkbox"} name={"EindFactuur"}></input>
-                <label htmlFor="EindFactuur">Eindfactuur versturen</label>
+                <input defaultChecked={data.data.items.CommPM} type={"checkbox"} name={"CommPM"}></input>
+                <label htmlFor="CommPM">Communicatie naar PM</label>
                 <br />
 
                 <label className="text-xl pt-2 font-semibold" htmlFor="Opmerkingen">Opmerkingen</label>

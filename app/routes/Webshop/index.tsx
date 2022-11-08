@@ -33,13 +33,18 @@ type ActionData = {
         Compressie: Boolean | null;
         Copyright: Boolean | null;
         SocialMediaMeta: Boolean | null;
+        GoogleAnalytics: Boolean | null;
+        TagManager: Boolean | null;
         SSL: Boolean | null;
         FacebookDebug: Boolean | null;
         LinkedInShare: Boolean | null;
+        Lorem: Boolean | null;
+        Links: Boolean | null;
 
         PlaceholderMail: Boolean | null;
         SMTP: Boolean | null;
         EmailKlant: Boolean | null;
+        EmailTemplates: Boolean | null;
 
         Loadspeed: Boolean | null;
         LoadspeedTime: String | null;
@@ -56,18 +61,20 @@ type ActionData = {
         CookiePolicyBanner: Boolean | null;
         GDPR: Boolean | null;
 
-        ColorLib: Boolean | null;
+        MaterialWP: Boolean | null;
         EasyWPSMTP: Boolean | null;
         WPS: Boolean | null;
-        W3: Boolean | null;
+        WPfast: Boolean | null;
         GDPRCookies: Boolean | null;
+        shortpixel: Boolean | null;
+        yoast: Boolean | null;
         SendCloud: Boolean | null;
         WooCommerce: Boolean | null;
-        WooCommerceAdmin: Boolean | null;
-        WooCommerceBlocks: Boolean | null;
+        WooCommerceAJAX: Boolean | null;
+        WPML: Boolean | null;
         WooCommercePayPal: Boolean | null;
         WooCommercePDF: Boolean | null;
-        WooCommerceServices: Boolean | null;
+        WooCommerceLoad: Boolean | null;
         WooCommerceStripe: Boolean | null;
         KlantAanpassingen: Boolean | null;
         CapabilityManager: Boolean | null;
@@ -85,13 +92,10 @@ type ActionData = {
         SSLCheckup: Boolean | null;
         MailCheckup: Boolean | null;
         FactuurHosting: Boolean | null;
-        KlantgegevensWHMCS: Boolean | null;
+        KlantgegevensATMOS: Boolean | null;
+        Cloudflare: Boolean | null;
 
-        FactuurOpvolging: Boolean | null;
-        MailOfferte: Boolean | null;
-        TelefonischOpvolging: Boolean | null;
-        OpvolgingWeken: Boolean | null;
-        EindFactuur: Boolean | null;
+        CommPM: Boolean | null;
     }
 }
 
@@ -114,13 +118,18 @@ export const action: ActionFunction = async ({ request }) => {
     const Compressie = form.get("Compressie") == "on" ? true : false;
     const Copyright = form.get("Copyright") == "on" ? true : false;
     const SocialMediaMeta = form.get("SocialMediaMeta") == "on" ? true : false;
+    const GoogleAnalytics = form.get("GoogleAnalytics") == "on" ? true : false;
+    const TagManager = form.get("TagManager") == "on" ? true : false;
     const SSL = form.get("SSL") == "on" ? true : false;
     const FacebookDebug = form.get("FacebookDebug") == "on" ? true : false;
     const LinkedInShare = form.get("LinkedInShare") == "on" ? true : false;
+    const Lorem = form.get("Lorem") == "on" ? true : false;
+    const Links = form.get("Links") == "on" ? true : false;
 
     const PlaceholderMail = form.get("PlaceholderMail") == "on" ? true : false;
     const SMTP = form.get("SMTP") == "on" ? true : false;
-    const EmailKlant = form.get("EmailKlant") == "on" ? true : false;
+    const TestMail = form.get("TestMail") == "on" ? true : false;
+    const EmailTemplates = form.get("EmailTemplates") == "on" ? true : false;
 
     const Loadspeed = form.get("Loadspeed") == "on" ? true : false;
     const LoadspeedTime = form.get("LoadspeedTime")?.toString();
@@ -137,18 +146,19 @@ export const action: ActionFunction = async ({ request }) => {
     const GDPR = form.get("GDPR") == "on" ? true : false;
     const CookiePolicyBanner = form.get("CookiePolicyBanner") == "on" ? true : false;
 
-    const ColorLib = form.get("ColorLib") == "on" ? true : false;
+    const MaterialWP = form.get("MaterialWP") == "on" ? true : false;
     const EasyWPSMTP = form.get("EasyWPSMTP") == "on" ? true : false;
     const WPS = form.get("WPS") == "on" ? true : false;
-    const W3 = form.get("W3") == "on" ? true : false;
-    const GDPRCookies = form.get("GDPRCookies") == "on" ? true : false;
+    const WPfast = form.get("WPfast") == "on" ? true : false;
+    const shortpixel = form.get("shortpixel") == "on" ? true : false;
+    const yoast = form.get("yoast") == "on" ? true : false;
     const SendCloud = form.get("SendCloud") == "on" ? true : false;
     const WooCommerce = form.get("WooCommerce") == "on" ? true : false;
-    const WooCommerceAdmin = form.get("WooCommerceAdmin") == "on" ? true : false;
-    const WooCommerceBlocks = form.get("WooCommerceBlocks") == "on" ? true : false;
+    const WooCommerceAJAX = form.get("WooCommerceAJAX") == "on" ? true : false;
+    const WPML = form.get("WPML") == "on" ? true : false;
     const WooCommercePayPal = form.get("WooCommercePayPal") == "on" ? true : false;
     const WooCommercePDF = form.get("WooCommercePDF") == "on" ? true : false;
-    const WooCommerceServices = form.get("WooCommerceServices") == "on" ? true : false;
+    const WooCommerceLoad = form.get("WooCommerceLoad") == "on" ? true : false;
     const WooCommerceStripe = form.get("WooCommerceStripe") == "on" ? true : false;
     const KlantAanpassingen = form.get("KlantAanpassingen") == "on" ? true : false;
     const CapabilityManager = form.get("CapabilityManager") == "on" ? true : false;
@@ -166,18 +176,16 @@ export const action: ActionFunction = async ({ request }) => {
     const SSLCheckup = form.get("SSLCheckup") == "on" ? true : false;
     const MailCheckup = form.get("MailCheckup") == "on" ? true : false;
     const FactuurHosting = form.get("FactuurHosting") == "on" ? true : false;
-    const KlantgegevensWHMCS = form.get("KlantgegevensWHMCS") == "on" ? true : false;
+    const KlantgegevensATMOS = form.get("KlantgegevensATMOS") == "on" ? true : false;
+    const Cloudflare = form.get("Cloudflare") == "on" ? true : false;
 
-    const FactuurOpvolging = form.get("FactuurOpvolging") == "on" ? true : false;
-    const MailOfferte = form.get("MailOfferte") == "on" ? true : false;
-    const TelefonischOpvolging = form.get("TelefonischOpvolging") == "on" ? true : false;
-    const OpvolgingWeken = form.get("OpvolgingWeken") == "on" ? true : false;
-    const EindFactuur = form.get("EindFactuur") == "on" ? true : false;
+    const CommPM = form.get("CommPM") == "on" ? true : false;
+
     const Opmerkingen = form.get("Opmerkingen")?.toString() == null ? "" : form.get("Opmerkingen")?.toString();
     const lastUser = form.get("nameDev")?.toString() == null ? "" : form.get("nameDev")?.toString();
 
     //check if the values are valid
-    if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string" || typeof Compressie !== "boolean" || typeof Copyright !== "boolean" || typeof SocialMediaMeta !== "boolean" || typeof SSL !== "boolean" || typeof FacebookDebug !== "boolean" || typeof LinkedInShare !== "boolean" || typeof PlaceholderMail !== "boolean" || typeof SMTP !== "boolean" || typeof EmailKlant !== "boolean" || typeof Loadspeed !== "boolean" || typeof LoadspeedTime !== "string" || typeof ImageSize !== "boolean" || typeof AltTags !== "boolean" || typeof Htaccess !== "boolean" || typeof Sitemap !== "boolean" || typeof Robots !== "boolean" || typeof Privacy !== "boolean" || typeof AlgemeneVoorwaarden !== "boolean" || typeof CookiePolicy !== "boolean" || typeof GDPR !== "boolean" || typeof CookiePolicyBanner !== "boolean" || typeof ColorLib !== "boolean" || typeof EasyWPSMTP !== "boolean" || typeof WPS !== "boolean" || typeof W3 !== "boolean" || typeof GDPRCookies !== "boolean" || typeof KlantAanpassingen !== "boolean" || typeof CapabilityManager !== "boolean" || typeof Mobile !== "boolean" || typeof Optimalisatie !== "boolean" || typeof SSLCheckup !== "boolean" || typeof MailCheckup !== "boolean" || typeof FactuurHosting !== "boolean" || typeof KlantgegevensWHMCS !== "boolean" || typeof FactuurOpvolging !== "boolean" || typeof MailOfferte !== "boolean" || typeof TelefonischOpvolging !== "boolean" || typeof OpvolgingWeken !== "boolean" || typeof EindFactuur !== "boolean") { return badRequest({ formError: "Form not submitted correctly" }) }
+    if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string" || typeof Compressie !== "boolean" || typeof Copyright !== "boolean" || typeof SocialMediaMeta !== "boolean" || typeof SSL !== "boolean" || typeof FacebookDebug !== "boolean" || typeof LinkedInShare !== "boolean" || typeof PlaceholderMail !== "boolean" || typeof SMTP !== "boolean" || typeof Loadspeed !== "boolean" || typeof LoadspeedTime !== "string" || typeof ImageSize !== "boolean" || typeof AltTags !== "boolean" || typeof Htaccess !== "boolean" || typeof Sitemap !== "boolean" || typeof Robots !== "boolean" || typeof Privacy !== "boolean" || typeof AlgemeneVoorwaarden !== "boolean" || typeof CookiePolicy !== "boolean" || typeof GDPR !== "boolean" || typeof CookiePolicyBanner !== "boolean" || typeof EasyWPSMTP !== "boolean" || typeof WPS !== "boolean" || typeof KlantAanpassingen !== "boolean" || typeof CapabilityManager !== "boolean" || typeof Mobile !== "boolean" || typeof Optimalisatie !== "boolean" || typeof SSLCheckup !== "boolean" || typeof MailCheckup !== "boolean" || typeof FactuurHosting !== "boolean") { return badRequest({ formError: "Form not submitted correctly" }) }
 
     //create a new checklist in db
     await db.checkList.create({
@@ -195,12 +203,17 @@ export const action: ActionFunction = async ({ request }) => {
                     Compressie: Compressie,
                     Copyright: Copyright,
                     SocialMediaMeta: SocialMediaMeta,
+                    GoogleAnalytics: GoogleAnalytics,
+                    TagManager: TagManager,
                     SSL: SSL,
                     FacebookDebug: FacebookDebug,
                     LinkedInShare: LinkedInShare,
+                    Lorem: Lorem,
+                    Links: Links,
                     PlaceholderMail: PlaceholderMail,
                     SMTP: SMTP,
-                    EmailKlant: EmailKlant,
+                    TestMail: TestMail,
+                    EmailTemplates: EmailTemplates,
                     Loadspeed: Loadspeed,
                     LoadspeedTime: LoadspeedTime,
                     ImageSize: ImageSize,
@@ -213,18 +226,19 @@ export const action: ActionFunction = async ({ request }) => {
                     CookiePolicy: CookiePolicy,
                     GDPR: GDPR,
                     CookiePolicyBanner: CookiePolicyBanner,
-                    ColorLib: ColorLib,
+                    MaterialWP: MaterialWP,
                     EasyWPSMTP: EasyWPSMTP,
                     WPS: WPS,
-                    W3: W3,
-                    GDPRCookies: GDPRCookies,
+                    WPfast: WPfast,
+                    shortpixel: shortpixel,
+                    yoast: yoast,
                     SendCloud: SendCloud,
                     WooCommerce: WooCommerce,
-                    WooCommerceAdmin: WooCommerceAdmin,
-                    WooCommerceBlocks: WooCommerceBlocks,
+                    WooCommerceAJAX: WooCommerceAJAX,
+                    WPML: WPML,
                     WooCommercePayPal: WooCommercePayPal,
                     WooCommercePDF: WooCommercePDF,
-                    WooCommerceServices: WooCommerceServices,
+                    WooCommerceLoad: WooCommerceLoad,
                     WooCommerceStripe: WooCommerceStripe,
                     KlantAanpassingen: KlantAanpassingen,
                     CapabilityManager: CapabilityManager,
@@ -238,12 +252,9 @@ export const action: ActionFunction = async ({ request }) => {
                     SSLCheckup: SSLCheckup,
                     MailCheckup: MailCheckup,
                     FactuurHosting: FactuurHosting,
-                    KlantgegevensWHMCS: KlantgegevensWHMCS,
-                    FactuurOpvolging: FactuurOpvolging,
-                    MailOfferte: MailOfferte,
-                    TelefonischOpvolging: TelefonischOpvolging,
-                    OpvolgingWeken: OpvolgingWeken,
-                    EindFactuur: EindFactuur,
+                    KlantgegevensATMOS: KlantgegevensATMOS,
+                    Cloudflare: Cloudflare,
+                    CommPM: CommPM,
                     Opmerkingen: Opmerkingen,
                     lastUser: lastUser,
                 }
@@ -274,14 +285,19 @@ export default function Webshop() {
             Compressie: false,
             Copyright: false,
             SocialMediaMeta: false,
+            GoogleAnalytics: false,
+            TagManager: false,
             SSL: false,
             FacebookDebug: false,
             LinkedInShare: false,
+            Lorem: false,
+            Links: false,
             PlaceholderMail: false,
             SMTP: false,
-            EmailKlant: false,
+            TestMail: false,
+            EmailTemplates: false,
             Loadspeed: false,
-            LoadspeedTime: "",
+            LoadspeedTime: '',
             ImageSize: false,
             AltTags: false,
             Htaccess: false,
@@ -292,18 +308,19 @@ export default function Webshop() {
             CookiePolicy: false,
             GDPR: false,
             CookiePolicyBanner: false,
-            ColorLib: false,
+            MaterialWP: false,
             EasyWPSMTP: false,
             WPS: false,
-            W3: false,
-            GDPRCookies: false,
+            WPfast: false,
+            shortpixel: false,
+            yoast: false,
             SendCloud: false,
             WooCommerce: false,
-            WooCommerceAdmin: false,
-            WooCommerceBlocks: false,
+            WooCommerceAJAX: false,
+            WPML: false,
             WooCommercePayPal: false,
             WooCommercePDF: false,
-            WooCommerceServices: false,
+            WooCommerceLoad: false,
             WooCommerceStripe: false,
             KlantAanpassingen: false,
             CapabilityManager: false,
@@ -317,13 +334,11 @@ export default function Webshop() {
             SSLCheckup: false,
             MailCheckup: false,
             FactuurHosting: false,
-            KlantgegevensWHMCS: false,
-            FactuurOpvolging: false,
-            MailOfferte: false,
-            TelefonischOpvolging: false,
-            OpvolgingWeken: false,
-            EindFactuur: false,
-            Opmerkingen: "",
+            KlantgegevensATMOS: false,
+            Cloudflare: false,
+            CommPM: false,
+            Opmerkingen: false,
+            lastUser: false,
         }
 
 
@@ -336,8 +351,8 @@ export default function Webshop() {
                         <h1>Checklist Webshop</h1>
                     </span>
                     {/* call form component */}
-                    <FormTemplate data={templatedata}/>
-                    
+                    <FormTemplate data={templatedata} />
+
 
 
 

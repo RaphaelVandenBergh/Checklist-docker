@@ -60,13 +60,18 @@ type ActionData = {
         Compressie: Boolean | null;
         Copyright: Boolean | null;
         SocialMediaMeta: Boolean | null;
+        GoogleAnalytics: Boolean | null;
+        TagManager: Boolean | null;
         SSL: Boolean | null;
         FacebookDebug: Boolean | null;
         LinkedInShare: Boolean | null;
+        Lorem: Boolean | null;
+        Links: Boolean | null;
 
         PlaceholderMail: Boolean | null;
         SMTP: Boolean | null;
         EmailKlant: Boolean | null;
+        EmailTemplates: Boolean | null;
 
         Loadspeed: Boolean | null;
         LoadspeedTime: String | null;
@@ -83,18 +88,20 @@ type ActionData = {
         CookiePolicyBanner: Boolean | null;
         GDPR: Boolean | null;
 
-        ColorLib: Boolean | null;
+        MaterialWP: Boolean | null;
         EasyWPSMTP: Boolean | null;
         WPS: Boolean | null;
-        W3: Boolean | null;
+        WPfast: Boolean | null;
         GDPRCookies: Boolean | null;
+        shortpixel: Boolean | null;
+        yoast: Boolean | null;
         SendCloud: Boolean | null;
         WooCommerce: Boolean | null;
-        WooCommerceAdmin: Boolean | null;
-        WooCommerceBlocks: Boolean | null;
+        WooCommerceAJAX: Boolean | null;
+        WPML: Boolean | null;
         WooCommercePayPal: Boolean | null;
         WooCommercePDF: Boolean | null;
-        WooCommerceServices: Boolean | null;
+        WooCommerceLoad: Boolean | null;
         WooCommerceStripe: Boolean | null;
         KlantAanpassingen: Boolean | null;
         CapabilityManager: Boolean | null;
@@ -112,15 +119,13 @@ type ActionData = {
         SSLCheckup: Boolean | null;
         MailCheckup: Boolean | null;
         FactuurHosting: Boolean | null;
-        KlantgegevensWHMCS: Boolean | null;
+        KlantgegevensATMOS: Boolean | null;
+        Cloudflare: Boolean | null;
 
-        FactuurOpvolging: Boolean | null;
-        MailOfferte: Boolean | null;
-        TelefonischOpvolging: Boolean | null;
-        OpvolgingWeken: Boolean | null;
-        EindFactuur: Boolean | null;
+        CommPM: Boolean | null;
     }
 }
+
 
 
 const badRequest = (data: ActionData) =>
@@ -130,6 +135,79 @@ const badRequest = (data: ActionData) =>
 export const action: ActionFunction = async ({ request, params }) => {
     //get all form data and link it to variables
     const form = await request.formData();
+    //get current data for log
+    const currentData = await db.checkList.findFirst({
+        where: {
+            Id: params.Webshopid
+        },
+        include: { CheckListItems: true }
+    })
+    if (currentData == null) return badRequest({ formError: "Form not submitted correctly" })
+    await db.logs.create({
+        data: {
+            CheckListId: currentData.Id,
+            createdAt: currentData.CheckListItems.updatedAt,
+            Version: currentData.CheckListItems.Version,
+            Compressie: currentData.CheckListItems.Compressie,
+            Copyright: currentData.CheckListItems.Copyright,
+            SocialMediaMeta: currentData.CheckListItems.SocialMediaMeta,
+            GoogleAnalytics: currentData.CheckListItems.GoogleAnalytics,
+            TagManager: currentData.CheckListItems.TagManager,
+            SSL: currentData.CheckListItems.SSL,
+            FacebookDebug: currentData.CheckListItems.FacebookDebug,
+            LinkedInShare: currentData.CheckListItems.LinkedInShare,
+            Lorem: currentData.CheckListItems.Lorem,
+            Links: currentData.CheckListItems.Links,
+            PlaceholderMail: currentData.CheckListItems.PlaceholderMail,
+            SMTP: currentData.CheckListItems.SMTP,
+            TestMail: currentData.CheckListItems.TestMail,
+            EmailTemplates: currentData.CheckListItems.EmailTemplates,
+            Loadspeed: currentData.CheckListItems.Loadspeed,
+            LoadspeedTime: currentData.CheckListItems.LoadspeedTime,
+            ImageSize: currentData.CheckListItems.ImageSize,
+            AltTags: currentData.CheckListItems.AltTags,
+            Htaccess: currentData.CheckListItems.Htaccess,
+            Sitemap: currentData.CheckListItems.Sitemap,
+            Robots: currentData.CheckListItems.Robots,
+            Privacy: currentData.CheckListItems.Privacy,
+            AlgemeneVoorwaarden: currentData.CheckListItems.AlgemeneVoorwaarden,
+            CookiePolicy: currentData.CheckListItems.CookiePolicy,
+            GDPR: currentData.CheckListItems.GDPR,
+            CookiePolicyBanner: currentData.CheckListItems.CookiePolicyBanner,
+            MaterialWP: currentData.CheckListItems.MaterialWP,
+            EasyWPSMTP: currentData.CheckListItems.EasyWPSMTP,
+            WPS: currentData.CheckListItems.WPS,
+            WPfast: currentData.CheckListItems.WPfast,
+            shortpixel: currentData.CheckListItems.shortpixel,
+            yoast: currentData.CheckListItems.yoast,
+            SendCloud: currentData.CheckListItems.SendCloud,
+            WooCommerce: currentData.CheckListItems.WooCommerce,
+            WooCommerceAJAX: currentData.CheckListItems.WooCommerceAJAX,
+            WPML: currentData.CheckListItems.WPML,
+            WooCommercePayPal: currentData.CheckListItems.WooCommercePayPal,
+            WooCommercePDF: currentData.CheckListItems.WooCommercePDF,
+            WooCommerceLoad: currentData.CheckListItems.WooCommerceLoad,
+            WooCommerceStripe: currentData.CheckListItems.WooCommerceStripe,
+            KlantAanpassingen: currentData.CheckListItems.KlantAanpassingen,
+            CapabilityManager: currentData.CheckListItems.CapabilityManager,
+            Stripe: currentData.CheckListItems.Stripe,
+            Betaalmethodes: currentData.CheckListItems.Betaalmethodes,
+            Testen: currentData.CheckListItems.Testen,
+            SendCloudUser: currentData.CheckListItems.SendCloudUser,
+            SendCloudVerrify: currentData.CheckListItems.SendCloudVerrify,
+            Mobile: currentData.CheckListItems.Mobile,
+            Optimalisatie: currentData.CheckListItems.Optimalisatie,
+            SSLCheckup: currentData.CheckListItems.SSLCheckup,
+            MailCheckup: currentData.CheckListItems.MailCheckup,
+            FactuurHosting: currentData.CheckListItems.FactuurHosting,
+            KlantgegevensATMOS: currentData.CheckListItems.KlantgegevensATMOS,
+            Cloudflare: currentData.CheckListItems.Cloudflare,
+            CommPM: currentData.CheckListItems.CommPM,
+            Opmerkingen: currentData.CheckListItems.Opmerkingen,
+            lastUser: currentData.CheckListItems.lastUser,
+        }
+    })
+    //update the database entry
     const KlantNummer = form.get("KlantNummer")?.toString();
     const KlantNaam = form.get("KlantNaam")?.toString();
     const ProjectNummer = form.get("ProjectNummer")?.toString();
@@ -140,13 +218,18 @@ export const action: ActionFunction = async ({ request, params }) => {
     const Compressie = form.get("Compressie") == "on" ? true : false;
     const Copyright = form.get("Copyright") == "on" ? true : false;
     const SocialMediaMeta = form.get("SocialMediaMeta") == "on" ? true : false;
+    const GoogleAnalytics = form.get("GoogleAnalytics") == "on" ? true : false;
+    const TagManager = form.get("TagManager") == "on" ? true : false;
     const SSL = form.get("SSL") == "on" ? true : false;
     const FacebookDebug = form.get("FacebookDebug") == "on" ? true : false;
     const LinkedInShare = form.get("LinkedInShare") == "on" ? true : false;
+    const Lorem = form.get("Lorem") == "on" ? true : false;
+    const Links = form.get("Links") == "on" ? true : false;
 
     const PlaceholderMail = form.get("PlaceholderMail") == "on" ? true : false;
     const SMTP = form.get("SMTP") == "on" ? true : false;
-    const EmailKlant = form.get("EmailKlant") == "on" ? true : false;
+    const TestMail = form.get("TestMail") == "on" ? true : false;
+    const EmailTemplates = form.get("EmailTemplates") == "on" ? true : false;
 
     const Loadspeed = form.get("Loadspeed") == "on" ? true : false;
     const LoadspeedTime = form.get("LoadspeedTime")?.toString();
@@ -163,18 +246,19 @@ export const action: ActionFunction = async ({ request, params }) => {
     const GDPR = form.get("GDPR") == "on" ? true : false;
     const CookiePolicyBanner = form.get("CookiePolicyBanner") == "on" ? true : false;
 
-    const ColorLib = form.get("ColorLib") == "on" ? true : false;
+    const MaterialWP = form.get("MaterialWP") == "on" ? true : false;
     const EasyWPSMTP = form.get("EasyWPSMTP") == "on" ? true : false;
     const WPS = form.get("WPS") == "on" ? true : false;
-    const W3 = form.get("W3") == "on" ? true : false;
-    const GDPRCookies = form.get("GDPRCookies") == "on" ? true : false;
+    const WPfast = form.get("WPfast") == "on" ? true : false;
+    const shortpixel = form.get("shortpixel") == "on" ? true : false;
+    const yoast = form.get("yoast") == "on" ? true : false;
     const SendCloud = form.get("SendCloud") == "on" ? true : false;
     const WooCommerce = form.get("WooCommerce") == "on" ? true : false;
-    const WooCommerceAdmin = form.get("WooCommerceAdmin") == "on" ? true : false;
-    const WooCommerceBlocks = form.get("WooCommerceBlocks") == "on" ? true : false;
+    const WooCommerceAJAX = form.get("WooCommerceAJAX") == "on" ? true : false;
+    const WPML = form.get("WPML") == "on" ? true : false;
     const WooCommercePayPal = form.get("WooCommercePayPal") == "on" ? true : false;
     const WooCommercePDF = form.get("WooCommercePDF") == "on" ? true : false;
-    const WooCommerceServices = form.get("WooCommerceServices") == "on" ? true : false;
+    const WooCommerceLoad = form.get("WooCommerceLoad") == "on" ? true : false;
     const WooCommerceStripe = form.get("WooCommerceStripe") == "on" ? true : false;
     const KlantAanpassingen = form.get("KlantAanpassingen") == "on" ? true : false;
     const CapabilityManager = form.get("CapabilityManager") == "on" ? true : false;
@@ -192,92 +276,22 @@ export const action: ActionFunction = async ({ request, params }) => {
     const SSLCheckup = form.get("SSLCheckup") == "on" ? true : false;
     const MailCheckup = form.get("MailCheckup") == "on" ? true : false;
     const FactuurHosting = form.get("FactuurHosting") == "on" ? true : false;
-    const KlantgegevensWHMCS = form.get("KlantgegevensWHMCS") == "on" ? true : false;
+    const KlantgegevensATMOS = form.get("KlantgegevensATMOS") == "on" ? true : false;
+    const Cloudflare = form.get("Cloudflare") == "on" ? true : false;
 
-    const FactuurOpvolging = form.get("FactuurOpvolging") == "on" ? true : false;
-    const MailOfferte = form.get("MailOfferte") == "on" ? true : false;
-    const TelefonischOpvolging = form.get("TelefonischOpvolging") == "on" ? true : false;
-    const OpvolgingWeken = form.get("OpvolgingWeken") == "on" ? true : false;
-    const EindFactuur = form.get("EindFactuur") == "on" ? true : false;
+    const CommPM = form.get("CommPM") == "on" ? true : false;
+
     const Opmerkingen = form.get("Opmerkingen")?.toString() == null ? "" : form.get("Opmerkingen")?.toString();
     const lastUser = form.get("nameDev")?.toString() == null ? "" : form.get("nameDev")?.toString();
 
-    //check if all required fields are filled in
-    if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string" || typeof Compressie !== "boolean" || typeof Copyright !== "boolean" || typeof SocialMediaMeta !== "boolean" || typeof SSL !== "boolean" || typeof FacebookDebug !== "boolean" || typeof LinkedInShare !== "boolean" || typeof PlaceholderMail !== "boolean" || typeof SMTP !== "boolean" || typeof EmailKlant !== "boolean" || typeof Loadspeed !== "boolean" || typeof LoadspeedTime !== "string" || typeof ImageSize !== "boolean" || typeof AltTags !== "boolean" || typeof Htaccess !== "boolean" || typeof Sitemap !== "boolean" || typeof Robots !== "boolean" || typeof Privacy !== "boolean" || typeof AlgemeneVoorwaarden !== "boolean" || typeof CookiePolicy !== "boolean" || typeof GDPR !== "boolean" || typeof CookiePolicyBanner !== "boolean" || typeof ColorLib !== "boolean" || typeof EasyWPSMTP !== "boolean" || typeof WPS !== "boolean" || typeof W3 !== "boolean" || typeof GDPRCookies !== "boolean" || typeof KlantAanpassingen !== "boolean" || typeof CapabilityManager !== "boolean" || typeof Mobile !== "boolean" || typeof Optimalisatie !== "boolean" || typeof SSLCheckup !== "boolean" || typeof MailCheckup !== "boolean" || typeof FactuurHosting !== "boolean" || typeof KlantgegevensWHMCS !== "boolean" || typeof FactuurOpvolging !== "boolean" || typeof MailOfferte !== "boolean" || typeof TelefonischOpvolging !== "boolean" || typeof OpvolgingWeken !== "boolean" || typeof EindFactuur !== "boolean") { return badRequest({ formError: "Form not submitted correctly" }) }
+    //check if the values are valid
+    if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string" || typeof Compressie !== "boolean" || typeof Copyright !== "boolean" || typeof SocialMediaMeta !== "boolean" || typeof SSL !== "boolean" || typeof FacebookDebug !== "boolean" || typeof LinkedInShare !== "boolean" || typeof PlaceholderMail !== "boolean" || typeof SMTP !== "boolean" || typeof Loadspeed !== "boolean" || typeof LoadspeedTime !== "string" || typeof ImageSize !== "boolean" || typeof AltTags !== "boolean" || typeof Htaccess !== "boolean" || typeof Sitemap !== "boolean" || typeof Robots !== "boolean" || typeof Privacy !== "boolean" || typeof AlgemeneVoorwaarden !== "boolean" || typeof CookiePolicy !== "boolean" || typeof GDPR !== "boolean" || typeof CookiePolicyBanner !== "boolean" || typeof EasyWPSMTP !== "boolean" || typeof WPS !== "boolean" || typeof KlantAanpassingen !== "boolean" || typeof CapabilityManager !== "boolean" || typeof Mobile !== "boolean" || typeof Optimalisatie !== "boolean" || typeof SSLCheckup !== "boolean" || typeof MailCheckup !== "boolean" || typeof FactuurHosting !== "boolean") { return badRequest({ formError: "Form not submitted correctly" }) }
 
-
-    //get current data for log
-    const currentData = await db.checkList.findFirst({
+    //create a new checklist in db
+    await db.checkList.update({
         where: {
             Id: params.Webshopid
         },
-        include: { CheckListItems: true }
-    })
-    if (currentData == null) return badRequest({ formError: "Form not submitted correctly" })
-    await db.logs.create({
-        data: {
-            CheckListId: currentData.Id,
-            createdAt: currentData.CheckListItems.updatedAt,
-            Version: currentData.CheckListItems.Version,
-            Compressie: currentData.CheckListItems.Compressie,
-            Copyright: currentData.CheckListItems.Copyright,
-            SocialMediaMeta: currentData.CheckListItems.SocialMediaMeta,
-            SSL: currentData.CheckListItems.SSL,
-            FacebookDebug: currentData.CheckListItems.FacebookDebug,
-            LinkedInShare: currentData.CheckListItems.LinkedInShare,
-            PlaceholderMail: currentData.CheckListItems.PlaceholderMail,
-            SMTP: currentData.CheckListItems.SMTP,
-            EmailKlant: currentData.CheckListItems.EmailKlant,
-            Loadspeed: currentData.CheckListItems.Loadspeed,
-            LoadspeedTime: currentData.CheckListItems.LoadspeedTime,
-            ImageSize: currentData.CheckListItems.ImageSize,
-            AltTags: currentData.CheckListItems.AltTags,
-            Htaccess: currentData.CheckListItems.Htaccess,
-            Sitemap: currentData.CheckListItems.Sitemap,
-            Robots: currentData.CheckListItems.Robots,
-            Privacy: currentData.CheckListItems.Privacy,
-            AlgemeneVoorwaarden: currentData.CheckListItems.AlgemeneVoorwaarden,
-            CookiePolicy: currentData.CheckListItems.CookiePolicy,
-            GDPR: currentData.CheckListItems.GDPR,
-            CookiePolicyBanner: currentData.CheckListItems.CookiePolicyBanner,
-            ColorLib: currentData.CheckListItems.ColorLib,
-            EasyWPSMTP: currentData.CheckListItems.EasyWPSMTP,
-            WPS: currentData.CheckListItems.WPS,
-            W3: currentData.CheckListItems.W3,
-            GDPRCookies: currentData.CheckListItems.GDPRCookies,
-            SendCloud: currentData.CheckListItems.SendCloud,
-            WooCommerce: currentData.CheckListItems.WooCommerce,
-            WooCommerceAdmin: currentData.CheckListItems.WooCommerceAdmin,
-            WooCommerceBlocks: currentData.CheckListItems.WooCommerceBlocks,
-            WooCommercePayPal: currentData.CheckListItems.WooCommercePayPal,
-            WooCommercePDF: currentData.CheckListItems.WooCommercePDF,
-            WooCommerceServices: currentData.CheckListItems.WooCommerceServices,
-            WooCommerceStripe: currentData.CheckListItems.WooCommerceStripe,
-            KlantAanpassingen: currentData.CheckListItems.KlantAanpassingen,
-            CapabilityManager: currentData.CheckListItems.CapabilityManager,
-            Stripe: currentData.CheckListItems.Stripe,
-            Betaalmethodes: currentData.CheckListItems.Betaalmethodes,
-            Testen: currentData.CheckListItems.Testen,
-            SendCloudUser: currentData.CheckListItems.SendCloudUser,
-            SendCloudVerrify: currentData.CheckListItems.SendCloudVerrify,
-            Mobile: currentData.CheckListItems.Mobile,
-            Optimalisatie: currentData.CheckListItems.Optimalisatie,
-            SSLCheckup: currentData.CheckListItems.SSLCheckup,
-            MailCheckup: currentData.CheckListItems.MailCheckup,
-            FactuurHosting: currentData.CheckListItems.FactuurHosting,
-            KlantgegevensWHMCS: currentData.CheckListItems.KlantgegevensWHMCS,
-            FactuurOpvolging: currentData.CheckListItems.FactuurOpvolging,
-            MailOfferte: currentData.CheckListItems.MailOfferte,
-            TelefonischOpvolging: currentData.CheckListItems.TelefonischOpvolging,
-            OpvolgingWeken: currentData.CheckListItems.OpvolgingWeken,
-            EindFactuur: currentData.CheckListItems.EindFactuur,
-            Opmerkingen: currentData.CheckListItems.Opmerkingen,
-            lastUser: currentData.CheckListItems.lastUser,
-        }
-    })
-    //update the database entry
-    await db.checkList.update({
-        where: { Id: params.Webshopid },
         data: {
             KlantNummer: KlantNummer,
             KlantNaam: KlantNaam,
@@ -286,19 +300,22 @@ export const action: ActionFunction = async ({ request, params }) => {
             Budget: Budget,
             Verantwoordelijke: Verantwoordelijke,
             isWebshop: true,
-
             CheckListItems: {
                 update: {
-                    Version:{increment:1},
                     Compressie: Compressie,
                     Copyright: Copyright,
                     SocialMediaMeta: SocialMediaMeta,
+                    GoogleAnalytics: GoogleAnalytics,
+                    TagManager: TagManager,
                     SSL: SSL,
                     FacebookDebug: FacebookDebug,
                     LinkedInShare: LinkedInShare,
+                    Lorem: Lorem,
+                    Links: Links,
                     PlaceholderMail: PlaceholderMail,
                     SMTP: SMTP,
-                    EmailKlant: EmailKlant,
+                    TestMail: TestMail,
+                    EmailTemplates: EmailTemplates,
                     Loadspeed: Loadspeed,
                     LoadspeedTime: LoadspeedTime,
                     ImageSize: ImageSize,
@@ -311,18 +328,19 @@ export const action: ActionFunction = async ({ request, params }) => {
                     CookiePolicy: CookiePolicy,
                     GDPR: GDPR,
                     CookiePolicyBanner: CookiePolicyBanner,
-                    ColorLib: ColorLib,
+                    MaterialWP: MaterialWP,
                     EasyWPSMTP: EasyWPSMTP,
                     WPS: WPS,
-                    W3: W3,
-                    GDPRCookies: GDPRCookies,
+                    WPfast: WPfast,
+                    shortpixel: shortpixel,
+                    yoast: yoast,
                     SendCloud: SendCloud,
                     WooCommerce: WooCommerce,
-                    WooCommerceAdmin: WooCommerceAdmin,
-                    WooCommerceBlocks: WooCommerceBlocks,
+                    WooCommerceAJAX: WooCommerceAJAX,
+                    WPML: WPML,
                     WooCommercePayPal: WooCommercePayPal,
                     WooCommercePDF: WooCommercePDF,
-                    WooCommerceServices: WooCommerceServices,
+                    WooCommerceLoad: WooCommerceLoad,
                     WooCommerceStripe: WooCommerceStripe,
                     KlantAanpassingen: KlantAanpassingen,
                     CapabilityManager: CapabilityManager,
@@ -336,12 +354,9 @@ export const action: ActionFunction = async ({ request, params }) => {
                     SSLCheckup: SSLCheckup,
                     MailCheckup: MailCheckup,
                     FactuurHosting: FactuurHosting,
-                    KlantgegevensWHMCS: KlantgegevensWHMCS,
-                    FactuurOpvolging: FactuurOpvolging,
-                    MailOfferte: MailOfferte,
-                    TelefonischOpvolging: TelefonischOpvolging,
-                    OpvolgingWeken: OpvolgingWeken,
-                    EindFactuur: EindFactuur,
+                    KlantgegevensATMOS: KlantgegevensATMOS,
+                    Cloudflare: Cloudflare,
+                    CommPM: CommPM,
                     Opmerkingen: Opmerkingen,
                     lastUser: lastUser,
                 }
@@ -370,7 +385,7 @@ export default function webshopid() {
 
     const getdate = new Date(data.items.createdAt)
     const date = moment(getdate).format('DD/MM/yyyy HH:mm:ss')
-   
+
     return (
         <div className="bg-contact2">
             <div className="container-contact2">

@@ -17,6 +17,7 @@ import main from '../../../styles/main.css';
 import FormTemplate from '~/component/FormTemplate';
 
 import React, { Fragment } from 'react';
+import moment from 'moment';
 
 // link imported styles to the page
 export function links() {
@@ -366,7 +367,10 @@ export default function webshopid() {
     const handleClose = () => {
         setOpen(false);
     };
-    let test = new Date(data.items.updatedAt).toLocaleDateString() + " " + new Date(data.items.updatedAt).toLocaleTimeString()
+
+    const getdate = new Date(data.items.createdAt)
+    const date = moment(getdate).format('DD/MM/yyyy hh:mm:ss')
+   
     return (
         <div className="bg-contact2">
             <div className="container-contact2">
@@ -374,7 +378,7 @@ export default function webshopid() {
                     <span className="contact2-form-title">
                         <h1>Checklist Webshop</h1>
                         <span className="text-sm text-center block ">
-                            last updated: {test} <br />
+                            last updated: {date} <br />
                             by: {data.items.lastUser}
 
 

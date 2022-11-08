@@ -1,6 +1,6 @@
-import type { CheckList, CheckListItems, Logs } from '@prisma/client';
-import type { ActionFunction, LoaderFunction } from '@remix-run/node';
-import { json, redirect } from '@remix-run/node';
+import type { CheckList,  Logs } from '@prisma/client';
+import type { LoaderFunction } from '@remix-run/node';
+import { json } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 import { db } from '~/utils/db.server';
 import {
@@ -13,10 +13,10 @@ import {
 //import stylesheets for the page
 import styles from '../../../styles/app.css';
 import main from '../../../styles/main.css';
-import FormTemplate from '~/component/FormTemplate';
 
 import React, { Fragment } from 'react';
 import LogTemplate from '~/component/LogTemplate';
+import moment from 'moment';
 
 // link imported styles to the page
 export function links() {
@@ -28,7 +28,7 @@ export function links() {
  type LoaderData ={list: CheckList, items: Logs[], Version: number}
 export const loader: LoaderFunction = async ({ params})=>{
     const logs = await db.logs.findMany({
-        where:{CheckListId: params.Webshopid},
+        where:{CheckListId: params.logs},
         include: {Checklist: true},
         orderBy: {Version: 'asc'}
     })
@@ -45,7 +45,6 @@ export default function Index(){
     const handleClickOpen = () => {
         setOpen(true);
     };
-    console.log(data)
     const handleClose = () => {
         setOpen(false);
 
@@ -55,8 +54,9 @@ export default function Index(){
         return true
         else return false
     }
-    let test = new Date(data.items[data.items.findIndex(findlog)].createdAt).toLocaleDateString() + " " + new Date(data.items[data.items.findIndex(findlog)].createdAt).toLocaleTimeString()
-
+    const getdate = new Date(data.items[data.items.findIndex(findlog)].createdAt)
+    const date = moment(getdate).format('DD/MM/yyyy hh:mm:ss')
+    
     
     return(
         <>
@@ -64,9 +64,10 @@ export default function Index(){
             <div className="container-contact2">
                 <div className="wrap-contact2">
                     <span className="contact2-form-title">
-                        <h1>Checklist Webshop</h1>
+                        
+                        <h1>Checklist {data.list.isWebshop? "Webshop" : "Website"}</h1>
                         <span className="text-sm text-center block ">
-                            updated on: {test} <br />
+                            updated on: {date} <br />
                             by: {data.items[data.items.findIndex(findlog)].lastUser}
 
 

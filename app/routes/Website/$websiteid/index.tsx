@@ -4,7 +4,7 @@ import type { ActionFunction, LoaderFunction } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
 import { db } from "~/utils/db.server";
 import styles from '../../../styles/app.css';
-import main from '../../../styles/main.css';
+import main from 'app/styles/main.css';
 import FormTemplate from "~/component/FormTemplate";
 import { useLoaderData } from "@remix-run/react";
 import React, { Fragment } from "react";
@@ -14,8 +14,8 @@ import {
     DialogHeader,
     DialogBody,
     DialogFooter,
-  } from "@material-tailwind/react";
-import { FormImpl } from "@remix-run/react/dist/components";
+} from "@material-tailwind/react";
+import moment from "moment";
 
 //link imported styles to page
 export function links() {
@@ -253,10 +253,10 @@ export const action: ActionFunction = async ({ params, request }) => {
             ProjectNaam: ProjectNaam,
             Budget: Budget,
             Verantwoordelijke: Verantwoordelijke,
-            
+
             CheckListItems: {
                 update: {
-                    Version:{increment:1},
+                    Version: { increment: 1 },
                     Compressie: Compressie,
                     Copyright: Copyright,
                     SocialMediaMeta: SocialMediaMeta,
@@ -297,7 +297,7 @@ export const action: ActionFunction = async ({ params, request }) => {
                     EindFactuur: EindFactuur,
                     Opmerkingen: Opmerkingen,
                     lastUser: lastUser,
-                    
+
                 }
             }
         }
@@ -317,42 +317,44 @@ export default function listid() {
     const handleClose = () => {
         setOpen(false);
     };
-    let test = new Date(data.items.updatedAt).toLocaleDateString() +" "+ new Date(data.items.updatedAt).toLocaleTimeString()
+    const getdate = new Date(data.items.createdAt)
+    const date = moment(getdate).format('DD/MM/yyyy hh:mm:ss')
+
     return (
         <div className="bg-contact2">
             <div className="container-contact2">
                 <div className="wrap-contact2">
                     <span className="contact2-form-title">
                         <h1>Checklist Website</h1>
-                        
+
                         <span className="text-sm text-center block ">
-                        last updated: {test} <br/>
-                        by: {data.items.lastUser}
-                        
-                        
+                            last updated: {date} <br />
+                            by: {data.items.lastUser}
+
+
                         </span>
                     </span>
-                    
+
                     <span>
-                        
+
                     </span>
                     {/* use form component */}
                     {data.items.Opmerkingen == "" ? null :
                         <Fragment>
-                        <Dialog  open={open} handler={handleClickOpen}>
-                          <DialogHeader className="text-red-600">WARNING!</DialogHeader>
-                          <DialogBody className="grid" divider>
-                            {data.items.Opmerkingen.split("\r\n").map((item, index) => {
-                                return <p className="text-black" key={index}>{item}</p>
-                            })}
-                          </DialogBody>
-                          <DialogFooter>
-                            <Button variant="gradient" color="green" onClick={handleClose}>
-                              <span>Confirm</span>
-                            </Button>
-                          </DialogFooter>
-                        </Dialog>
-                      </Fragment>}
+                            <Dialog open={open} handler={handleClickOpen}>
+                                <DialogHeader className="text-red-600">WARNING!</DialogHeader>
+                                <DialogBody className="grid" divider>
+                                    {data.items.Opmerkingen.split("\r\n").map((item, index) => {
+                                        return <p className="text-black" key={index}>{item}</p>
+                                    })}
+                                </DialogBody>
+                                <DialogFooter>
+                                    <Button variant="gradient" color="green" onClick={handleClose}>
+                                        <span>Confirm</span>
+                                    </Button>
+                                </DialogFooter>
+                            </Dialog>
+                        </Fragment>}
                     <FormTemplate data={data} />
                 </div>
             </div>

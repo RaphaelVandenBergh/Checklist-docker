@@ -13,10 +13,10 @@ import {
 //import stylesheets for the page
 import styles from '../../../styles/app.css';
 import main from '../../../styles/main.css';
-import FormTemplate from '~/component/FormTemplate';
 
 import React, { Fragment } from 'react';
 import LogTemplate from '~/component/LogTemplate';
+import moment from 'moment';
 
 // link imported styles to the page
 export function links() {
@@ -45,7 +45,6 @@ export default function Index(){
     const handleClickOpen = () => {
         setOpen(true);
     };
-    console.log(data)
     const handleClose = () => {
         setOpen(false);
 
@@ -55,8 +54,9 @@ export default function Index(){
         return true
         else return false
     }
-    let test = new Date(data.items[data.items.findIndex(findlog)].createdAt).toLocaleDateString() + " " + new Date(data.items[data.items.findIndex(findlog)].createdAt).toLocaleTimeString()
-
+    const getdate = new Date(data.items[data.items.findIndex(findlog)].createdAt)
+    const date = moment(getdate).format('DD/MM/yyyy hh:mm:ss')
+    console.log(date)
     
     return(
         <>
@@ -66,7 +66,7 @@ export default function Index(){
                     <span className="contact2-form-title">
                         <h1>Checklist Website</h1>
                         <span className="text-sm text-center block ">
-                            updated on: {test} <br />
+                            updated on: {date} <br />
                             by: {data.items[data.items.findIndex(findlog)].lastUser}
 
 

@@ -302,6 +302,7 @@ export const action: ActionFunction = async ({ request, params }) => {
             isWebshop: true,
             CheckListItems: {
                 update: {
+                    Version:{increment: 1},
                     Compressie: Compressie,
                     Copyright: Copyright,
                     SocialMediaMeta: SocialMediaMeta,

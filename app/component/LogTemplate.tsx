@@ -61,7 +61,19 @@ export default function LogTemplate(data: any) {
 
                 <label className="form-control" htmlFor="SocialMediaMeta">
                     <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].SocialMediaMeta} type={"checkbox"} id="logcheck" name={"SocialMediaMeta"}></input>
-                    Social media metatags + Google Analytics
+                    Social media metatags
+                </label>
+                <br />
+
+                <label className="form-control" htmlFor="GoogleAnalytics">
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].GoogleAnalytics} type={"checkbox"} id="logcheck" name={"GoogleAnalytics"}></input>
+                    Google Analytics opgezet
+                </label>
+                <br />
+
+                <label className="form-control" htmlFor="TagManager">
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].TagManager} type={"checkbox"} id="logcheck" name={"TagManager"}></input>
+                    Tag Manager code geintegreerd
                 </label>
                 <br />
 
@@ -83,6 +95,18 @@ export default function LogTemplate(data: any) {
                 </label>
                 <br />
 
+                <label className="form-control" htmlFor="Lorem">
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Lorem} type={"checkbox"} id="logcheck" name={"Lorem"}></input>
+                    Geen Lorem Ipsum of placeholder teksten meer
+                </label>
+                <br />
+
+                <label className="form-control" htmlFor="Links">
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Links} type={"checkbox"} id="logcheck" name={"Links"}></input>
+                    Alle linken en knoppen werken en gaan naar de juiste pagina's
+                </label>
+                <br />
+
                 <h3 className="text-xl pt-2 font-semibold">Mail</h3>
 
                 <label className="form-control" htmlFor="PlaceholderMail">
@@ -96,12 +120,18 @@ export default function LogTemplate(data: any) {
                     SMTP configureren en aanzetten
                 </label>
                 <br />
+
+                <label className="form-control" htmlFor="TestMail">
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].TestMail} type={"checkbox"} id="logcheck" name={"TestMail"}></input>
+                    Test email laten sturen naar klant voor elk formulier en antwoord gehad van klant
+                </label>
+                <br />
                 {/* fields that are only in the webshop list are not rendered in website checklist */}
                 {data.data.list.isWebshop ? (
                     <>
-                        <label className="form-control" htmlFor="EmailKlant">
-                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].EmailKlant} type={"checkbox"} id="logcheck" name={"EmailKlant"}></input>
-                            Emails laten sturen naar klant (nieuwe orders, failed orders,...)
+                        <label className="form-control" htmlFor="EmailTemplates">
+                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].EmailTemplates} type={"checkbox"} id="logcheck" name={"EmailTemplates"}></input>
+                            Email templates goed gezet voor orders
                         </label>
                         <br />
                     </>
@@ -226,15 +256,15 @@ export default function LogTemplate(data: any) {
                         </label>
                         <br />
 
-                        <label className="form-control" htmlFor="WooCommerceAdmin">
-                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WooCommerceAdmin} type={"checkbox"} id="logcheck" name={"WooCommerceAdmin"}></input>
-                            WooCommerce Admin
+                        <label className="form-control" htmlFor="WooCommerceAJAX">
+                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WooCommerceAJAX} type={"checkbox"} id="logcheck" name={"WooCommerceAJAX"}></input>
+                            WooCommerce Ajax Sidecart + Velden in juiste taal zetten
                         </label>
                         <br />
 
-                        <label className="form-control" htmlFor="WooCommerceBlocks">
-                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WooCommerceBlocks} type={"checkbox"} id="logcheck" name={"WooCommerceBlocks"}></input>
-                            WooCommerce Blocks
+                        <label className="form-control" htmlFor="WPML">
+                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WPML} type={"checkbox"} id="logcheck" name={"WPML"}></input>
+                            WPML (Indien multi-language)
                         </label>
                         <br />
 
@@ -250,9 +280,9 @@ export default function LogTemplate(data: any) {
                         </label>
                         <br />
 
-                        <label className="form-control" htmlFor="WooCommerceServices">
-                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WooCommerceServices} type={"checkbox"} id="logcheck" name={"WooCommerceServices"}></input>
-                            WooCommerce Services
+                        <label className="form-control" htmlFor="WooCommerceLoad">
+                            <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WooCommerceLoad} type={"checkbox"} id="logcheck" name={"WooCommerceLoad"}></input>
+                            WooCommerce Load More (Van Be Rocket)
                         </label>
                         <br />
 
@@ -298,15 +328,8 @@ export default function LogTemplate(data: any) {
                             Testen van betalingssystemen
                         </label>
                         <br />
-                    </>
-                ) : null}
 
-
-
-                <h3 className="text-xl pt-2 font-semibold">Mobiel</h3>
-                {/* fields that are only in the webshop list are not rendered in website checklist */}
-                {data.data.list.isWebshop ? (
-                    <>
+                        <h3 className="text-xl pt-2 font-semibold">Verzendingen</h3>
                         <label className="form-control" htmlFor="SendCloudUser">
                             <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].SendCloudUser} type={"checkbox"} id="logcheck" name={"SendCloudUser"}></input>
                             Gebruiker aanmaken op SendCloud met placeholder_klant email. Klant zijn email ook koppelen.
@@ -322,7 +345,7 @@ export default function LogTemplate(data: any) {
                 ) : null}
 
 
-
+                <h3 className="text-xl pt-2 font-semibold">Mobiel</h3>
                 <label className="form-control" htmlFor="Mobile">
                     <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Mobile} type={"checkbox"} id="logcheck" name={"Mobile"}></input>
                     Verifiëren dat site werkt en er goed uitziet op mobiel
@@ -351,53 +374,31 @@ export default function LogTemplate(data: any) {
 
                 <label className="form-control" htmlFor="FactuurHosting">
                     <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].FactuurHosting} type={"checkbox"} id="logcheck" name={"FactuurHosting"}></input>
-                    Factuur opsturen voor hosting
+                    Facturatie opgestart voor hosting en onderhoud? Communiceren naar Kristof
                 </label>
                 <br />
 
-                <label className="form-control" htmlFor="KlantgegevensWHMCS">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].KlantgegevensWHMCS} type={"checkbox"} id="logcheck" name={"KlantgegevensWHMCS"}></input>
-                    Klantgegevens in WHMCS portal steken
+                <label className="form-control" htmlFor="KlantgegevensATMOS">
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].KlantgegevensATMOS} type={"checkbox"} id="logcheck" name={"KlantgegevensATMOS"}></input>
+                    Klantgegevens in ATMOS portal?
+                </label>
+                <br />
+
+                <label className="form-control" htmlFor="Cloudflare">
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Cloudflare} type={"checkbox"} id="logcheck" name={"Cloudflare"}></input>
+                    Cloudflare opstart + Config + Rules (Door Atmos Admin)
                 </label>
                 <br />
 
                 <h3 className="text-xl pt-2 font-semibold">Finalisatie</h3>
 
-                <label className="form-control" htmlFor="FactuurOpvolging">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].FactuurOpvolging} type={"checkbox"} id="logcheck" name={"FactuurOpvolging"}></input>
-                    Factuur opsturen en betaling opvolgen
+                <label className="form-control" htmlFor="CommPM">
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].CommPM} type={"checkbox"} id="logcheck" name={"CommPM"}></input>
+                    Communicatie naar PM
                 </label>
                 <br />
 
-                <label className="form-control" htmlFor="MailOfferte">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].MailOfferte} type={"checkbox"} id="logcheck" name={"MailOfferte"}></input>
-                    Mail offerte afdrukken
-
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="TelefonischOpvolging">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].TelefonischOpvolging} type={"checkbox"} id="logcheck" name={"TelefonischOpvolging"}></input>
-                    Telefonisch verifiëren bij klant
-
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="OpvolgingWeken">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].OpvolgingWeken} type={"checkbox"} id="logcheck" name={"OpvolgingWeken"}></input>
-                    Opvolgen na aantal weken
-
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="EindFactuur">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].EindFactuur} type={"checkbox"} id="logcheck" name={"EindFactuur"}></input>
-                    Eindfactuur versturen
-
-                </label>
-                <br />
-
-                <label  className="text-xl pt-2 font-semibold" htmlFor="Opmerkingen">Opmerkingen
+                <label className="text-xl pt-2 font-semibold" htmlFor="Opmerkingen">Opmerkingen
                 </label>
                 <br />
                 <Textarea disabled resize className="bg-gray-200 no-padding bg-clip-content" color="blue" size="lg" variant="standard" defaultValue={data.data.items[data.data.items.findIndex(findlog)].Opmerkingen} name={"Opmerkingen"} placeholder={"Opmerkingen"}></Textarea>

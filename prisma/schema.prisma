@@ -32,7 +32,7 @@ model CheckList{
 model CheckListItems{
   Id String @id @default(uuid())
   Checklist CheckList?
-  Version Int
+  Version Int @default(1)
 
   Compressie Boolean @default(false)
   Copyright Boolean @default(false)

@@ -10,27 +10,27 @@ export default function FormTemplate(data: any) {
             <Form reloadDocument className="contact2-form" method="post">
                 <h2 className="text-2xl font-semibold">Gegevens Klant</h2>
                 <label htmlFor="KlantNummer">Klant Nummer: </label>
-                <input required defaultValue={data.data.list.KlantNummer} className={"appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"KlantNummer"}></input>
+                <input required defaultValue={data.data.list.KlantNummer} className={"appearance-none bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"KlantNummer"}></input>
                 <br />
 
                 <label htmlFor="KlantNaam">Klant Naam: </label>
-                <input required defaultValue={data.data.list.KlantNaam} className={"appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"KlantNaam"}></input>
+                <input required defaultValue={data.data.list.KlantNaam} className={"appearance-none bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"KlantNaam"}></input>
                 <br />
 
                 <label htmlFor="ProjectNaam">Projectnaam van klant: </label>
-                <input required defaultValue={data.data.list.ProjectNaam} className={"appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"ProjectNaam"}></input>
+                <input required defaultValue={data.data.list.ProjectNaam} className={"appearance-none bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"ProjectNaam"}></input>
                 <br />
 
                 <label htmlFor="ProjectNummer">PO nummer project: </label>
-                <input required defaultValue={data.data.list.ProjectNummer} className={"appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"ProjectNummer"}></input>
+                <input required defaultValue={data.data.list.ProjectNummer} className={"appearance-none bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"ProjectNummer"}></input>
                 <br />
 
                 <label htmlFor="Budget">Budget: €</label>
-                <input defaultValue={data.data.list.Budget} className={"appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"Budget"}></input>
+                <input defaultValue={data.data.list.Budget} className={"appearance-none bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"Budget"}></input>
                 <br />
 
                 <label htmlFor="Verantwoordelijke">Verantwoordelijke project: </label>
-                <input required defaultValue={data.data.list.Verantwoordelijke} className={"appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"Verantwoordelijke"}></input>
+                <input required defaultValue={data.data.list.Verantwoordelijke} className={"appearance-none bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"Verantwoordelijke"}></input>
                 <br />
                 <h2 className="text-2xl pt-2 font-semibold">Checklist</h2>
 
@@ -102,7 +102,7 @@ export default function FormTemplate(data: any) {
 
                 <input defaultChecked={data.data.items.Loadspeed} type={"checkbox"} name={"Loadspeed"}></input>
                 <label htmlFor="Loadspeed">Loadspeed (ms):</label>
-                <input defaultValue={data.data.items.LoadspeedTime} className={"appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"LoadspeedTime"}></input>
+                <input defaultValue={data.data.items.LoadspeedTime} className={"appearance-none bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"LoadspeedTime"}></input>
                 <br />
 
                 <input defaultChecked={data.data.items.ImageSize} type={"checkbox"} name={"ImageSize"}></input>
@@ -295,10 +295,10 @@ export default function FormTemplate(data: any) {
                 <Textarea resize className="bg-gray-200 no-padding bg-clip-content" color="blue" size="lg" variant="standard" defaultValue={data.data.items.Opmerkingen} name={"Opmerkingen"} placeholder={"Opmerkingen"}></Textarea>
 
                 <br />
-                
+
                 <label className="print:hidden" htmlFor="nameDev">Naam developer</label>
                 <br />
-                <input className={" print:hidden appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500"}  required type="text" name="nameDev" placeholder="git blame"/>
+                <input className={" print:hidden appearance-none bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} required type="text" name="nameDev" placeholder="git blame" />
 
 
 
@@ -310,18 +310,21 @@ export default function FormTemplate(data: any) {
                         </div>
                     </div>
                 </div>
-                
-                <div>
-                <Link to={'/logs/'+data.data.list.Id} >
-                    <MdOutlineHistory className="print:hidden float-left" size={'35px'}/>
-                </Link>
 
-                {/* button for PDF print note type=button to not submit the form */}
-                <button type="button" className="float-right print:hidden">
-                    <GrDocumentPdf onClick={() => print()} size={'30px'} />
-                </button>
+                <div>
+                    {data.data.list.Id == undefined ? (null) : (
+                        <Link to={'/logs/' + data.data.list.Id} >
+                            <MdOutlineHistory className="print:hidden float-left" size={'35px'} />
+                        </Link>
+                    )}
+
+
+                    {/* button for PDF print note type=button to not submit the form */}
+                    <button type="button" className="float-right print:hidden">
+                        <GrDocumentPdf onClick={() => print()} size={'30px'} />
+                    </button>
                 </div>
-                
+
             </Form>
         </>
     )

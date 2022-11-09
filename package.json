@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@material-tailwind/react": "^1.2.4",
-    "@prisma/client": "^4.5.0",
+    "@prisma/client": "^4.6.0",
     "@remix-run/node": "^1.7.3",
     "@remix-run/react": "^1.7.3",
     "@remix-run/vercel": "^1.7.3",

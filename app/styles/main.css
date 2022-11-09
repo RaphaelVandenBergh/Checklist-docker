@@ -4,6 +4,47 @@
   padding: 0 !important;
 }
 
+@media print{
+  input[type="checkbox"] {
+    appearance: none;
+    background-color: #fff;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    margin-right: 5px;
+  }
+  
+  input[type="checkbox"]:checked::before {
+    content: "\2713";
+    position: absolute;
+    top: -10%;
+    margin: 0;
+    padding: 0;
+    margin-top: -4px;
+    left: 5%;
+    font-size: 17px;
+  }
+  
+  input[type="checkbox"]:checked {
+    appearance: none;
+    /* box-shadow: inset 1em 1em #2de6a2; */
+    padding-right: 10px;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    margin-right: 5px;
+    position: relative;
+  
+  }
+}
 
 input[type="checkbox"]#logcheck {
   appearance: none;
@@ -18,9 +59,20 @@ input[type="checkbox"]#logcheck {
   margin-right: 5px;
 }
 
+input[type="checkbox"]:checked#logcheck::before {
+  content: "\2713";
+  position: absolute;
+  top: -10%;
+  margin: 0;
+  padding: 0;
+  margin-top: -4px;
+  left: 5%;
+  font-size: 17px;
+}
+
 input[type="checkbox"]:checked#logcheck {
   appearance: none;
-  box-shadow: inset 1em 1em #2de6a2;
+  /* box-shadow: inset 1em 1em #2de6a2; */
   padding-right: 10px;
   font: inherit;
   color: currentColor;
@@ -30,6 +82,8 @@ input[type="checkbox"]:checked#logcheck {
   border-radius: 0.15em;
   transform: translateY(-0.075em);
   margin-right: 5px;
+  position: relative;
+
 }
 
 

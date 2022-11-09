@@ -337,7 +337,6 @@ export default function Webshop() {
             KlantgegevensATMOS: false,
             Cloudflare: false,
             CommPM: false,
-            Opmerkingen: false,
             lastUser: false,
         }
 

@@ -52,7 +52,7 @@ export const loader: LoaderFunction = async ({request}) => {
     }
     
     const data: LoaderData = { lists, page: parseInt(page) }
-    return json(data, { headers: { "cache-control": "max-age=3600" } })
+    return json(data)
 }
 
 
@@ -83,10 +83,10 @@ export default function success() {
         <div className="bg-contact2">
             <div className="container-contact2">
                 <div className="wrap-contact2">
-                    <div className="w-full my-10 bg-gray-100 rounded-xl overflow-hidden shadow-md p-4 undefined">
+                    <div className="w-full mb-10 bg-gray-100 rounded-xl overflow-hidden shadow-md p-4 undefined">
                         {/* search form */}
                         <Form className="flex">
-                            <BsSearch className="mr-2 mt-3"/><input name="search" placeholder="Search Project nummer" className=" py-3 w-full appearance-none bg-gray-200 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500" type={"search"}></input>
+                            <BsSearch className="mr-2 mt-3"/><input name="search" placeholder="Search Project nummer" className=" py-3 w-full appearance-none bg-gray-100 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500" type={"search"}></input>
                         </Form>
                     </div>
                     {/* render the all the lists */}

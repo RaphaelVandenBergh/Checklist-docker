@@ -168,7 +168,7 @@ export default function FormTemplate(data: any) {
                 <br />
 
                 <input defaultChecked={data.data.items.shortpixel} type={"checkbox"} name={"shortpixel"}></input>
-                <label htmlFor="shortpixel">ShortPixel + ShortPixel AI (API Ket aan Kristof vragen)</label>
+                <label htmlFor="shortpixel">ShortPixel + ShortPixel AI (API Key aan Kristof vragen)</label>
                 <br />
 
                 <input defaultChecked={data.data.items.yoast} type={"checkbox"} name={"yoast"}></input>
@@ -276,8 +276,8 @@ export default function FormTemplate(data: any) {
                 <label htmlFor="FactuurHosting">Facturatie opgestart voor hosting en onderhoud? Communiceren naar Kristof</label>
                 <br />
 
-                <input defaultChecked={data.data.items.KlantgegevensWHMCS} type={"checkbox"} name={"KlantgegevensATMOS"}></input>
-                <label htmlFor="KlantgegevensWHMCS">Klantgegevens in ATMOS portal?</label>
+                <input defaultChecked={data.data.items.KlantgegevensATMOS} type={"checkbox"} name={"KlantgegevensATMOS"}></input>
+                <label htmlFor="KlantgegevensATMOS">Klantgegevens in ATMOS portal?</label>
                 <br />
 
                 <input defaultChecked={data.data.items.Cloudflare} type={"checkbox"} name={"Cloudflare"}></input>

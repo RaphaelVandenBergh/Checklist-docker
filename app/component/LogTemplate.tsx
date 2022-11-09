@@ -212,9 +212,9 @@ export default function LogTemplate(data: any) {
 
                 <h3 className="text-xl pt-2 font-semibold">Plugins</h3>
 
-                <label className="form-control" htmlFor="ColorLib">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].ColorLib} type={"checkbox"} id="logcheck" name={"ColorLib"}></input>
-                    ColorLib Login Customer: loginpagina aangepast met logo, huiskleur en afbeelding
+                <label className="form-control" htmlFor="MaterialWP">
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].MaterialWP} type={"checkbox"} id="logcheck" name={"MaterialWP"}></input>
+                    Material WP: Aangepast met logo, huiskleur en afbeelding
                 </label>
                 <br />
 
@@ -230,15 +230,21 @@ export default function LogTemplate(data: any) {
                 </label>
                 <br />
 
-                <label className="form-control" htmlFor="W3">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].W3} type={"checkbox"} id="logcheck" name={"W3"}></input>
-                    W3 Total Cache: caching van pagina's juist zetten
+                <label className="form-control" htmlFor="WPfast">
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].WPfast} type={"checkbox"} id="logcheck" name={"WPfast"}></input>
+                    WP Fastestcache: caching van pagina's juist zetten (ContactForms excluden) + koppeling cloudflare cdn
                 </label>
                 <br />
 
-                <label className="form-control" htmlFor="GDPRCookies">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].GDPRCookies} type={"checkbox"} id="logcheck" name={"GDPRCookies"}></input>
-                    GDPR Cookie Consent: cookie popup.
+                <label className="form-control" htmlFor="shortpixel">
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].shortpixel} type={"checkbox"} id="logcheck" name={"shortpixel"}></input>
+                    ShortPixel + ShortPixel AI (API Key aan Kristof vragen)
+                </label>
+                <br />
+
+                <label className="form-control" htmlFor="yoast">
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].yoast} type={"checkbox"} id="logcheck" name={"yoast"}></input>
+                    Yoast SEO + geconfigureerd.
                 </label>
                 <br />
                 {/* fields that are only in the webshop list are not rendered in website checklist */}

@@ -334,8 +334,6 @@ export default function Website() {
       KlantgegevensATMOS: false,
       Cloudflare: false,
       CommPM: false,
-      Opmerkingen: false,
-      lastUser: false,
     }
   }
   return (

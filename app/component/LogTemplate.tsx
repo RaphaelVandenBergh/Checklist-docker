@@ -16,32 +16,32 @@ export default function LogTemplate(data: any) {
                 <h2 className="text-2xl font-semibold">Gegevens Klant</h2>
                 <label className="form-control" htmlFor="KlantNummer">Klant Nummer:
                 </label>
-                <input disabled required defaultValue={data.data.list.KlantNummer} className={"appearance-none bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"KlantNummer"}></input>
+                <input disabled required defaultValue={data.data.list.KlantNummer} className={"appearance-none p-1 m-1 bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"KlantNummer"}></input>
                 <br />
 
                 <label className="form-control" htmlFor="KlantNaam">Klant Naam:
                 </label>
-                <input disabled required defaultValue={data.data.list.KlantNaam} className={"appearance-none bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"KlantNaam"}></input>
+                <input disabled required defaultValue={data.data.list.KlantNaam} className={"appearance-none p-1 m-1 bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"KlantNaam"}></input>
                 <br />
 
                 <label className="form-control" htmlFor="ProjectNaam">Projectnaam van klant:
                 </label>
-                <input disabled required defaultValue={data.data.list.ProjectNaam} className={"appearance-none bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"ProjectNaam"}></input>
+                <input disabled required defaultValue={data.data.list.ProjectNaam} className={"appearance-none p-1 m-1 bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"ProjectNaam"}></input>
                 <br />
 
                 <label className="form-control" htmlFor="ProjectNummer">PO nummer project:
                 </label>
-                <input disabled required defaultValue={data.data.list.ProjectNummer} className={"appearance-none bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"ProjectNummer"}></input>
+                <input disabled required defaultValue={data.data.list.ProjectNummer} className={"appearance-none p-1 m-1 bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"ProjectNummer"}></input>
                 <br />
 
                 <label className="form-control" htmlFor="Budget">Budget: €
                 </label>
-                <input disabled defaultValue={data.data.list.Budget} className={"appearance-none bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"Budget"}></input>
+                <input disabled defaultValue={data.data.list.Budget} className={"appearance-none p-1 m-1 bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"Budget"}></input>
                 <br />
 
                 <label className="form-control" htmlFor="Verantwoordelijke">Verantwoordelijke project:
                 </label>
-                <input disabled required defaultValue={data.data.list.Verantwoordelijke} className={"appearance-none bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"Verantwoordelijke"}></input>
+                <input disabled required defaultValue={data.data.list.Verantwoordelijke} className={"appearance-none p-1 m-1 bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"Verantwoordelijke"}></input>
                 <br />
                 <h2 className="text-2xl pt-2 font-semibold">Checklist</h2>
 
@@ -143,7 +143,7 @@ export default function LogTemplate(data: any) {
                     <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Loadspeed} type={"checkbox"} id="logcheck" name={"Loadspeed"}></input>
                     Loadspeed (ms):
                 </label>
-                <input disabled defaultValue={data.data.items[data.data.items.findIndex(findlog)].LoadspeedTime} className={"appearance-none bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"LoadspeedTime"}></input>
+                <input disabled defaultValue={data.data.items[data.data.items.findIndex(findlog)].LoadspeedTime} className={"appearance-none p-1 m-1 bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"LoadspeedTime"}></input>
                 <br />
 
                 <label className="form-control" htmlFor="ImageSize">
@@ -407,7 +407,7 @@ export default function LogTemplate(data: any) {
                 <label className="text-xl pt-2 font-semibold" htmlFor="Opmerkingen">Opmerkingen
                 </label>
                 <br />
-                <Textarea disabled resize className="bg-gray-200 no-padding bg-clip-content" color="blue" size="lg" variant="standard" defaultValue={data.data.items[data.data.items.findIndex(findlog)].Opmerkingen} name={"Opmerkingen"} placeholder={"Opmerkingen"}></Textarea>
+                <Textarea disabled resize className="bg-gray-200 bg-clip-content no-padding" color="blue" size="lg" variant="standard" defaultValue={data.data.items[data.data.items.findIndex(findlog)].Opmerkingen} name={"Opmerkingen"} placeholder={"Opmerkingen"}></Textarea>
 
                 <br />
 

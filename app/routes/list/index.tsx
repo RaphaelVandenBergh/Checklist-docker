@@ -10,6 +10,7 @@ import { db } from "~/utils/db.server"
 //import stylesheets for the page
 import styles from '../../styles/app.css';
 import main from '../../styles/main.css';
+import { tokenCookie } from "~/utils/session.server";
 // link imported styles to the page
 export function links() {
     return [
@@ -24,6 +25,9 @@ let paginationAmount = 5;
 type LoaderData = { lists: Array<CheckList>, page: number }
 //loader function fetches data from the database every time the page is loaded
 export const loader: LoaderFunction = async ({request}) => {
+    const cookies = await request.headers.get('Cookie');
+    const cookie = (await tokenCookie.parse(cookies)) || {};
+    console.log(cookie)
     const url = new URL(request.url);
     //get parameters for search and pagination
     const Search = url.searchParams.get("search")

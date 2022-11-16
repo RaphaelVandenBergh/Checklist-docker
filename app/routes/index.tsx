@@ -1,8 +1,9 @@
-
-import type { LinksFunction } from '@remix-run/node';
+import { json, LinksFunction, LoaderFunction } from '@remix-run/node';
 import { Link } from 'react-router-dom';
+import { authenticator } from '~/utils/auth.server';
 import styles from '../styles/app.css';
 import main from '../styles/main.css';
+import {sessionCookie, tokenCookie} from '../utils/session.server';
 
 export const links: LinksFunction = () => {
   return [
@@ -11,8 +12,23 @@ export const links: LinksFunction = () => {
 ];
 }
 
+export const loader : LoaderFunction = async ({request}) =>{
+    const cookies = await request.headers.get('Cookie');
+    const cookie = (await sessionCookie.parse(cookies)) || {};
+    const token =JSON.stringify(await authenticator.isAuthenticated(request))
+   
+    console.log(JSON.stringify(await authenticator.isAuthenticated(request)));
+    console.log();
+    
+    
+    return json(token, {headers: {
+        'Set-Cookie': await tokenCookie.serialize(token),
+    }})
+}
+
 
 export default function index(){
+
     return (
         <div className="bg-contact2">
         <div className="container-contact2">

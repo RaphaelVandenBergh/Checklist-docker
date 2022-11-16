@@ -13,7 +13,7 @@ export const links: LinksFunction = () => {
 }
 
 export const loader : LoaderFunction = async ({request}) =>{
-    const cookies = await request.headers.get('Cookie');
+    const cookies = request.headers.get('Cookie');
     const cookie = (await sessionCookie.parse(cookies)) || {};
     const token =JSON.stringify(await authenticator.isAuthenticated(request))
    

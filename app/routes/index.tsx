@@ -1,39 +1,14 @@
 import { json, LinksFunction, LoaderFunction, redirect } from '@remix-run/node';
 import { Link } from 'react-router-dom';
-import { authenticator } from '~/utils/auth.server';
+
 import styles from '../styles/app.css';
 import main from '../styles/main.css';
-import {sessionCookie, tokenCookie} from '../utils/session.server';
 
 export const links: LinksFunction = () => {
   return [
 
     { rel: "stylesheet", href: main },
 ];
-}
-
-export const loader : LoaderFunction = async ({request}) =>{
-    const cookies = request.headers.get('Cookie');
-    const cookie = (await sessionCookie.parse(cookies)) || null;
-    const tokencookei = (await tokenCookie.parse(cookies)) || null;
-    const token =JSON.stringify(await authenticator.isAuthenticated(request))
-    console.log(tokencookei);
-
-    if(tokencookei === null && cookie === null){
-        console.log("token is null")
-        return redirect('/login')
-        
-    }if(tokencookei === null && cookie !== null){
-        console.log("token is not null")
-        return json(token, {headers: {
-                'Set-Cookie': await tokenCookie.serialize(token),
-            }})
-    }
-
-    return null
-    
-    
-    
 }
 
 

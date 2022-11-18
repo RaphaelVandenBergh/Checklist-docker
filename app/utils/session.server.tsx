@@ -8,14 +8,13 @@ export const sessionCookie = createCookie("__session", {
     secrets: ["r3m1xr0ck5"],
     sameSite: "lax",
     httpOnly: true,
-    // maxAge: 60,
 });
 
 export const tokenCookie = createCookie("__token", {
     secrets: ["r3m1xr0ck5"],
     sameSite: "lax",
     httpOnly: true,
-    // maxAge: 60,
+    maxAge: 60,
 });
 
 export const sessionStorage =

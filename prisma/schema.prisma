@@ -26,6 +26,8 @@ model CheckList{
   CheckListItemsId String @unique
   CheckListItems CheckListItems @relation(fields: [CheckListItemsId], references: [Id])
   Logs Logs[]
+  Onderhoud Onderhoud[]
+  OnderhoudLogs OnderhoudLogs[]
 
 }
 
@@ -181,5 +183,84 @@ model Logs{
 
   Opmerkingen String @default("")
   lastUser String @default("")
+
+}
+
+model Onderhoud{
+  Id String @id @default(uuid())
+  Checklist CheckList @relation(fields: [CheckListId], references: [Id])
+  CheckListId String
+  CreatedAt DateTime @default(now())
+  UpdatedAt DateTime @updatedAt
+  Finished Boolean @default(false)
+  Verantwoordelijke String
+  Checklistbl Boolean
+  Opmerkingen String
+  TYPE String
+  SMTPCheck Boolean
+  ContactFormTest Boolean
+  ReplyKlant Boolean
+  LEGALPACK Boolean
+  ContactGegevensBedrijf Boolean
+  WPFastestOptimize Boolean
+  CloudflareMnt Boolean
+  FBDebug Boolean
+  ContactForm7 Boolean
+  Footer Boolean
+  MaterialWPMnt Boolean
+  PluginUpdates Boolean
+  Speedcheck Boolean
+  SSLMnt Boolean
+  ReCaptcha Boolean
+  DeadLinks Boolean
+  Analytics Boolean
+  TagManagerMnt Boolean
+  GDPRForm Boolean
+  SitemapMnt Boolean
+  Ajax Boolean
+  EmptyCache Boolean  
+  KlantMail Boolean
+  StripeMnt Boolean
+  BTWField Boolean
+  Tracking Boolean
+
+}
+
+model OnderhoudLogs{
+  Id String @id @default(uuid())
+  Checklist CheckList @relation(fields: [CheckListId], references: [Id])
+  CheckListId String
+  CreatedAt DateTime @default(now())
+
+ Verantwoordelijke String
+  Checklistbl Boolean
+  Opmerkingen String
+  TYPE String
+  SMTPCheck Boolean
+  ContactFormTest Boolean
+  ReplyKlant Boolean
+  LEGALPACK Boolean
+  ContactGegevensBedrijf Boolean
+  WPFastestOptimize Boolean
+  CloudflareMnt Boolean
+  FBDebug Boolean
+  ContactForm7 Boolean
+  Footer Boolean
+  MaterialWPMnt Boolean
+  PluginUpdates Boolean
+  Speedcheck Boolean
+  SSLMnt Boolean
+  ReCaptcha Boolean
+  DeadLinks Boolean
+  Analytics Boolean
+  TagManagerMnt Boolean
+  GDPRForm Boolean
+  SitemapMnt Boolean
+  Ajax Boolean
+  EmptyCache Boolean  
+  KlantMail Boolean
+  StripeMnt Boolean
+  BTWField Boolean
+  Tracking Boolean
 
 }

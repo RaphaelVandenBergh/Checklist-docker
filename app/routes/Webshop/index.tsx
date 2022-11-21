@@ -272,6 +272,7 @@ export const action: ActionFunction = async ({ request }) => {
 export default function Webshop() {
     //dummy data to fill the form
     const templatedata = {
+        isnew: true,
         list: {
             KlantNummer: "",
             KlantNaam: "",

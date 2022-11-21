@@ -268,6 +268,7 @@ export const action: ActionFunction = async ({ request }) => {
 export default function Website() {
   //define dumy data to be used by form component
   const templatedata = {
+    isnew: true,
     list: {
       KlantNummer: "",
       KlantNaam: "",

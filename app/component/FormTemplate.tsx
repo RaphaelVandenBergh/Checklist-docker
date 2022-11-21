@@ -2,6 +2,7 @@ import { Textarea } from "@material-tailwind/react";
 import { Form, Link } from "@remix-run/react";
 import { GrDocumentPdf } from "react-icons/gr";
 import { MdOutlineHistory } from "react-icons/md";
+import MaintenanceTemplate from "./MaintenanceTemplate";
 
 export default function FormTemplate(data: any) {
     return (
@@ -289,6 +290,14 @@ export default function FormTemplate(data: any) {
                 <input id="CommPM" defaultChecked={data.data.items.CommPM} type={"checkbox"} name={"CommPM"}></input>
                 <label className="p-1 m-1" htmlFor="CommPM">Communicatie naar PM</label>
                 <br />
+
+                {data.data.isnew != true ?
+                    <>
+                        <MaintenanceTemplate />
+                        <br />
+                    </>
+                    :null}
+
 
                 <label className="text-xl pt-2 font-semibold" htmlFor="Opmerkingen">Opmerkingen</label>
                 <br />

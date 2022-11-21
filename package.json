@@ -10,16 +10,17 @@
   },
   "dependencies": {
     "@material-tailwind/react": "^1.2.4",
-    "@prisma/client": "^4.6.0",
+    "@prisma/client": "^4.6.1",
     "@remix-run/node": "^1.7.3",
     "@remix-run/react": "^1.7.3",
     "@remix-run/vercel": "^1.7.3",
     "@vercel/node": "^2.4.4",
     "moment": "^2.29.4",
-    "prisma": "^4.5.0",
+    "prisma": "^4.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.6.0"
+    "react-icons": "^4.6.0",
+    "save-dev": "^0.0.1-security"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.7.3",

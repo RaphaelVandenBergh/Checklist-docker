@@ -55,10 +55,7 @@ export default function MaintenanceTemplate(onderhoud: any) {
 
     return (
         <>
-
             <h4 className="text-xl pt-2 font-semibold">Onderhoud</h4>
-
-
             <>
                 {onderhoud.onderhoud.length > 0 ?
                     (

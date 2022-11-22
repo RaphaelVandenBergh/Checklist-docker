@@ -254,8 +254,92 @@ export const action: ActionFunction = async ({ params, request }) => {
         include: { CheckListItems: true, Onderhoud:true }
     })
     if (currentData == null) return badRequest({ formError: "Form not submitted correctly" })
+    let isediting = false
+    let editing
     for(const onderhoud of currentData.Onderhoud){
-        
+        if (onderhoud.Finished == false){
+            isediting = true
+            editing = onderhoud
+        }
+    }
+    if (isediting == true) {
+        if (editing == undefined) return badRequest({ formError: "Form not submitted correctly" })
+        await  db.onderhoud.update({
+            where: {
+                Id: editing.Id
+            },
+            data:{
+                Verantwoordelijke: VerantwoordelijkeOnderhoud,
+                Finished: Finished,
+                Checklistbl: Checklistbl,
+                TYPE: "TYPE",
+                SMTPCheck: SMTPCheck,
+                ContactFormTest: ContactFormTest,
+                ReplyKlant: ReplyKlant,
+                LEGALPACK: LEGALPACK,
+                ContactGegevensBedrijf: ContactGegevensBedrijf,
+                WPFastestOptimize: WPFastestOptimize,
+                CloudflareMnt: CloudflareMnt,
+                FBDebug: FBDebug,
+                ContactForm7: ContactForm7,
+                Footer: Footer,
+                MaterialWPMnt: MaterialWPMnt,
+                PluginUpdates: PluginUpdates,
+                Speedcheck: Speedcheck,
+                SSLMnt: SSLMnt,
+                ReCaptcha: ReCaptcha,
+                DeadLinks: DeadLinks,
+                Analytics: Analytics,
+                TagManagerMnt: TagManagerMnt,
+                GDPRForm: GDPRForm,
+                SitemapMnt: SitemapMnt,
+                Ajax: Ajax,
+                EmptyCache: EmptyCache,
+                KlantMail: KlantMail,
+                StripeMnt: StripeMnt,
+                BTWField: BTWField,
+                Tracking: Tracking,
+            }
+        })
+    }
+    if(isediting == false){
+        if (typeof VerantwoordelijkeOnderhoud !== "string") return badRequest({ formError: "Form not submitted correctly" })
+        await db.onderhoud.create({
+            data:{
+                Opmerkingen: "",
+                CheckListId: currentData.Id,
+                Verantwoordelijke: VerantwoordelijkeOnderhoud,
+                Finished: Finished,
+                Checklistbl: Checklistbl,
+                TYPE: "TYPE",
+                SMTPCheck: SMTPCheck,
+                ContactFormTest: ContactFormTest,
+                ReplyKlant: ReplyKlant,
+                LEGALPACK: LEGALPACK,
+                ContactGegevensBedrijf: ContactGegevensBedrijf,
+                WPFastestOptimize: WPFastestOptimize,
+                CloudflareMnt: CloudflareMnt,
+                FBDebug: FBDebug,
+                ContactForm7: ContactForm7,
+                Footer: Footer,
+                MaterialWPMnt: MaterialWPMnt,
+                PluginUpdates: PluginUpdates,
+                Speedcheck: Speedcheck,
+                SSLMnt: SSLMnt,
+                ReCaptcha: ReCaptcha,
+                DeadLinks: DeadLinks,
+                Analytics: Analytics,
+                TagManagerMnt: TagManagerMnt,
+                GDPRForm: GDPRForm,
+                SitemapMnt: SitemapMnt,
+                Ajax: Ajax,
+                EmptyCache: EmptyCache,
+                KlantMail: KlantMail,
+                StripeMnt: StripeMnt,
+                BTWField: BTWField,
+                Tracking: Tracking,
+            }
+        })
     }
     await db.logs.create({
         data: {

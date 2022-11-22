@@ -302,7 +302,7 @@ export const action: ActionFunction = async ({ params, request }) => {
             }
         })
     }
-    if(isediting == false){
+    if(isediting == false && VerantwoordelijkeOnderhoud != ""){
         if (typeof VerantwoordelijkeOnderhoud !== "string") return badRequest({ formError: "Form not submitted correctly" })
         await db.onderhoud.create({
             data:{
@@ -311,7 +311,7 @@ export const action: ActionFunction = async ({ params, request }) => {
                 Verantwoordelijke: VerantwoordelijkeOnderhoud,
                 Finished: Finished,
                 Checklistbl: Checklistbl,
-                TYPE: "TYPE",
+                TYPE: "",
                 SMTPCheck: SMTPCheck,
                 ContactFormTest: ContactFormTest,
                 ReplyKlant: ReplyKlant,

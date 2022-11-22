@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import type { CheckList, CheckListItems } from "@prisma/client";
+import type { CheckList, CheckListItems, Onderhoud } from "@prisma/client";
 import type { ActionFunction, LoaderFunction } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
 import { db } from "~/utils/db.server";
@@ -28,7 +28,7 @@ export function links() {
 
 
 //define types for the data returned by the loader function
-type LoaderData = { list: CheckList, items: CheckListItems };
+type LoaderData = { list: CheckList, items: CheckListItems, onderhoud: Onderhoud[] };
 //loader function fetches data from the database every time the page is loaded
 export const loader: LoaderFunction = async ({ params }) => {
     const list = await db.checkList.findUnique({
@@ -36,11 +36,13 @@ export const loader: LoaderFunction = async ({ params }) => {
             Id: params.websiteid
         },
         include: {
-            CheckListItems: true
+            CheckListItems: true,
+            Onderhoud:true
         }
     })
+
     if (!list) { throw new Error("List not found") }
-    const data: LoaderData = { list, items: list.CheckListItems }
+    const data: LoaderData = { list, items: list.CheckListItems, onderhoud: list.Onderhoud }
     return json(data)
 }
 
@@ -208,7 +210,40 @@ export const action: ActionFunction = async ({ params, request }) => {
 
     const Opmerkingen = form.get("Opmerkingen")?.toString() == null ? "" : form.get("Opmerkingen")?.toString();
     const lastUser = form.get("nameDev")?.toString() == null ? "" : form.get("nameDev")?.toString();
-    console.log(lastUser)
+    
+    const VerantwoordelijkeOnderhoud = form.get("VerantwoordelijkeOnderhoud")?.toString() == null ? "" : form.get("VerantwoordelijkeOnderhoud")?.toString();
+    const Finished =  form.get("Finished") =="on" ? true : false;
+    const Checklistbl = form.get("Checklistbl") =="on" ? true : false;
+    const TYPE = form.get("TYPE") == "on" ? true : false;
+    const SMTPCheck = form.get("SMTPCheck") == "on" ? true : false;
+    const ContactFormTest = form.get("ContactFormTest") == "on" ? true : false;
+    const ReplyKlant = form.get("ReplyKlant") == "on" ? true : false;
+    const LEGALPACK = form.get("LEGALPACK") == "on" ? true : false;
+    const ContactGegevensBedrijf = form.get("ContactGegevensBedrijf") == "on" ? true : false;
+    const WPFastestOptimize = form.get("WPFastestOptimize") == "on" ? true : false;
+    const CloudflareMnt = form.get("CloudflareMnt") == "on" ? true : false;
+    const FBDebug = form.get("FBDebug") == "on" ? true : false;
+    const ContactForm7 = form.get("ContactForm7") == "on" ? true : false;
+    const Footer = form.get("Footer") == "on" ? true : false;
+    const MaterialWPMnt = form.get("MaterialWPMnt") == "on" ? true : false;
+    const PluginUpdates = form.get("PluginUpdates") == "on" ? true : false;
+    const Speedcheck = form.get("Speedcheck") == "on" ? true : false;
+    const SSLMnt = form.get("SSLMnt") == "on" ? true : false;
+    const ReCaptcha = form.get("ReCaptcha") == "on" ? true : false;
+    const DeadLinks = form.get("DeadLinks") == "on" ? true : false;
+    const Analytics = form.get("Analytics") == "on" ? true : false;
+    const TagManagerMnt = form.get("TagManagerMnt") == "on" ? true : false;
+    const GDPRForm = form.get("GDPRForm") == "on" ? true : false;
+    const SitemapMnt = form.get("SitemapMnt") == "on" ? true : false;
+    const Ajax = form.get("Ajax") == "on" ? true : false;
+    const EmptyCache = form.get("EmptyCache") == "on" ? true : false;
+    const KlantMail = form.get("KlantMail") == "on" ? true : false;
+    const StripeMnt = form.get("StripeMnt") == "on" ? true : false;
+    const BTWField = form.get("BTWField") == "on" ? true : false;
+    const Tracking = form.get("Tracking") == "on" ? true : false;
+
+
+    
 
     //check if all required fields are filled in
     if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string" || typeof Compressie !== "boolean" || typeof Copyright !== "boolean" || typeof SocialMediaMeta !== "boolean" || typeof SSL !== "boolean" || typeof FacebookDebug !== "boolean" || typeof LinkedInShare !== "boolean" || typeof PlaceholderMail !== "boolean" || typeof SMTP !== "boolean" || typeof Loadspeed !== "boolean" || typeof LoadspeedTime !== "string" || typeof ImageSize !== "boolean" || typeof AltTags !== "boolean" || typeof Htaccess !== "boolean" || typeof Sitemap !== "boolean" || typeof Robots !== "boolean" || typeof Privacy !== "boolean" || typeof AlgemeneVoorwaarden !== "boolean" || typeof CookiePolicy !== "boolean" || typeof GDPR !== "boolean" || typeof CookiePolicyBanner !== "boolean" || typeof EasyWPSMTP !== "boolean" || typeof WPS !== "boolean" || typeof KlantAanpassingen !== "boolean" || typeof CapabilityManager !== "boolean" || typeof Mobile !== "boolean" || typeof Optimalisatie !== "boolean" || typeof SSLCheckup !== "boolean" || typeof MailCheckup !== "boolean" || typeof FactuurHosting !== "boolean") { return badRequest({ formError: "Form not submitted correctly" }) }
@@ -216,9 +251,12 @@ export const action: ActionFunction = async ({ params, request }) => {
         where: {
             Id: params.websiteid
         },
-        include: { CheckListItems: true }
+        include: { CheckListItems: true, Onderhoud:true }
     })
     if (currentData == null) return badRequest({ formError: "Form not submitted correctly" })
+    for(const onderhoud of currentData.Onderhoud){
+        
+    }
     await db.logs.create({
         data: {
             CheckListId: currentData.Id,
@@ -412,7 +450,7 @@ export default function listid() {
                                 </DialogFooter>
                             </Dialog>
                         </Fragment>}
-                    <FormTemplate data={data} />
+                    <FormTemplate data={data}/>
                 </div>
             </div>
         </div>

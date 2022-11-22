@@ -291,9 +291,9 @@ export default function FormTemplate(data: any) {
                 <label className="p-1 m-1" htmlFor="CommPM">Communicatie naar PM</label>
                 <br />
 
-                {data.data.isnew != true ?
+                {data.data.isnew != true?
                     <>
-                        <MaintenanceTemplate />
+                        <MaintenanceTemplate onderhoud={data.data.onderhoud} />
                         <br />
                     </>
                     :null}

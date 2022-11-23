@@ -13,6 +13,7 @@ pipeline {
         }
         stage('Deliver') { 
             steps {
+                sh 'npx prisma generate'
                 sh 'npm run build' 
                 sh 'npm run start'
                 

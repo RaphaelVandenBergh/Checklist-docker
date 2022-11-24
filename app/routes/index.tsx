@@ -19,7 +19,7 @@ export default function index(){
         <div className="container-contact2">
                 <div className="wrap-contact2">
                         <span className="contact2-form-title">
-                                Checklist Oplevering
+                                Checklist Opleveringg
                         </span>
                         <p>
                                 Deze checklist dient ingevuld te worden alvorens een website op te leveren aan een klant.

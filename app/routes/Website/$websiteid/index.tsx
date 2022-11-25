@@ -124,6 +124,8 @@ type ActionData = {
         Cloudflare: Boolean | null;
 
         CommPM: Boolean | null;
+
+        TYPE: String | null;
     }
 }
 
@@ -214,7 +216,7 @@ export const action: ActionFunction = async ({ params, request }) => {
     const VerantwoordelijkeOnderhoud = form.get("VerantwoordelijkeOnderhoud")?.toString() == null ? "" : form.get("VerantwoordelijkeOnderhoud")?.toString();
     const Finished =  form.get("Finished") =="on" ? true : false;
     const Checklistbl = form.get("Checklistbl") =="on" ? true : false;
-    const TYPE = form.get("TYPE") == "on" ? true : false;
+    const TYPE = form.get("TYPE")?.toString() == null ? "" : form.get("TYPE")?.toString();
     const SMTPCheck = form.get("SMTPCheck") == "on" ? true : false;
     const ContactFormTest = form.get("ContactFormTest") == "on" ? true : false;
     const ReplyKlant = form.get("ReplyKlant") == "on" ? true : false;
@@ -272,7 +274,7 @@ export const action: ActionFunction = async ({ params, request }) => {
                 Verantwoordelijke: VerantwoordelijkeOnderhoud,
                 Finished: Finished,
                 Checklistbl: Checklistbl,
-                TYPE: "TYPE",
+                TYPE: TYPE,
                 SMTPCheck: SMTPCheck,
                 ContactFormTest: ContactFormTest,
                 ReplyKlant: ReplyKlant,
@@ -303,7 +305,7 @@ export const action: ActionFunction = async ({ params, request }) => {
         })
     }
     if(isediting == false && VerantwoordelijkeOnderhoud != ""){
-        if (typeof VerantwoordelijkeOnderhoud !== "string") return badRequest({ formError: "Form not submitted correctly" })
+        if (typeof VerantwoordelijkeOnderhoud !== "string" || typeof TYPE !== "string") return badRequest({ formError: "Form not submitted correctly" })
         await db.onderhoud.create({
             data:{
                 Opmerkingen: "",
@@ -311,7 +313,7 @@ export const action: ActionFunction = async ({ params, request }) => {
                 Verantwoordelijke: VerantwoordelijkeOnderhoud,
                 Finished: Finished,
                 Checklistbl: Checklistbl,
-                TYPE: "",
+                TYPE: TYPE,
                 SMTPCheck: SMTPCheck,
                 ContactFormTest: ContactFormTest,
                 ReplyKlant: ReplyKlant,

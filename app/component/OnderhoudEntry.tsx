@@ -21,10 +21,7 @@ export default function OnderhoudEntry(onderhoud: any) {
 
                     <input disabled className={"appearance-none p-1 m-1 bg-gray-300 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"}></input>
 
-                    <div className="float-right">
-                        <input id="logcheck" defaultChecked={onderhoud.onderhoud.Finished} disabled type={"checkbox"} ></input>
-                        <label className="p-1 m-1" htmlFor="Finished">Finished</label>
-                    </div>
+                   
 
                     <br />
 
@@ -33,8 +30,8 @@ export default function OnderhoudEntry(onderhoud: any) {
                     <label className="p-1 m-1" htmlFor="Checklistbl">Checklist</label>
                     <br />
 
-                    <input id="logcheck" defaultChecked={onderhoud.onderhoud.TYPE} disabled type={"checkbox"} ></input>
-                    <label className="p-1 m-1" htmlFor="TYPE">TYPE</label>
+                    <label className="" htmlFor="TYPE">TYPE: </label>
+                    <input id="logcheck" className={"appearance-none p-1 m-1 bg-gray-300 border border-gray-200 rounded  leading-tight focus:border-gray-500"} defaultValue={onderhoud.onderhoud.TYPE} disabled type={"text"} ></input>
                     <br />
 
                     <input id="logcheck" defaultChecked={onderhoud.onderhoud.SMTPCheck} disabled type={"checkbox"} ></input>

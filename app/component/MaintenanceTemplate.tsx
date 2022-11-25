@@ -22,7 +22,7 @@ export default function MaintenanceTemplate(onderhoud: any) {
             Verantwoordelijke: '',
             Checklistbl: false,
             Opmerkingen: '',
-            TYPE: false,
+            TYPE: "",
             SMTPCheck: false,
             ContactFormTest: false,
             ReplyKlant: false,
@@ -90,8 +90,8 @@ export default function MaintenanceTemplate(onderhoud: any) {
                             <label className="p-1 m-1" htmlFor="Checklistbl">Checklist</label>
                             <br />
 
-                            <input id="TYPE" defaultChecked={editing.TYPE} type={"checkbox"} name={"TYPE"} ></input>
-                            <label className="p-1 m-1" htmlFor="TYPE">TYPE</label>
+                            <label className="" htmlFor="TYPE">TYPE: </label>
+                            <input id="TYPE" defaultValue={editing.TYPE} className={"appearance-none bg-gray-300 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"TYPE"} ></input>
                             <br />
 
                             <input id="SMTPCheck" defaultChecked={editing.SMTPCheck} type={"checkbox"} name={"SMTPCheck"} ></input>

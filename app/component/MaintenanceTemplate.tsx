@@ -26,7 +26,7 @@ export default function MaintenanceTemplate(onderhoud: any) {
             SMTPCheck: false,
             ContactFormTest: false,
             ReplyKlant: false,
-            LEGALPACK: false,
+            LEGALPACKMnt: false,
             ContactGegevensBedrijf: false,
             WPFastestOptimize: false,
             CloudflareMnt: false,
@@ -37,9 +37,9 @@ export default function MaintenanceTemplate(onderhoud: any) {
             PluginUpdates: false,
             Speedcheck: false,
             SSLMnt: false,
-            ReCaptcha: false,
+            ReCaptchaMnt: false,
             DeadLinks: false,
-            Analytics: false,
+            AnalyticsMnt: false,
             TagManagerMnt: false,
             GDPRForm: false,
             SitemapMnt: false,
@@ -106,8 +106,8 @@ export default function MaintenanceTemplate(onderhoud: any) {
                             <label className="p-1 m-1" htmlFor="ReplyKlant">Reply gehad van klant</label>
                             <br />
 
-                            <input id="LEGALPACK" defaultChecked={editing.LEGALPACK} type={"checkbox"} name={"LEGALPACK"} ></input>
-                            <label className="p-1 m-1" htmlFor="LEGALPACK">LEGAL PACK</label>
+                            <input id="LEGALPACKMnt" defaultChecked={editing.LEGALPACKMnt} type={"checkbox"} name={"LEGALPACKMnt"} ></input>
+                            <label className="p-1 m-1" htmlFor="LEGALPACKMnt">LEGAL PACK</label>
                             <br />
 
                             <input id="ContactGegevensBedrijf" defaultChecked={editing.ContactGegevensBedrijf} type={"checkbox"} name={"ContactGegevensBedrijf"} ></input>
@@ -150,16 +150,16 @@ export default function MaintenanceTemplate(onderhoud: any) {
                             <label className="p-1 m-1" htmlFor="SSLMnt">SSL</label>
                             <br />
 
-                            <input id="ReCaptcha" defaultChecked={editing.ReCaptcha} type={"checkbox"} name={"ReCaptcha"} ></input>
-                            <label className="p-1 m-1" htmlFor="ReCaptcha">ReCaptcha</label>
+                            <input id="ReCaptchaMnt" defaultChecked={editing.ReCaptchaMnt} type={"checkbox"} name={"ReCaptchaMnt"} ></input>
+                            <label className="p-1 m-1" htmlFor="ReCaptchaMnt">ReCaptcha</label>
                             <br />
 
                             <input id="DeadLinks" defaultChecked={editing.DeadLinks} type={"checkbox"} name={"DeadLinks"} ></input>
                             <label className="p-1 m-1" htmlFor="DeadLinks">Deadlinks?</label>
                             <br />
 
-                            <input id="Analytics" defaultChecked={editing.Analytics} type={"checkbox"} name={"Analytics"} ></input>
-                            <label className="p-1 m-1" htmlFor="Analytics">Analytics</label>
+                            <input id="AnalyticsMnt" defaultChecked={editing.AnalyticsMnt} type={"checkbox"} name={"AnalyticsMnt"} ></input>
+                            <label className="p-1 m-1" htmlFor="AnalyticsMnt">Analytics</label>
                             <br />
 
                             <input id="TagManagerMnt" defaultChecked={editing.TagManagerMnt} type={"checkbox"} name={"TagManagerMnt"} ></input>

@@ -38,7 +38,7 @@ model CheckListItems{
   Compressie Boolean @default(false)
   Copyright Boolean @default(false)
   SocialMediaMeta Boolean @default(false)
-  GoogleAnalytics Boolean @default(false)
+  Analytics Boolean @default(false)
   TagManager Boolean @default(false)
   SSL Boolean @default(false)
   FacebookDebug Boolean @default(false)
@@ -105,6 +105,28 @@ model CheckListItems{
   lastUser String @default("")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+
+  CloudFlareInWordpress String @default("")
+  DoubleCheck String @default("")
+  OnderhoudsAbonnement String @default("")
+  OnderhoudsProject String @default("")
+  FacebookInstaShop String @default("")
+  ReCaptcha String @default("")
+  ActiveCampaign String @default("")
+  Mockups String @default("")
+  Blog String @default("")
+  ProjectModule String @default("")
+  BookingsModule String @default("")
+  BookingTool String @default("")
+  RealisatieModule String @default("")
+  SharingModule String @default("")
+  NieuwsBriefKoppeling String @default("")
+  MultiLanguage String @default("")
+  DelDev String @default("")
+  LEGALPACK String @default("")
+  
+
 }
 
 model Logs{
@@ -117,7 +139,7 @@ model Logs{
   Compressie Boolean @default(false)
   Copyright Boolean @default(false)
   SocialMediaMeta Boolean @default(false)
-  GoogleAnalytics Boolean @default(false)
+  Analytics Boolean @default(false)
   TagManager Boolean @default(false)
   SSL Boolean @default(false)
   FacebookDebug Boolean @default(false)
@@ -183,6 +205,25 @@ model Logs{
   Opmerkingen String @default("")
   lastUser String @default("")
 
+  CloudFlareInWordpress String @default("")
+  DoubleCheck String @default("")
+  OnderhoudsAbonnement String @default("")
+  OnderhoudsProject String @default("")
+  FacebookInstaShop String @default("")
+  ReCaptcha String @default("")
+  ActiveCampaign String @default("")
+  Mockups String @default("")
+  Blog String @default("")
+  ProjectModule String @default("")
+  BookingsModule String @default("")
+  BookingTool String @default("")
+  RealisatieModule String @default("")
+  SharingModule String @default("")
+  NieuwsBriefKoppeling String @default("")
+  MultiLanguage String @default("")
+  DelDev String @default("")
+  LEGALPACK String @default("")
+
 }
 
 model Onderhoud{
@@ -199,7 +240,7 @@ model Onderhoud{
   SMTPCheck Boolean
   ContactFormTest Boolean
   ReplyKlant Boolean
-  LEGALPACK Boolean
+  LEGALPACKMnt Boolean
   ContactGegevensBedrijf Boolean
   WPFastestOptimize Boolean
   CloudflareMnt Boolean
@@ -210,9 +251,9 @@ model Onderhoud{
   PluginUpdates Boolean
   Speedcheck Boolean
   SSLMnt Boolean
-  ReCaptcha Boolean
+  ReCaptchaMnt Boolean
   DeadLinks Boolean
-  Analytics Boolean
+  AnalyticsMnt Boolean
   TagManagerMnt Boolean
   GDPRForm Boolean
   SitemapMnt Boolean

@@ -1,12 +1,9 @@
 import { json, LinksFunction, LoaderFunction, redirect } from '@remix-run/node';
 import { Link } from 'react-router-dom';
-
-import styles from '../styles/app.css';
 import main from '../styles/main.css';
 
 export const links: LinksFunction = () => {
   return [
-
     { rel: "stylesheet", href: main },
 ];
 }
@@ -27,7 +24,9 @@ export default function index(){
                         <div className="container-contact2-form-btn">
                                 <div className="wrap-contact2-form-btn">
                                         <div className="contact2-form-bgbtn"></div>
-                                        <Link to={'/Website'} className="contact2-form-btn">Website</Link>
+                                        <Link to={'/Website'} className="contact2-form-btn">
+                                                Website
+                                        </Link>
                                 </div>
                         </div>
                         <div className="container-contact2-form-btn">

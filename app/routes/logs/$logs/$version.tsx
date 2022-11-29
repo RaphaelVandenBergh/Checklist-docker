@@ -25,16 +25,15 @@ export function links() {
         { rel: "stylesheet", href: main },
     ];
 }
- type LoaderData ={list: CheckList, items: Logs[], Version: number}
+ type LoaderData ={list: CheckList, items: Logs, Version: number}
 export const loader: LoaderFunction = async ({ params})=>{
-    const logs = await db.logs.findMany({
-        where:{CheckListId: params.logs},
+    const logs = await db.logs.findUnique({
+        where:{Id: params.version},
         include: {Checklist: true},
-        orderBy: {Version: 'asc'}
     })
     if(!logs){ throw new Error('List not found')}
     if(!params.version){throw new Error('Version not found')}
-    const data: LoaderData = {list:logs[0].Checklist, items:logs, Version: parseInt(params.version)}
+    const data: LoaderData = {list:logs.Checklist, items:logs, Version: parseInt(params.version)}
     return json(data)
     
 }
@@ -49,12 +48,7 @@ export default function Index(){
         setOpen(false);
 
     };
-    function findlog(log:any){
-        if(log.Version == data.Version )
-        return true
-        else return false
-    }
-    const getdate = new Date(data.items[data.items.findIndex(findlog)].createdAt)
+    const getdate = new Date(data.items.createdAt)
     const date = moment(getdate).format('DD/MM/yyyy HH:mm:ss')
     
     
@@ -68,19 +62,19 @@ export default function Index(){
                         <h1>Checklist {data.list.isWebshop? "Webshop" : "Website"}</h1>
                         <span className="text-sm text-center block ">
                             updated on: {date} <br />
-                            by: {data.items[data.items.findIndex(findlog)].lastUser}
+                            by: {data.items.lastUser}
 
 
                         </span>
                     </span>
 
                     {/* form for the checklist */}
-                    {data.items[data.Version-1].Opmerkingen == "" ? null :
+                    {data.items.Opmerkingen == "" ? null :
                         <Fragment>
                             <Dialog open={open} handler={handleClickOpen}>
                                 <DialogHeader className="text-red-600">WARNING!</DialogHeader>
                                 <DialogBody className="grid" divider>
-                                    {data.items[data.Version-1].Opmerkingen.split("\r\n").map((item, index) => {
+                                    {data.items.Opmerkingen.split("\r\n").map((item, index) => {
                                         return <p className="text-black" key={index}>{item}</p>
                                     })}
                                 </DialogBody>

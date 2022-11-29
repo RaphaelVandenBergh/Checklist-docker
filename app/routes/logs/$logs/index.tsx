@@ -1,9 +1,9 @@
-//import stylesheets for the page
 import { Logs } from '@prisma/client';
 import { json, LoaderFunction } from '@remix-run/node';
 import { Form, Link, useLoaderData } from '@remix-run/react';
 import moment from 'moment';
 import { db } from '~/utils/db.server';
+//import stylesheets for the page
 import styles from '../../../styles/app.css';
 import main from '../../../styles/main.css';
 // link imported styles to the page
@@ -59,7 +59,7 @@ export default function logs() {
 
                         {data.Logs.length == 0 ? "no logs found" :
                             data.Logs.map((log) => (
-                                <Link to={"/logs/" + log.CheckListId + "/" + log.Version} key={log.Id}>
+                                <Link to={"/logs/" + log.CheckListId + "/" + log.Id} key={log.Id}>
                                     <div className="w-full my-5 bg-gray-200 rounded-xl overflow-hdden shadow-md p-4 undefined" >
                                         <h4 className='text-lg'>Version: {log.Version}</h4>
                                         <h4 className="text-lg text-left">Created on: {moment(new Date(log.createdAt)).format("DD/MM/yyyy HH:mm:ss")}</h4>

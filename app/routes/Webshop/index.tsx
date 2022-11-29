@@ -33,7 +33,7 @@ type ActionData = {
         Compressie: Boolean | null;
         Copyright: Boolean | null;
         SocialMediaMeta: Boolean | null;
-        GoogleAnalytics: Boolean | null;
+        Analytics: Boolean | null;
         TagManager: Boolean | null;
         SSL: Boolean | null;
         FacebookDebug: Boolean | null;
@@ -118,7 +118,7 @@ export const action: ActionFunction = async ({ request }) => {
     const Compressie = form.get("Compressie") == "on" ? true : false;
     const Copyright = form.get("Copyright") == "on" ? true : false;
     const SocialMediaMeta = form.get("SocialMediaMeta") == "on" ? true : false;
-    const GoogleAnalytics = form.get("GoogleAnalytics") == "on" ? true : false;
+    const Analytics = form.get("Analytics") == "on" ? true : false;
     const TagManager = form.get("TagManager") == "on" ? true : false;
     const SSL = form.get("SSL") == "on" ? true : false;
     const FacebookDebug = form.get("FacebookDebug") == "on" ? true : false;
@@ -184,6 +184,25 @@ export const action: ActionFunction = async ({ request }) => {
     const Opmerkingen = form.get("Opmerkingen")?.toString() == null ? "" : form.get("Opmerkingen")?.toString();
     const lastUser = form.get("nameDev")?.toString() == null ? "" : form.get("nameDev")?.toString();
 
+    const CloudFlareInWordpress = form.get("CloudFlareInWordpress")?.toString() == null ? "" : form.get("CloudFlareInWordpress")?.toString();
+    const DoubleCheck = form.get("DoubleCheck")?.toString() == null ? "" : form.get("DoubleCheck")?.toString();
+    const LEGALPACK = form.get("LEGALPACK")?.toString() == null ? "" : form.get("LEGALPACK")?.toString();
+    const OnderhoudsAbonnement = form.get("OnderhoudsAbonnement")?.toString() == null ? "" : form.get("OnderhoudsAbonnement")?.toString();
+    const OnderhoudsProject = form.get("OnderhoudsProject")?.toString() == null ? "" : form.get("OnderhoudsProject")?.toString();
+    const FacebookInstaShop = form.get("FacebookInstaShop")?.toString() == null ? "" : form.get("FacebookInstaShop")?.toString();
+    const ReCaptcha = form.get("ReCaptcha")?.toString() == null ? "" : form.get("ReCaptcha")?.toString();
+    const ActiveCampaign = form.get("ActiveCampaign")?.toString() == null ? "" : form.get("ActiveCampaign")?.toString();
+    const Mockups = form.get("Mockups")?.toString() == null ? "" : form.get("Mockups")?.toString();
+    const Blog = form.get("Blog")?.toString() == null ? "" : form.get("Blog")?.toString();
+    const ProjectModule = form.get("ProjectModule")?.toString() == null ? "" : form.get("ProjectModule")?.toString();
+    const BookingsModule = form.get("BookingsModule")?.toString() == null ? "" : form.get("BookingsModule")?.toString();
+    const BookingTool = form.get("BookingTool")?.toString() == null ? "" : form.get("BookingTool")?.toString();
+    const RealisatieModule = form.get("RealisatieModule")?.toString() == null ? "" : form.get("RealisatieModule")?.toString();
+    const SharingModule = form.get("SharingModule")?.toString() == null ? "" : form.get("SharingModule")?.toString();
+    const NieuwsBriefKoppeling = form.get("NieuwsBriefKoppeling")?.toString() == null ? "" : form.get("NieuwsBriefKoppeling")?.toString();
+    const MultiLanguage = form.get("MultiLanguage")?.toString() == null ? "" : form.get("MultiLanguage")?.toString();
+    const DelDev = form.get("DelDev")?.toString() == null ? "" : form.get("DelDev")?.toString();
+
     //check if the values are valid
     if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string" || typeof Compressie !== "boolean" || typeof Copyright !== "boolean" || typeof SocialMediaMeta !== "boolean" || typeof SSL !== "boolean" || typeof FacebookDebug !== "boolean" || typeof LinkedInShare !== "boolean" || typeof PlaceholderMail !== "boolean" || typeof SMTP !== "boolean" || typeof Loadspeed !== "boolean" || typeof LoadspeedTime !== "string" || typeof ImageSize !== "boolean" || typeof AltTags !== "boolean" || typeof Htaccess !== "boolean" || typeof Sitemap !== "boolean" || typeof Robots !== "boolean" || typeof Privacy !== "boolean" || typeof AlgemeneVoorwaarden !== "boolean" || typeof CookiePolicy !== "boolean" || typeof GDPR !== "boolean" || typeof CookiePolicyBanner !== "boolean" || typeof EasyWPSMTP !== "boolean" || typeof WPS !== "boolean" || typeof KlantAanpassingen !== "boolean" || typeof CapabilityManager !== "boolean" || typeof Mobile !== "boolean" || typeof Optimalisatie !== "boolean" || typeof SSLCheckup !== "boolean" || typeof MailCheckup !== "boolean" || typeof FactuurHosting !== "boolean") { return badRequest({ formError: "Form not submitted correctly" }) }
 
@@ -203,7 +222,7 @@ export const action: ActionFunction = async ({ request }) => {
                     Compressie: Compressie,
                     Copyright: Copyright,
                     SocialMediaMeta: SocialMediaMeta,
-                    GoogleAnalytics: GoogleAnalytics,
+                    Analytics: Analytics,
                     TagManager: TagManager,
                     SSL: SSL,
                     FacebookDebug: FacebookDebug,
@@ -257,6 +276,25 @@ export const action: ActionFunction = async ({ request }) => {
                     CommPM: CommPM,
                     Opmerkingen: Opmerkingen,
                     lastUser: lastUser,
+
+                    CloudFlareInWordpress: CloudFlareInWordpress,
+                    DoubleCheck: DoubleCheck,
+                    OnderhoudsAbonnement: OnderhoudsAbonnement,
+                    OnderhoudsProject: OnderhoudsProject,
+                    FacebookInstaShop: FacebookInstaShop,
+                    ReCaptcha: ReCaptcha,
+                    ActiveCampaign: ActiveCampaign,
+                    Mockups: Mockups,
+                    Blog: Blog,
+                    ProjectModule: ProjectModule,
+                    BookingsModule: BookingsModule,
+                    BookingTool: BookingTool,
+                    RealisatieModule: RealisatieModule,
+                    SharingModule: SharingModule,
+                    NieuwsBriefKoppeling: NieuwsBriefKoppeling,
+                    MultiLanguage: MultiLanguage,
+                    DelDev: DelDev,
+                    LEGALPACK: LEGALPACK,
                 }
             }
         }
@@ -286,7 +324,7 @@ export default function Webshop() {
             Compressie: false,
             Copyright: false,
             SocialMediaMeta: false,
-            GoogleAnalytics: false,
+            Analytics: false,
             TagManager: false,
             SSL: false,
             FacebookDebug: false,

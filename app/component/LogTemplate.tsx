@@ -1,6 +1,5 @@
 import { Textarea } from "@material-tailwind/react";
 import { Form } from "@remix-run/react";
-import React from "react";
 import { GrDocumentPdf } from "react-icons/gr";
 
 export default function LogTemplate(data: any) {
@@ -65,8 +64,8 @@ export default function LogTemplate(data: any) {
                 </label>
                 <br />
 
-                <label className="form-control" htmlFor="GoogleAnalytics">
-                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].GoogleAnalytics} type={"checkbox"} id="logcheck" name={"GoogleAnalytics"}></input>
+                <label className="form-control" htmlFor="Analytics">
+                    <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].Analytics} type={"checkbox"} id="logcheck" name={"Analytics"}></input>
                     Google Analytics opgezet
                 </label>
                 <br />
@@ -402,6 +401,206 @@ export default function LogTemplate(data: any) {
                     <input disabled defaultChecked={data.data.items[data.data.items.findIndex(findlog)].CommPM} type={"checkbox"} id="logcheck" name={"CommPM"}></input>
                     Communicatie naar PM
                 </label>
+                <br />
+
+                <label className="" htmlFor="CloudFlareInWordpress">Cloudflare in wordpress active?</label>
+                <select disabled id="CloudFlareInWordpress" className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="CloudFlareInWordpress" defaultValue={data.data.items.CloudFlareInWordpress} >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                
+                <label className="" htmlFor="DoubleCheck">Double Check web SRV</label>
+                <select disabled id="DoubleCheck" name="DoubleCheck"  defaultValue={data.data.items[data.data.items.findIndex(findlog)].DoubleCheck} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="LEGALPACK"> Legal Pack</label>
+                <select disabled id="LEGALPACK" name="LEGALPACK"  defaultValue={data.data.items[data.data.items.findIndex(findlog)].LEGALPACK} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-3/12 p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                    <option value="AANVRAAG">Aanvraag ingediend</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="OnderhoudsAbonnement">OnderhoudsAbonnement</label>
+                <select disabled id="OnderhoudsAbonnement" name="OnderhoudsAbonnement"  defaultValue={data.data.items[data.data.items.findIndex(findlog)].OnderhoudsAbonnement} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="OnderhoudsProject">Onderhouds Project</label>
+                <select disabled id="OnderhoudsProject" name="OnderhoudsProject"  defaultValue={data.data.items[data.data.items.findIndex(findlog)].OnderhoudsProject} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="FacebookInstaShop">Facebook en Instagram Shop</label>
+                <select disabled id="FacebookInstaShop" name="FacebookInstaShop"  defaultValue={data.data.items[data.data.items.findIndex(findlog)].FacebookInstaShop} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="ReCaptcha">ReCaptcha</label>
+                <select disabled id="ReCaptcha" name="ReCaptcha"  defaultValue={data.data.items[data.data.items.findIndex(findlog)].ReCaptcha} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="ActiveCampaign">Nieuwsbrief / Active Campaign</label>
+                <select disabled id="ActiveCampaign" name="ActiveCampaign"  defaultValue={data.data.items[data.data.items.findIndex(findlog)].ActiveCampaign} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+                
+                <label className="" htmlFor="Mockups">Mockups</label>
+                <select disabled id="Mockups" name="Mockups"  defaultValue={data.data.items[data.data.items.findIndex(findlog)].Mockups} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="Blog">Blog / Nieuws</label>
+                <select disabled id="Blog" name="Blog"  defaultValue={data.data.items[data.data.items.findIndex(findlog)].Blog} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="ProjectModule">ProjectModule</label>
+                <select disabled id="ProjectModule" name="ProjectModule"  defaultValue={data.data.items[data.data.items.findIndex(findlog)].ProjectModule} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="BookingsModule">BoekingsModule</label>
+                <select disabled id="BookingsModule" name="BookingsModule"  defaultValue={data.data.items[data.data.items.findIndex(findlog)].BookingsModule} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="BookingTool">BookingTool OV</label>
+                <select disabled id="BookingTool" name="BookingTool"  defaultValue={data.data.items[data.data.items.findIndex(findlog)].BookingTool} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="RealisatieModule">RealisatieModule</label>
+                <select disabled id="RealisatieModule" name="RealisatieModule"  defaultValue={data.data.items[data.data.items.findIndex(findlog)].RealisatieModule} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="SharingModule">SharingModule</label>
+                <select disabled id="SharingModule" name="SharingModule"  defaultValue={data.data.items[data.data.items.findIndex(findlog)].SharingModule} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="NieuwsBriefKoppeling">NieuwsBriefKoppeling</label>
+                <select disabled id="NieuwsBriefKoppeling" name="NieuwsBriefKoppeling"  defaultValue={data.data.items[data.data.items.findIndex(findlog)].NieuwsBriefKoppeling} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="MultiLanguage">MultiLanguage</label>
+                <select disabled id="MultiLanguage" name="MultiLanguage"  defaultValue={data.data.items[data.data.items.findIndex(findlog)].MultiLanguage} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="DelDev">Delete Dev omgeving</label>
+                <select disabled id="DelDev" name="DelDev"  defaultValue={data.data.items[data.data.items.findIndex(findlog)].DelDev} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
                 <br />
 
                 <label className="text-xl pt-2 font-semibold" htmlFor="Opmerkingen">Opmerkingen

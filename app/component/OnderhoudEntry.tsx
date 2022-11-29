@@ -46,8 +46,8 @@ export default function OnderhoudEntry(onderhoud: any) {
                     <label className="p-1 m-1" htmlFor="ReplyKlant">Reply gehad van klant</label>
                     <br />
 
-                    <input id="logcheck" defaultChecked={onderhoud.onderhoud.LEGALPACK} disabled type={"checkbox"} ></input>
-                    <label className="p-1 m-1" htmlFor="LEGALPACK">LEGAL PACK</label>
+                    <input id="logcheck" defaultChecked={onderhoud.onderhoud.LEGALPACKMnt} disabled type={"checkbox"} ></input>
+                    <label className="p-1 m-1" htmlFor="LEGALPACKMnt">LEGAL PACK</label>
                     <br />
 
                     <input id="logcheck" defaultChecked={onderhoud.onderhoud.ContactGegevensBedrijf} disabled type={"checkbox"} ></input>
@@ -90,16 +90,16 @@ export default function OnderhoudEntry(onderhoud: any) {
                     <label className="p-1 m-1" htmlFor="SSLMnt">SSL</label>
                     <br />
 
-                    <input id="logcheck" defaultChecked={onderhoud.onderhoud.ReCaptcha} disabled type={"checkbox"} ></input>
-                    <label className="p-1 m-1" htmlFor="ReCaptcha">ReCaptcha</label>
+                    <input id="logcheck" defaultChecked={onderhoud.onderhoud.ReCaptchaMnt} disabled type={"checkbox"} ></input>
+                    <label className="p-1 m-1" htmlFor="ReCaptchaMnt">ReCaptcha</label>
                     <br />
 
                     <input id="logcheck" defaultChecked={onderhoud.onderhoud.DeadLinks} disabled type={"checkbox"} ></input>
                     <label className="p-1 m-1" htmlFor="DeadLinks">Deadlinks?</label>
                     <br />
 
-                    <input id="logcheck" defaultChecked={onderhoud.onderhoud.Analytics} disabled type={"checkbox"} ></input>
-                    <label className="p-1 m-1" htmlFor="Analytics">Analytics</label>
+                    <input id="logcheck" defaultChecked={onderhoud.onderhoud.AnalyticsMnt} disabled type={"checkbox"} ></input>
+                    <label className="p-1 m-1" htmlFor="AnalyticsMnt">Analytics</label>
                     <br />
 
                     <input id="logcheck" defaultChecked={onderhoud.onderhoud.TagManagerMnt} disabled type={"checkbox"} ></input>

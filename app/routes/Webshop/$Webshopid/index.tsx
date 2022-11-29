@@ -61,7 +61,7 @@ type ActionData = {
         Compressie: Boolean | null;
         Copyright: Boolean | null;
         SocialMediaMeta: Boolean | null;
-        GoogleAnalytics: Boolean | null;
+        Analytics: Boolean | null;
         TagManager: Boolean | null;
         SSL: Boolean | null;
         FacebookDebug: Boolean | null;
@@ -161,7 +161,7 @@ export const action: ActionFunction = async ({ request, params }) => {
             Compressie: currentData.CheckListItems.Compressie,
             Copyright: currentData.CheckListItems.Copyright,
             SocialMediaMeta: currentData.CheckListItems.SocialMediaMeta,
-            GoogleAnalytics: currentData.CheckListItems.GoogleAnalytics,
+            Analytics: currentData.CheckListItems.Analytics,
             TagManager: currentData.CheckListItems.TagManager,
             SSL: currentData.CheckListItems.SSL,
             FacebookDebug: currentData.CheckListItems.FacebookDebug,
@@ -215,6 +215,25 @@ export const action: ActionFunction = async ({ request, params }) => {
             CommPM: currentData.CheckListItems.CommPM,
             Opmerkingen: currentData.CheckListItems.Opmerkingen,
             lastUser: currentData.CheckListItems.lastUser,
+
+            CloudFlareInWordpress: currentData.CheckListItems.CloudFlareInWordpress,
+            DoubleCheck: currentData.CheckListItems.DoubleCheck,
+            OnderhoudsAbonnement: currentData.CheckListItems.OnderhoudsAbonnement,
+            OnderhoudsProject: currentData.CheckListItems.OnderhoudsProject,
+            FacebookInstaShop: currentData.CheckListItems.FacebookInstaShop,
+            ReCaptcha: currentData.CheckListItems.ReCaptcha,
+            ActiveCampaign: currentData.CheckListItems.ActiveCampaign,
+            Mockups: currentData.CheckListItems.Mockups,
+            Blog: currentData.CheckListItems.Blog,
+            ProjectModule: currentData.CheckListItems.ProjectModule,
+            BookingsModule: currentData.CheckListItems.BookingsModule,
+            BookingTool: currentData.CheckListItems.BookingTool,
+            RealisatieModule: currentData.CheckListItems.RealisatieModule,
+            SharingModule: currentData.CheckListItems.SharingModule,
+            NieuwsBriefKoppeling: currentData.CheckListItems.NieuwsBriefKoppeling,
+            MultiLanguage: currentData.CheckListItems.MultiLanguage,
+            DelDev: currentData.CheckListItems.DelDev,
+            LEGALPACK: currentData.CheckListItems.LEGALPACK,
         }
     })
     //update the database entry
@@ -228,7 +247,7 @@ export const action: ActionFunction = async ({ request, params }) => {
     const Compressie = form.get("Compressie") == "on" ? true : false;
     const Copyright = form.get("Copyright") == "on" ? true : false;
     const SocialMediaMeta = form.get("SocialMediaMeta") == "on" ? true : false;
-    const GoogleAnalytics = form.get("GoogleAnalytics") == "on" ? true : false;
+    const Analytics = form.get("Analytics") == "on" ? true : false;
     const TagManager = form.get("TagManager") == "on" ? true : false;
     const SSL = form.get("SSL") == "on" ? true : false;
     const FacebookDebug = form.get("FacebookDebug") == "on" ? true : false;
@@ -297,11 +316,11 @@ export const action: ActionFunction = async ({ request, params }) => {
     const VerantwoordelijkeOnderhoud = form.get("VerantwoordelijkeOnderhoud")?.toString() == null ? "" : form.get("VerantwoordelijkeOnderhoud")?.toString();
     const Finished =  form.get("Finished") =="on" ? true : false;
     const Checklistbl = form.get("Checklistbl") =="on" ? true : false;
-    const TYPE = form.get("TYPE") == "on" ? true : false;
+    const TYPE = form.get("TYPE")?.toString() == null ? "" : form.get("TYPE")?.toString();
     const SMTPCheck = form.get("SMTPCheck") == "on" ? true : false;
     const ContactFormTest = form.get("ContactFormTest") == "on" ? true : false;
     const ReplyKlant = form.get("ReplyKlant") == "on" ? true : false;
-    const LEGALPACK = form.get("LEGALPACK") == "on" ? true : false;
+    const LEGALPACKMnt = form.get("LEGALPACKMnt") == "on" ? true : false;
     const ContactGegevensBedrijf = form.get("ContactGegevensBedrijf") == "on" ? true : false;
     const WPFastestOptimize = form.get("WPFastestOptimize") == "on" ? true : false;
     const CloudflareMnt = form.get("CloudflareMnt") == "on" ? true : false;
@@ -312,9 +331,9 @@ export const action: ActionFunction = async ({ request, params }) => {
     const PluginUpdates = form.get("PluginUpdates") == "on" ? true : false;
     const Speedcheck = form.get("Speedcheck") == "on" ? true : false;
     const SSLMnt = form.get("SSLMnt") == "on" ? true : false;
-    const ReCaptcha = form.get("ReCaptcha") == "on" ? true : false;
+    const ReCaptchaMnt = form.get("ReCaptchaMnt") == "on" ? true : false;
     const DeadLinks = form.get("DeadLinks") == "on" ? true : false;
-    const Analytics = form.get("Analytics") == "on" ? true : false;
+    const AnalyticsMnt = form.get("AnalyticsMnt") == "on" ? true : false;
     const TagManagerMnt = form.get("TagManagerMnt") == "on" ? true : false;
     const GDPRForm = form.get("GDPRForm") == "on" ? true : false;
     const SitemapMnt = form.get("SitemapMnt") == "on" ? true : false;
@@ -324,6 +343,25 @@ export const action: ActionFunction = async ({ request, params }) => {
     const StripeMnt = form.get("StripeMnt") == "on" ? true : false;
     const BTWField = form.get("BTWField") == "on" ? true : false;
     const Tracking = form.get("Tracking") == "on" ? true : false;
+
+    const CloudFlareInWordpress = form.get("CloudFlareInWordpress")?.toString() == null ? "" : form.get("CloudFlareInWordpress")?.toString();
+    const DoubleCheck = form.get("DoubleCheck")?.toString() == null ? "" : form.get("DoubleCheck")?.toString();
+    const LEGALPACK = form.get("LEGALPACK")?.toString() == null ? "" : form.get("LEGALPACK")?.toString();
+    const OnderhoudsAbonnement = form.get("OnderhoudsAbonnement")?.toString() == null ? "" : form.get("OnderhoudsAbonnement")?.toString();
+    const OnderhoudsProject = form.get("OnderhoudsProject")?.toString() == null ? "" : form.get("OnderhoudsProject")?.toString();
+    const FacebookInstaShop = form.get("FacebookInstaShop")?.toString() == null ? "" : form.get("FacebookInstaShop")?.toString();
+    const ReCaptcha = form.get("ReCaptcha")?.toString() == null ? "" : form.get("ReCaptcha")?.toString();
+    const ActiveCampaign = form.get("ActiveCampaign")?.toString() == null ? "" : form.get("ActiveCampaign")?.toString();
+    const Mockups = form.get("Mockups")?.toString() == null ? "" : form.get("Mockups")?.toString();
+    const Blog = form.get("Blog")?.toString() == null ? "" : form.get("Blog")?.toString();
+    const ProjectModule = form.get("ProjectModule")?.toString() == null ? "" : form.get("ProjectModule")?.toString();
+    const BookingsModule = form.get("BookingsModule")?.toString() == null ? "" : form.get("BookingsModule")?.toString();
+    const BookingTool = form.get("BookingTool")?.toString() == null ? "" : form.get("BookingTool")?.toString();
+    const RealisatieModule = form.get("RealisatieModule")?.toString() == null ? "" : form.get("RealisatieModule")?.toString();
+    const SharingModule = form.get("SharingModule")?.toString() == null ? "" : form.get("SharingModule")?.toString();
+    const NieuwsBriefKoppeling = form.get("NieuwsBriefKoppeling")?.toString() == null ? "" : form.get("NieuwsBriefKoppeling")?.toString();
+    const MultiLanguage = form.get("MultiLanguage")?.toString() == null ? "" : form.get("MultiLanguage")?.toString();
+    const DelDev = form.get("DelDev")?.toString() == null ? "" : form.get("DelDev")?.toString();
 
     if(isediting == true){
         if(editing == undefined) return badRequest({ formError: "Form not submitted correctly" })
@@ -335,11 +373,11 @@ export const action: ActionFunction = async ({ request, params }) => {
                 Verantwoordelijke: VerantwoordelijkeOnderhoud,
                 Finished: Finished,
                 Checklistbl: Checklistbl,
-                TYPE: "TYPE",
+                TYPE: TYPE,
                 SMTPCheck: SMTPCheck,
                 ContactFormTest: ContactFormTest,
                 ReplyKlant: ReplyKlant,
-                LEGALPACK: LEGALPACK,
+                LEGALPACKMnt: LEGALPACKMnt,
                 ContactGegevensBedrijf: ContactGegevensBedrijf,
                 WPFastestOptimize: WPFastestOptimize,
                 CloudflareMnt: CloudflareMnt,
@@ -350,9 +388,9 @@ export const action: ActionFunction = async ({ request, params }) => {
                 PluginUpdates: PluginUpdates,
                 Speedcheck: Speedcheck,
                 SSLMnt: SSLMnt,
-                ReCaptcha: ReCaptcha,
+                ReCaptchaMnt: ReCaptchaMnt,
                 DeadLinks: DeadLinks,
-                Analytics: Analytics,
+                AnalyticsMnt: AnalyticsMnt,
                 TagManagerMnt: TagManagerMnt,
                 GDPRForm: GDPRForm,
                 SitemapMnt: SitemapMnt,
@@ -366,7 +404,7 @@ export const action: ActionFunction = async ({ request, params }) => {
         })
     }
     if(isediting == false && VerantwoordelijkeOnderhoud != ""){
-        if (typeof VerantwoordelijkeOnderhoud !== "string") return badRequest({ formError: "Form not submitted correctly" })
+        if (typeof VerantwoordelijkeOnderhoud !== "string" || typeof TYPE !== "string") return badRequest({ formError: "Form not submitted correctly" })
         await db.onderhoud.create({
             data:{
                 Opmerkingen: "",
@@ -374,11 +412,11 @@ export const action: ActionFunction = async ({ request, params }) => {
                 Verantwoordelijke: VerantwoordelijkeOnderhoud,
                 Finished: Finished,
                 Checklistbl: Checklistbl,
-                TYPE: "",
+                TYPE: TYPE,
                 SMTPCheck: SMTPCheck,
                 ContactFormTest: ContactFormTest,
                 ReplyKlant: ReplyKlant,
-                LEGALPACK: LEGALPACK,
+                LEGALPACKMnt: LEGALPACKMnt,
                 ContactGegevensBedrijf: ContactGegevensBedrijf,
                 WPFastestOptimize: WPFastestOptimize,
                 CloudflareMnt: CloudflareMnt,
@@ -389,9 +427,9 @@ export const action: ActionFunction = async ({ request, params }) => {
                 PluginUpdates: PluginUpdates,
                 Speedcheck: Speedcheck,
                 SSLMnt: SSLMnt,
-                ReCaptcha: ReCaptcha,
+                ReCaptchaMnt: ReCaptchaMnt,
                 DeadLinks: DeadLinks,
-                Analytics: Analytics,
+                AnalyticsMnt: AnalyticsMnt,
                 TagManagerMnt: TagManagerMnt,
                 GDPRForm: GDPRForm,
                 SitemapMnt: SitemapMnt,
@@ -401,6 +439,7 @@ export const action: ActionFunction = async ({ request, params }) => {
                 StripeMnt: StripeMnt,
                 BTWField: BTWField,
                 Tracking: Tracking,
+
             }
         })
     }
@@ -426,7 +465,7 @@ export const action: ActionFunction = async ({ request, params }) => {
                     Compressie: Compressie,
                     Copyright: Copyright,
                     SocialMediaMeta: SocialMediaMeta,
-                    GoogleAnalytics: GoogleAnalytics,
+                    Analytics: Analytics,
                     TagManager: TagManager,
                     SSL: SSL,
                     FacebookDebug: FacebookDebug,
@@ -480,6 +519,25 @@ export const action: ActionFunction = async ({ request, params }) => {
                     CommPM: CommPM,
                     Opmerkingen: Opmerkingen,
                     lastUser: lastUser,
+
+                    CloudFlareInWordpress: CloudFlareInWordpress,
+                    DoubleCheck: DoubleCheck,
+                    OnderhoudsAbonnement: OnderhoudsAbonnement,
+                    OnderhoudsProject: OnderhoudsProject,
+                    FacebookInstaShop: FacebookInstaShop,
+                    ReCaptcha: ReCaptcha,
+                    ActiveCampaign: ActiveCampaign,
+                    Mockups: Mockups,
+                    Blog: Blog,
+                    ProjectModule: ProjectModule,
+                    BookingsModule: BookingsModule,
+                    BookingTool: BookingTool,
+                    RealisatieModule: RealisatieModule,
+                    SharingModule: SharingModule,
+                    NieuwsBriefKoppeling: NieuwsBriefKoppeling,
+                    MultiLanguage: MultiLanguage,
+                    DelDev: DelDev,
+                    LEGALPACK: LEGALPACK,
                 }
             }
         }

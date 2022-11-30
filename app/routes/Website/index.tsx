@@ -19,79 +19,91 @@ type ActionData = {
   formError?: string;
   fieldErrors?: {
     KlantNummer: string;
-        KlantNaam: String;
-        ProjectNummer: String;
-        ProjectNaam: String;
-        Budget: String;
-        isWebshop: String;
-        Verantwoordelijke: String;
+    KlantNaam: String;
+    ProjectNummer: String;
+    ProjectNaam: String;
+    Budget: String;
+    isWebshop: String;
+    Verantwoordelijke: String;
 
-        Compressie: Boolean | null;
-        Copyright: Boolean | null;
-        SocialMediaMeta: Boolean | null;
-        Analytics: Boolean | null;
-        TagManager: Boolean | null;
-        SSL: Boolean | null;
-        FacebookDebug: Boolean | null;
-        LinkedInShare: Boolean | null;
-        Lorem: Boolean | null;
-        Links: Boolean | null;
+    AnalyticsCreate: String;
+    ReCaptchaCreate: String;
+    FacebookInstaShop: String;
+    ActiveCampaign: String;
+    Mockups: String;
+    Compressie: String;
+    Copyright: String;
+    SocialMediaMeta: String;
+    AnalyticsIntegrate: String;
+    FacebookDebug: String;
+    LinkedInShare: String;
+    Lorem: String;
+    Links: String;
+    SMTP: String;
+    TestMail: String;
+    Loadspeed: String;
+    LoadspeedTime: String;
+    ImageSize: String;
+    AltTags: String;
+    Htaccess: String;
+    Robots: String;
+    Sitemap: String;
+    GDPR: String;
+    MaterialWP: String;
+    EasyWPSMTP: String;
+    WPS: String;
+    WPOptimize: String;
+    shortpixel: String;
+    yoast: String;
+    SendCloud: String;
+    WooCommerce: String;
+    WooCommerceAJAX: String;
+    WPML: String;
+    WooCommercePayPal: String;
+    WooCommercePDF: String;
+    WooCommerceLoad: String;
+    WooCommerceStripe: String;
+    KlantAanpassingen: String;
+    CapabilityManager: String;
+    Stripe: String;
+    Betaalmethodes: String;
+    Testen: String;
+    Mobile: String;
+    PHPManager: String;
+    PHPIni: String;
+    RecaptchaIntegratie: String;
+    Blog: String;
+    ProjectModule: String;
+    BookingsModule: String;
+    BookingTool: String;
+    RealisatieModule: String;
+    SharingModule: String;
+    NieuwsBriefKoppeling: String;
+    MultiLanguage: String;
+    DelDev: String;
+    Discussie: String;
+    QCFinal: String;
+    LEGALPACK: String;
+    AlgemeneVoorwaarden: String;
+    CookiePopUp: String;
+    OnderhoudsAbonnement: String;
+    OnderhoudsProject: String;
+    SSLActive: String;
+    QCFirst: String;
+    PlaceholderMail: String;
+    Optimalisatie: String;
+    SSLCheckup: String;
+    MailCheckup: String;
+    FactuurHosting: String;
+    KlantgegevensATMOS: String;
+    Cloudflare: String;
+    CloudFlareInWordpress: String;
+    DoubleCheck: String;
+    SendCloudUser: String;
+    SendCloudVerrify: String;
+    Opmerkingen: String;
+    lastUser: String;
 
-        PlaceholderMail: Boolean | null;
-        SMTP: Boolean | null;
-        EmailKlant: Boolean | null;
-        EmailTemplates: Boolean | null;
-
-        Loadspeed: Boolean | null;
-        LoadspeedTime: String | null;
-        ImageSize: Boolean | null;
-        AltTags: Boolean | null;
-
-        Htaccess: Boolean | null;
-        Robots: Boolean | null;
-        Sitemap: Boolean | null;
-
-        Privacy: Boolean | null;
-        AlgemeneVoorwaarden: Boolean | null;
-        CookiePolicy: Boolean | null;
-        CookiePolicyBanner: Boolean | null;
-        GDPR: Boolean | null;
-
-        MaterialWP: Boolean | null;
-        EasyWPSMTP: Boolean | null;
-        WPS: Boolean | null;
-        WPfast: Boolean | null;
-        GDPRCookies: Boolean | null;
-        shortpixel: Boolean | null;
-        yoast: Boolean | null;
-        SendCloud: Boolean | null;
-        WooCommerce: Boolean | null;
-        WooCommerceAJAX: Boolean | null;
-        WPML: Boolean | null;
-        WooCommercePayPal: Boolean | null;
-        WooCommercePDF: Boolean | null;
-        WooCommerceLoad: Boolean | null;
-        WooCommerceStripe: Boolean | null;
-        KlantAanpassingen: Boolean | null;
-        CapabilityManager: Boolean | null;
-
-        Stripe: Boolean | null;
-        Betaalmethodes: Boolean | null;
-        Testen: Boolean | null;
-
-        SendCloudUser: Boolean | null;
-        SendCloudVerrify: Boolean | null;
-
-        Mobile: Boolean | null;
-
-        Optimalisatie: Boolean | null;
-        SSLCheckup: Boolean | null;
-        MailCheckup: Boolean | null;
-        FactuurHosting: Boolean | null;
-        KlantgegevensATMOS: Boolean | null;
-        Cloudflare: Boolean | null;
-
-        CommPM: Boolean | null;
   }
 }
 
@@ -103,7 +115,7 @@ const badRequest = (data: ActionData) =>
 export const action: ActionFunction = async ({ request }) => {
   //get the data from the form
   const form = await request.formData();
-  //set form data to variables
+  //get the values from the form
   const KlantNummer = form.get("KlantNummer")?.toString();
   const KlantNaam = form.get("KlantNaam")?.toString();
   const ProjectNummer = form.get("ProjectNummer")?.toString();
@@ -111,190 +123,181 @@ export const action: ActionFunction = async ({ request }) => {
   const Budget = form.get("Budget")?.toString();
   const Verantwoordelijke = form.get("Verantwoordelijke")?.toString();
 
-  const Compressie = form.get("Compressie") == "on" ? true : false;
-  const Copyright = form.get("Copyright") == "on" ? true : false;
-  const SocialMediaMeta = form.get("SocialMediaMeta") == "on" ? true : false;
-  const Analytics = form.get("Analytics") == "on" ? true : false;
-  const TagManager = form.get("TagManager") == "on" ? true : false;
-  const SSL = form.get("SSL") == "on" ? true : false;
-  const FacebookDebug = form.get("FacebookDebug") == "on" ? true : false;
-  const LinkedInShare = form.get("LinkedInShare") == "on" ? true : false;
-  const Lorem = form.get("Lorem") == "on" ? true : false;
-  const Links = form.get("Links") == "on" ? true : false;
+  const Opmerkingen = form.get("Opmerkingen")?.toString();
+  const LastUser = form.get("LastUser")?.toString();
 
-  const PlaceholderMail = form.get("PlaceholderMail") == "on" ? true : false;
-  const SMTP = form.get("SMTP") == "on" ? true : false;
-  const TestMail = form.get("TestMail") == "on" ? true : false;
-  const EmailTemplates = form.get("EmailTemplates") == "on" ? true : false;
-
-  const Loadspeed = form.get("Loadspeed") == "on" ? true : false;
+  const AnalyticsCreate = form.get("AnalyticsCreate")?.toString()
+  const ReCaptchaCreate = form.get("ReCaptchaCreate")?.toString();
+  const FacebookInstaShop = form.get("FacebookInstaShop")?.toString();
+  const ActiveCampaign = form.get("ActiveCampaign")?.toString();
+  const Mockups = form.get("Mockups")?.toString();
+  const Compressie = form.get("Compressie")?.toString();
+  const Copyright = form.get("Copyright")?.toString();
+  const SocialMediaMeta = form.get("SocialMediaMeta")?.toString();
+  const AnalyticsIntegrate = form.get("AnalyticsIntegrate")?.toString();
+  const FacebookDebug = form.get("FacebookDebug")?.toString();
+  const LinkedInShare = form.get("LinkedInShare")?.toString();
+  const Lorem = form.get("Lorem")?.toString();
+  const Links = form.get("Links")?.toString();
+  const SMTP = form.get("SMTP")?.toString();
+  const TestMail = form.get("TestMail")?.toString();
+  const Loadspeed = form.get("Loadspeed")?.toString();
   const LoadspeedTime = form.get("LoadspeedTime")?.toString();
-  const ImageSize = form.get("ImageSize") == "on" ? true : false;
-  const AltTags = form.get("AltTags") == "on" ? true : false;
-
-  const Htaccess = form.get("Htaccess") == "on" ? true : false;
-  const Sitemap = form.get("Sitemap") == "on" ? true : false;
-  const Robots = form.get("Robots") == "on" ? true : false;
-
-  const Privacy = form.get("Privacy") == "on" ? true : false;
-  const AlgemeneVoorwaarden = form.get("AlgemeneVoorwaarden") == "on" ? true : false;
-  const CookiePolicy = form.get("CookiePolicy") == "on" ? true : false;
-  const GDPR = form.get("GDPR") == "on" ? true : false;
-  const CookiePolicyBanner = form.get("CookiePolicyBanner") == "on" ? true : false;
-
-  const MaterialWP = form.get("MaterialWP") == "on" ? true : false;
-  const EasyWPSMTP = form.get("EasyWPSMTP") == "on" ? true : false;
-  const WPS = form.get("WPS") == "on" ? true : false;
-  const WPfast = form.get("WPfast") == "on" ? true : false;
-  const shortpixel = form.get("shortpixel") == "on" ? true : false;
-  const yoast = form.get("yoast") == "on" ? true : false;
-  const SendCloud = form.get("SendCloud") == "on" ? true : false;
-  const WooCommerce = form.get("WooCommerce") == "on" ? true : false;
-  const WooCommerceAJAX = form.get("WooCommerceAJAX") == "on" ? true : false;
-  const WPML = form.get("WPML") == "on" ? true : false;
-  const WooCommercePayPal = form.get("WooCommercePayPal") == "on" ? true : false;
-  const WooCommercePDF = form.get("WooCommercePDF") == "on" ? true : false;
-  const WooCommerceLoad = form.get("WooCommerceLoad") == "on" ? true : false;
-  const WooCommerceStripe = form.get("WooCommerceStripe") == "on" ? true : false;
-  const KlantAanpassingen = form.get("KlantAanpassingen") == "on" ? true : false;
-  const CapabilityManager = form.get("CapabilityManager") == "on" ? true : false;
-
-  const Stripe = form.get("Stripe") == "on" ? true : false;
-  const Betaalmethodes = form.get("Betaalmethodes") == "on" ? true : false;
-  const Testen = form.get("Testen") == "on" ? true : false;
-
-  const SendCloudUser = form.get("SendCloudUser") == "on" ? true : false;
-  const SendCloudVerrify = form.get("SendCloudVerrify") == "on" ? true : false;
-
-  const Mobile = form.get("Mobile") == "on" ? true : false;
-
-  const Optimalisatie = form.get("Optimalisatie") == "on" ? true : false;
-  const SSLCheckup = form.get("SSLCheckup") == "on" ? true : false;
-  const MailCheckup = form.get("MailCheckup") == "on" ? true : false;
-  const FactuurHosting = form.get("FactuurHosting") == "on" ? true : false;
-  const KlantgegevensATMOS = form.get("KlantgegevensATMOS") == "on" ? true : false;
-  const Cloudflare = form.get("Cloudflare") == "on" ? true : false;
-
-  const CommPM = form.get("CommPM") == "on" ? true : false;
-
-  const Opmerkingen = form.get("Opmerkingen")?.toString() == null ? "" : form.get("Opmerkingen")?.toString();
-  const lastUser = form.get("nameDev")?.toString() == null ? "" : form.get("nameDev")?.toString();
-
-  const CloudFlareInWordpress = form.get("CloudFlareInWordpress")?.toString() == null ? "" : form.get("CloudFlareInWordpress")?.toString();
-  const DoubleCheck = form.get("DoubleCheck")?.toString() == null ? "" : form.get("DoubleCheck")?.toString();
-  const LEGALPACK = form.get("LEGALPACK")?.toString() == null ? "" : form.get("LEGALPACK")?.toString();
-  const OnderhoudsAbonnement = form.get("OnderhoudsAbonnement")?.toString() == null ? "" : form.get("OnderhoudsAbonnement")?.toString();
-  const OnderhoudsProject = form.get("OnderhoudsProject")?.toString() == null ? "" : form.get("OnderhoudsProject")?.toString();
-  const FacebookInstaShop = form.get("FacebookInstaShop")?.toString() == null ? "" : form.get("FacebookInstaShop")?.toString();
-  const ReCaptcha = form.get("ReCaptcha")?.toString() == null ? "" : form.get("ReCaptcha")?.toString();
-  const ActiveCampaign = form.get("ActiveCampaign")?.toString() == null ? "" : form.get("ActiveCampaign")?.toString();
-  const Mockups = form.get("Mockups")?.toString() == null ? "" : form.get("Mockups")?.toString();
-  const Blog = form.get("Blog")?.toString() == null ? "" : form.get("Blog")?.toString();
-  const ProjectModule = form.get("ProjectModule")?.toString() == null ? "" : form.get("ProjectModule")?.toString();
-  const BookingsModule = form.get("BookingsModule")?.toString() == null ? "" : form.get("BookingsModule")?.toString();
-  const BookingTool = form.get("BookingTool")?.toString() == null ? "" : form.get("BookingTool")?.toString();
-  const RealisatieModule = form.get("RealisatieModule")?.toString() == null ? "" : form.get("RealisatieModule")?.toString();
-  const SharingModule = form.get("SharingModule")?.toString() == null ? "" : form.get("SharingModule")?.toString();
-  const NieuwsBriefKoppeling = form.get("NieuwsBriefKoppeling")?.toString() == null ? "" : form.get("NieuwsBriefKoppeling")?.toString();
-  const MultiLanguage = form.get("MultiLanguage")?.toString() == null ? "" : form.get("MultiLanguage")?.toString();
-  const DelDev = form.get("DelDev")?.toString() == null ? "" : form.get("DelDev")?.toString();
+  const ImageSize = form.get("ImageSize")?.toString();
+  const AltTags = form.get("AltTags")?.toString();
+  const Htaccess = form.get("Htaccess")?.toString();
+  const Robots = form.get("Robots")?.toString();
+  const Sitemap = form.get("Sitemap")?.toString();
+  const GDPR = form.get("GDPR")?.toString();
+  const MaterialWP = form.get("MaterialWP")?.toString();
+  const EasyWPSMTP = form.get("EasyWPSMTP")?.toString();
+  const WPS = form.get("WPS")?.toString();
+  const WPOptimize = form.get("WPOptimize")?.toString();
+  const shortpixel = form.get("shortpixel")?.toString();
+  const yoast = form.get("yoast")?.toString();
+  const SendCloud = form.get("SendCloud")?.toString();
+  const WooCommerce = form.get("WooCommerce")?.toString();
+  const WooCommerceAJAX = form.get("WooCommerceAJAX")?.toString();
+  const WPML = form.get("WPML")?.toString();
+  const WooCommercePayPal = form.get("WooCommercePayPal")?.toString();
+  const WooCommercePDF = form.get("WooCommercePDF")?.toString();
+  const WooCommerceLoad = form.get("WooCommerceLoad")?.toString();
+  const WooCommerceStripe = form.get("WooCommerceStripe")?.toString();
+  const KlantAanpassingen = form.get("KlantAanpassingen")?.toString();
+  const CapabilityManager = form.get("CapabilityManager")?.toString();
+  const Stripe = form.get("Stripe")?.toString();
+  const Betaalmethodes = form.get("Betaalmethodes")?.toString();
+  const Testen = form.get("Testen")?.toString();
+  const Mobile = form.get("Mobile")?.toString();
+  const PHPManager = form.get("PHPManager")?.toString();
+  const PHPIni = form.get("PHPIni")?.toString();
+  const RecaptchaIntegratie = form.get("RecaptchaIntegratie")?.toString();
+  const Blog = form.get("Blog")?.toString();
+  const ProjectModule = form.get("ProjectModule")?.toString();
+  const BookingsModule = form.get("BookingsModule")?.toString();
+  const BookingTool = form.get("BookingTool")?.toString();
+  const RealisatieModule = form.get("RealisatieModule")?.toString();
+  const SharingModule = form.get("SharingModule")?.toString();
+  const NieuwsBriefKoppeling = form.get("NieuwsBriefKoppeling")?.toString();
+  const MultiLanguage = form.get("MultiLanguage")?.toString();
+  const DelDev = form.get("DelDev")?.toString();
+  const Discussie = form.get("Discussie")?.toString();
+  const QCFinal = form.get("QCFinal")?.toString();
+  const LEGALPACK = form.get("LEGALPACK")?.toString();
+  const AlgemeneVoorwaarden = form.get("AlgemeneVoorwaarden")?.toString();
+  const CookiePopUp = form.get("CookiePopUp")?.toString();
+  const OnderhoudsAbonnement = form.get("OnderhoudsAbonnement")?.toString();
+  const OnderhoudsProject = form.get("OnderhoudsProject")?.toString();
+  const SSLActive = form.get("SSLActive")?.toString();
+  const QCFirst = form.get("QCFirst")?.toString();
+  const PlaceholderMail = form.get("PlaceholderMail")?.toString();
+  const Optimalisatie = form.get("Optimalisatie")?.toString();
+  const SSLCheckup = form.get("SSLCheckup")?.toString();
+  const MailCheckup = form.get("MailCheckup")?.toString();
+  const FactuurHosting = form.get("FactuurHosting")?.toString();
+  const KlantgegevensATMOS = form.get("KlantgegevensATMOS")?.toString();
+  const Cloudflare = form.get("Cloudflare")?.toString();
+  const CloudFlareInWordpress = form.get("CloudFlareInWordpress")?.toString();
+  const DoubleCheck = form.get("DoubleCheck")?.toString();
+  const SendCloudUser = form.get("SendCloudUser")?.toString();
+  const SendCloudVerrify = form.get("SendCloudVerrify")?.toString();
 
   //check if all required fields are filled in
-  if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string" || typeof Compressie !== "boolean" || typeof Copyright !== "boolean" || typeof SocialMediaMeta !== "boolean" || typeof SSL !== "boolean" || typeof FacebookDebug !== "boolean" || typeof LinkedInShare !== "boolean" || typeof PlaceholderMail !== "boolean" || typeof SMTP !== "boolean" || typeof Loadspeed !== "boolean" || typeof LoadspeedTime !== "string" || typeof ImageSize !== "boolean" || typeof AltTags !== "boolean" || typeof Htaccess !== "boolean" || typeof Sitemap !== "boolean" || typeof Robots !== "boolean" || typeof Privacy !== "boolean" || typeof AlgemeneVoorwaarden !== "boolean" || typeof CookiePolicy !== "boolean" || typeof GDPR !== "boolean" || typeof CookiePolicyBanner !== "boolean" || typeof EasyWPSMTP !== "boolean" || typeof WPS !== "boolean" || typeof KlantAanpassingen !== "boolean" || typeof CapabilityManager !== "boolean" || typeof Mobile !== "boolean" || typeof Optimalisatie !== "boolean" || typeof SSLCheckup !== "boolean" || typeof MailCheckup !== "boolean" || typeof FactuurHosting !== "boolean") { return badRequest({ formError: "Form not submitted correctly" }) }
+  if (!KlantNaam || !KlantNummer || !ProjectNaam || !ProjectNummer || !Budget || !Verantwoordelijke || !LastUser) { return badRequest({ formError: "Analytics en ReCaptcha zijn verplicht" }) }
 
   //create new checklist in db
   await db.checkList.create({
     data: {
-      KlantNummer: KlantNummer,
       KlantNaam: KlantNaam,
-      ProjectNummer: ProjectNummer,
+      KlantNummer: KlantNummer,
       ProjectNaam: ProjectNaam,
+      ProjectNummer: ProjectNummer,
       Budget: Budget,
       Verantwoordelijke: Verantwoordelijke,
       isWebshop: false,
       CheckListItems: {
         create: {
           Version: 1,
-                    Compressie: Compressie,
-                    Copyright: Copyright,
-                    SocialMediaMeta: SocialMediaMeta,
-                    Analytics: Analytics,
-                    TagManager: TagManager,
-                    SSL: SSL,
-                    FacebookDebug: FacebookDebug,
-                    LinkedInShare: LinkedInShare,
-                    Lorem: Lorem,
-                    Links: Links,
-                    PlaceholderMail: PlaceholderMail,
-                    SMTP: SMTP,
-                    TestMail: TestMail,
-                    EmailTemplates: EmailTemplates,
-                    Loadspeed: Loadspeed,
-                    LoadspeedTime: LoadspeedTime,
-                    ImageSize: ImageSize,
-                    AltTags: AltTags,
-                    Htaccess: Htaccess,
-                    Sitemap: Sitemap,
-                    Robots: Robots,
-                    Privacy: Privacy,
-                    AlgemeneVoorwaarden: AlgemeneVoorwaarden,
-                    CookiePolicy: CookiePolicy,
-                    GDPR: GDPR,
-                    CookiePolicyBanner: CookiePolicyBanner,
-                    MaterialWP: MaterialWP,
-                    EasyWPSMTP: EasyWPSMTP,
-                    WPS: WPS,
-                    WPfast: WPfast,
-                    shortpixel: shortpixel,
-                    yoast: yoast,
-                    SendCloud: SendCloud,
-                    WooCommerce: WooCommerce,
-                    WooCommerceAJAX: WooCommerceAJAX,
-                    WPML: WPML,
-                    WooCommercePayPal: WooCommercePayPal,
-                    WooCommercePDF: WooCommercePDF,
-                    WooCommerceLoad: WooCommerceLoad,
-                    WooCommerceStripe: WooCommerceStripe,
-                    KlantAanpassingen: KlantAanpassingen,
-                    CapabilityManager: CapabilityManager,
-                    Stripe: Stripe,
-                    Betaalmethodes: Betaalmethodes,
-                    Testen: Testen,
-                    SendCloudUser: SendCloudUser,
-                    SendCloudVerrify: SendCloudVerrify,
-                    Mobile: Mobile,
-                    Optimalisatie: Optimalisatie,
-                    SSLCheckup: SSLCheckup,
-                    MailCheckup: MailCheckup,
-                    FactuurHosting: FactuurHosting,
-                    KlantgegevensATMOS: KlantgegevensATMOS,
-                    Cloudflare: Cloudflare,
-                    CommPM: CommPM,
-                    Opmerkingen: Opmerkingen,
-                    lastUser: lastUser,
-                  
-                    CloudFlareInWordpress: CloudFlareInWordpress,
-                    DoubleCheck: DoubleCheck,
-                    OnderhoudsAbonnement: OnderhoudsAbonnement,
-                    OnderhoudsProject: OnderhoudsProject,
-                    FacebookInstaShop: FacebookInstaShop,
-                    ReCaptcha: ReCaptcha,
-                    ActiveCampaign: ActiveCampaign,
-                    Mockups: Mockups,
-                    Blog: Blog,
-                    ProjectModule: ProjectModule,
-                    BookingsModule: BookingsModule,
-                    BookingTool: BookingTool,
-                    RealisatieModule: RealisatieModule,
-                    SharingModule: SharingModule,
-                    NieuwsBriefKoppeling: NieuwsBriefKoppeling,
-                    MultiLanguage: MultiLanguage,
-                    DelDev: DelDev,
-                    LEGALPACK: LEGALPACK,
+          AnalyticsCreate: AnalyticsCreate,
+          ReCaptchaCreate: ReCaptchaCreate,
+          FacebookInstaShop: FacebookInstaShop,
+          ActiveCampaign: ActiveCampaign,
+          Mockups: Mockups,
+          Compressie: Compressie,
+          Copyright: Copyright,
+          SocialMediaMeta: SocialMediaMeta,
+          AnalyticsIntegrate: AnalyticsIntegrate,
+          FacebookDebug: FacebookDebug,
+          LinkedInShare: LinkedInShare,
+          Lorem: Lorem,
+          Links: Links,
+          SMTP: SMTP,
+          TestMail: TestMail,
+          Loadspeed: Loadspeed,
+          LoadspeedTime: LoadspeedTime,
+          ImageSize: ImageSize,
+          AltTags: AltTags,
+          Htaccess: Htaccess,
+          Robots: Robots,
+          Sitemap: Sitemap,
+          GDPR: GDPR,
+          MaterialWP: MaterialWP,
+          EasyWPSMTP: EasyWPSMTP,
+          WPS: WPS,
+          WPOptimize: WPOptimize,
+          shortpixel: shortpixel,
+          yoast: yoast,
+          SendCloud: SendCloud,
+          WooCommerce: WooCommerce,
+          WooCommerceAJAX: WooCommerceAJAX,
+          WPML: WPML,
+          WooCommercePayPal: WooCommercePayPal,
+          WooCommercePDF: WooCommercePDF,
+          WooCommerceLoad: WooCommerceLoad,
+          WooCommerceStripe: WooCommerceStripe,
+          KlantAanpassingen: KlantAanpassingen,
+          CapabilityManager: CapabilityManager,
+          Stripe: Stripe,
+          Betaalmethodes: Betaalmethodes,
+          Testen: Testen,
+          Mobile: Mobile,
+          PHPManager: PHPManager,
+          PHPIni: PHPIni,
+          RecaptchaIntegratie: RecaptchaIntegratie,
+          Blog: Blog,
+          ProjectModule: ProjectModule,
+          BookingsModule: BookingsModule,
+          BookingTool: BookingTool,
+          RealisatieModule: RealisatieModule,
+          SharingModule: SharingModule,
+          NieuwsBriefKoppeling: NieuwsBriefKoppeling,
+          MultiLanguage: MultiLanguage,
+          DelDev: DelDev,
+          Discussie: Discussie,
+          QCFinal: QCFinal,
+          LEGALPACK: LEGALPACK,
+          AlgemeneVoorwaarden: AlgemeneVoorwaarden,
+          CookiePopUp: CookiePopUp,
+          OnderhoudsAbonnement: OnderhoudsAbonnement,
+          OnderhoudsProject: OnderhoudsProject,
+          SSLActive: SSLActive,
+          QCFirst: QCFirst,
+          PlaceholderMail: PlaceholderMail,
+          Optimalisatie: Optimalisatie,
+          SSLCheckup: SSLCheckup,
+          MailCheckup: MailCheckup,
+          FactuurHosting: FactuurHosting,
+          KlantgegevensATMOS: KlantgegevensATMOS,
+          Cloudflare: Cloudflare,
+          CloudFlareInWordpress: CloudFlareInWordpress,
+          DoubleCheck: DoubleCheck,
+          SendCloudUser: SendCloudUser,
+          SendCloudVerrify: SendCloudVerrify,
+          Opmerkingen: Opmerkingen,
+          LastUser: LastUser,
         }
       }
     }
-
   })
 
   //redirect to list page

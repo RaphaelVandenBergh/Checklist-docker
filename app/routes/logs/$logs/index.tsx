@@ -69,10 +69,6 @@ export default function logs() {
                             ))
                         }
                         {/* render all the lists */}
-                       
-
-
-
 
                         {/* render buttons for pagination */}
                         {/* method=get to call loaderfunction instead of action */}

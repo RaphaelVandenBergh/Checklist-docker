@@ -62,7 +62,7 @@ export default function Index(){
                         <h1>Checklist {data.list.isWebshop? "Webshop" : "Website"}</h1>
                         <span className="text-sm text-center block ">
                             updated on: {date} <br />
-                            by: {data.items.lastUser}
+                            by: {data.items.LastUser}
 
 
                         </span>

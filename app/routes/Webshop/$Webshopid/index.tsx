@@ -444,7 +444,7 @@ export const action: ActionFunction = async ({ request, params }) => {
 
    
     //check if the values are valid
-    if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string" || typeof Compressie !== "boolean" || typeof Copyright !== "boolean" || typeof SocialMediaMeta !== "boolean" ) { return badRequest({ formError: "Form not submitted correctly" }) }
+    if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string" ) { return badRequest({ formError: "Form not submitted correctly" }) }
 
     //create a new checklist in db
     await db.checkList.update({

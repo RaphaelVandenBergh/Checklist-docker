@@ -13,398 +13,35 @@ export default function LogTemplate(data: any) {
             {/* reusable form component */}
             <Form reloadDocument className="contact2-form" method="post">
                 <h2 className="text-2xl font-semibold">Gegevens Klant</h2>
-                <label className="form-control" htmlFor="KlantNummer">Klant Nummer:
-                </label>
-                <input disabled required defaultValue={data.data.list.KlantNummer} className={"appearance-none p-1 m-1 bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"KlantNummer"}></input>
+                <label htmlFor="KlantNummer">Klant Nummer: </label>
+                <input required defaultValue={data.data.list.KlantNummer} className={"appearance-none p-1 m-1 bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"KlantNummer"}></input>
                 <br />
 
-                <label className="form-control" htmlFor="KlantNaam">Klant Naam:
-                </label>
-                <input disabled required defaultValue={data.data.list.KlantNaam} className={"appearance-none p-1 m-1 bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"KlantNaam"}></input>
+                <label htmlFor="KlantNaam">Klant Naam: </label>
+                <input required defaultValue={data.data.list.KlantNaam} className={"appearance-none p-1 m-1 bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"KlantNaam"}></input>
                 <br />
 
-                <label className="form-control" htmlFor="ProjectNaam">Projectnaam van klant:
-                </label>
-                <input disabled required defaultValue={data.data.list.ProjectNaam} className={"appearance-none p-1 m-1 bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"ProjectNaam"}></input>
+                <label htmlFor="ProjectNaam">Projectnaam van klant: </label>
+                <input required defaultValue={data.data.list.ProjectNaam} className={"appearance-none p-1 m-1 bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"ProjectNaam"}></input>
                 <br />
 
-                <label className="form-control" htmlFor="ProjectNummer">PO nummer project:
-                </label>
-                <input disabled required defaultValue={data.data.list.ProjectNummer} className={"appearance-none p-1 m-1 bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"ProjectNummer"}></input>
+                <label htmlFor="ProjectNummer">PO nummer project: </label>
+                <input required defaultValue={data.data.list.ProjectNummer} className={"appearance-none p-1 m-1 bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"ProjectNummer"}></input>
                 <br />
 
-                <label className="form-control" htmlFor="Budget">Budget: €
-                </label>
-                <input disabled defaultValue={data.data.list.Budget} className={"appearance-none p-1 m-1 bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"Budget"}></input>
+                <label htmlFor="Budget">Budget: €</label>
+                <input defaultValue={data.data.list.Budget} className={"appearance-none p-1 m-1 bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"Budget"}></input>
                 <br />
 
-                <label className="form-control" htmlFor="Verantwoordelijke">Verantwoordelijke project:
-                </label>
-                <input disabled required defaultValue={data.data.list.Verantwoordelijke} className={"appearance-none p-1 m-1 bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"Verantwoordelijke"}></input>
+                <label htmlFor="Verantwoordelijke">Verantwoordelijke project: </label>
+                <input required defaultValue={data.data.list.Verantwoordelijke} className={"appearance-none p-1 m-1 bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"Verantwoordelijke"}></input>
                 <br />
                 <h2 className="text-2xl pt-2 font-semibold">Checklist</h2>
-
-                <h3 className="text-xl pt-2 font-semibold">Algemeen</h3>
-
-                <label className="form-control" htmlFor="Compressie">
-                    <input disabled defaultChecked={data.data.items.Compressie} type={"checkbox"} id="logcheck" name={"Compressie"} ></input>
-                    Compressie aanzetten
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="Copyright">
-                    <input disabled defaultChecked={data.data.items.Copyright} type={"checkbox"} id="logcheck" name={"Copyright"}></input>
-                    Copyright met dynamisch jaartal in footer zetten
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="SocialMediaMeta">
-                    <input disabled defaultChecked={data.data.items.SocialMediaMeta} type={"checkbox"} id="logcheck" name={"SocialMediaMeta"}></input>
-                    Social media metatags
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="Analytics">
-                    <input disabled defaultChecked={data.data.items.Analytics} type={"checkbox"} id="logcheck" name={"Analytics"}></input>
-                    Google Analytics opgezet
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="TagManager">
-                    <input disabled defaultChecked={data.data.items.TagManager} type={"checkbox"} id="logcheck" name={"TagManager"}></input>
-                    Tag Manager code geintegreerd
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="SSL">
-                    <input disabled defaultChecked={data.data.items.SSL} type={"checkbox"} id="logcheck" name={"SSL"}></input>
-                    SSL actief
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="FacebookDebug">
-                    <input disabled defaultChecked={data.data.items.FacebookDebug} type={"checkbox"} id="logcheck" name={"FacebookDebug"}></input>
-                    Facebook Debug testen
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="LinkedInShare">
-                    <input disabled defaultChecked={data.data.items.LinkedInShare} type={"checkbox"} id="logcheck" name={"LinkedInShare"}></input>
-                    LinkedIn Share testen
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="Lorem">
-                    <input disabled defaultChecked={data.data.items.Lorem} type={"checkbox"} id="logcheck" name={"Lorem"}></input>
-                    Geen Lorem Ipsum of placeholder teksten meer
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="Links">
-                    <input disabled defaultChecked={data.data.items.Links} type={"checkbox"} id="logcheck" name={"Links"}></input>
-                    Alle linken en knoppen werken en gaan naar de juiste pagina's
-                </label>
-                <br />
-
-                <h3 className="text-xl pt-2 font-semibold">Mail</h3>
-
-                <label className="form-control" htmlFor="PlaceholderMail">
-                    <input disabled defaultChecked={data.data.items.PlaceholderMail} type={"checkbox"} id="logcheck" name={"PlaceholderMail"}></input>
-                    Placeholder email aanmaken voor klant
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="SMTP">
-                    <input disabled defaultChecked={data.data.items.SMTP} type={"checkbox"} id="logcheck" name={"SMTP"}></input>
-                    SMTP configureren en aanzetten
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="TestMail">
-                    <input disabled defaultChecked={data.data.items.TestMail} type={"checkbox"} id="logcheck" name={"TestMail"}></input>
-                    Test email laten sturen naar klant voor elk formulier en antwoord gehad van klant
-                </label>
-                <br />
-                {/* fields that are only in the webshop list are not rendered in website checklist */}
-                {data.data.list.isWebshop ? (
-                    <>
-                        <label className="form-control" htmlFor="EmailTemplates">
-                            <input disabled defaultChecked={data.data.items.EmailTemplates} type={"checkbox"} id="logcheck" name={"EmailTemplates"}></input>
-                            Email templates goed gezet voor orders
-                        </label>
-                        <br />
-                    </>
-                ) : null}
-
-                <h3 className="text-xl pt-2 font-semibold">Afbeeldingen</h3>
-
-                <label className="form-control" htmlFor="Loadspeed">
-                    <input disabled defaultChecked={data.data.items.Loadspeed} type={"checkbox"} id="logcheck" name={"Loadspeed"}></input>
-                    Loadspeed (ms):
-                </label>
-                <input disabled defaultValue={data.data.items.LoadspeedTime} className={"appearance-none p-1 m-1 bg-gray-200  border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"LoadspeedTime"}></input>
-                <br />
-
-                <label className="form-control" htmlFor="ImageSize">
-                    <input disabled defaultChecked={data.data.items.ImageSize} type={"checkbox"} id="logcheck" name={"ImageSize"}></input>
-                    Grootte van afbeeldingen (comprimeren)
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="AltTags">
-                    <input disabled defaultChecked={data.data.items.AltTags} type={"checkbox"} id="logcheck" name={"AltTags"}></input>
-                    Alt tags voor elke afbeelding zetten
-                </label>
-                <br />
-
-                <h3 className="text-xl pt-2 font-semibold">Bestanden</h3>
-
-                <label className="form-control" htmlFor="Htaccess">
-                    <input disabled defaultChecked={data.data.items.Htaccess} type={"checkbox"} id="logcheck" name={"Htaccess"}></input>
-                    .htaccess plaatsen
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="Robots">
-                    <input disabled defaultChecked={data.data.items.Robots} type={"checkbox"} id="logcheck" name={"Robots"}></input>
-                    Robots.txt plaatsen
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="Sitemap">
-                    <input disabled defaultChecked={data.data.items.Sitemap} type={"checkbox"} id="logcheck" name={"Sitemap"}></input>
-                    Sitemap.xml plaatsen
-                </label>
-                <br />
-
-                <h3 className="text-xl pt-2 font-semibold">Policies&Voorwaarden</h3>
-
-                <label className="form-control" htmlFor="Privacy">
-                    <input disabled defaultChecked={data.data.items.Privacy} type={"checkbox"} id="logcheck" name={"Privacy"}></input>
-                    Privacy Policy
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="AlgemeneVoorwaarden">
-                    <input disabled defaultChecked={data.data.items.AlgemeneVoorwaarden} type={"checkbox"} id="logcheck" name={"AlgemeneVoorwaarden"}></input>
-                    Algemene voorwaarden
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="CookiePolicy">
-                    <input disabled defaultChecked={data.data.items.CookiePolicy} type={"checkbox"} id="logcheck" name={"CookiePolicy"}></input>
-                    Cookie policy
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="CookiePolicyBanner">
-                    <input disabled defaultChecked={data.data.items.CookiePolicyBanner} type={"checkbox"} id="logcheck" name={"CookiePolicyBanner"}></input>
-                    Cookie policy pop up
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="GDPR">
-                    <input disabled defaultChecked={data.data.items.GDPR} type={"checkbox"} id="logcheck" name={"GDPR"}></input>
-                    GDPR: bij formulieren een akkoord zetten
-                </label>
-                <br />
-
-                <h3 className="text-xl pt-2 font-semibold">Plugins</h3>
-
-                <label className="form-control" htmlFor="MaterialWP">
-                    <input disabled defaultChecked={data.data.items.MaterialWP} type={"checkbox"} id="logcheck" name={"MaterialWP"}></input>
-                    Material WP: Aangepast met logo, huiskleur en afbeelding
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="EasyWPSMTP">
-                    <input disabled defaultChecked={data.data.items.EasyWPSMTP} type={"checkbox"} id="logcheck" name={"EasyWPSMTP"}></input>
-                    Easy WP SMTP: SMTP configureren en aanzetten
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="WPS">
-                    <input disabled defaultChecked={data.data.items.WPS} type={"checkbox"} id="logcheck" name={"WPS"}></input>
-                    WPS Hide Login: redirect van login-url naar /login zetten
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="WPfast">
-                    <input disabled defaultChecked={data.data.items.WPfast} type={"checkbox"} id="logcheck" name={"WPfast"}></input>
-                    WP Fastestcache: caching van pagina's juist zetten (ContactForms excluden) + koppeling cloudflare cdn
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="shortpixel">
-                    <input disabled defaultChecked={data.data.items.shortpixel} type={"checkbox"} id="logcheck" name={"shortpixel"}></input>
-                    ShortPixel + ShortPixel AI (API Key aan Kristof vragen)
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="yoast">
-                    <input disabled defaultChecked={data.data.items.yoast} type={"checkbox"} id="logcheck" name={"yoast"}></input>
-                    Yoast SEO + geconfigureerd.
-                </label>
-                <br />
-                {/* fields that are only in the webshop list are not rendered in website checklist */}
-                {data.data.list.isWebshop ? (
-                    <>
-                        <label className="form-control" htmlFor="SendCloud">
-                            <input disabled defaultChecked={data.data.items.SendCloud} type={"checkbox"} id="logcheck" name={"SendCloud"}></input>
-                            SendCloud | Smart Shipping Service: connectie maken met WooCommerce en Sendcloud.
-                        </label>
-                        <br />
-
-                        <label className="form-control" htmlFor="WooCommerce">
-                            <input disabled defaultChecked={data.data.items.WooCommerce} type={"checkbox"} id="logcheck" name={"WooCommerce"}></input>
-                            WooCommerce
-                        </label>
-                        <br />
-
-                        <label className="form-control" htmlFor="WooCommerceAJAX">
-                            <input disabled defaultChecked={data.data.items.WooCommerceAJAX} type={"checkbox"} id="logcheck" name={"WooCommerceAJAX"}></input>
-                            WooCommerce Ajax Sidecart + Velden in juiste taal zetten
-                        </label>
-                        <br />
-
-                        <label className="form-control" htmlFor="WPML">
-                            <input disabled defaultChecked={data.data.items.WPML} type={"checkbox"} id="logcheck" name={"WPML"}></input>
-                            WPML (Indien multi-language)
-                        </label>
-                        <br />
-
-                        <label className="form-control" htmlFor="WooCommercePayPal">
-                            <input disabled defaultChecked={data.data.items.WooCommercePayPal} type={"checkbox"} id="logcheck" name={"WooCommercePayPal"}></input>
-                            WooCommerce Paypal Checkout Gateway
-                        </label>
-                        <br />
-
-                        <label className="form-control" htmlFor="WooCommercePDF">
-                            <input disabled defaultChecked={data.data.items.WooCommercePDF} type={"checkbox"} id="logcheck" name={"WooCommercePDF"}></input>
-                            WooCommerce PDF Invoices & Packing Slips: facturen juist configureren met logo en gegevens van klant. In de footer verwijzing naar algemene voorwaarden.
-                        </label>
-                        <br />
-
-                        <label className="form-control" htmlFor="WooCommerceLoad">
-                            <input disabled defaultChecked={data.data.items.WooCommerceLoad} type={"checkbox"} id="logcheck" name={"WooCommerceLoad"}></input>
-                            WooCommerce Load More (Van Be Rocket)
-                        </label>
-                        <br />
-
-                        <label className="form-control" htmlFor="WooCommerceStripe">
-                            <input disabled defaultChecked={data.data.items.WooCommerceStripe} type={"checkbox"} id="logcheck" name={"WooCommerceStripe"}></input>
-                            WooCommerce Stripe Gateway: connectie maken met WooCommerce en Stripe.
-                        </label>
-                        <br />
-                    </>
-                ) : null}
+                <h3 className="text-xl pt-2 font-semibold">Marketing</h3>
 
 
-                <label className="form-control" htmlFor="KlantAanpassingen">
-                    <input disabled defaultChecked={data.data.items.KlantAanpassingen} type={"checkbox"} id="logcheck" name={"KlantAanpassingen"}></input>
-                    Klant moet aanpassingen kunnen doen
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="CapabilityManager">
-                    <input disabled defaultChecked={data.data.items.CapabilityManager} type={"checkbox"} id="logcheck" name={"CapabilityManager"}></input>
-                    Capability Manager Enhanced: restricted gebruiker aanmaken en configureren
-                </label>
-                <br />
-                {/* fields that are only in the webshop list are not rendered in website checklist */}
-                {data.data.list.isWebshop ? (
-                    <>
-                        <h3 className="text-xl pt-2 font-semibold">Betaling</h3>
-
-                        <label className="form-control" htmlFor="Stripe">
-                            <input disabled defaultChecked={data.data.items.Stripe} type={"checkbox"} id="logcheck" name={"Stripe"}></input>
-                            Stripe account aanmaken en configureren voor Mastercard/Visa & Bancontact
-                        </label>
-                        <br />
-
-                        <label className="form-control" htmlFor="Betaalmethodes">
-                            <input disabled defaultChecked={data.data.items.Betaalmethodes} type={"checkbox"} id="logcheck" name={"Betaalmethodes"}></input>
-                            Betaalmethodes correct configureren
-                        </label>
-                        <br />
-
-                        <label className="form-control" htmlFor="Testen">
-                            <input disabled defaultChecked={data.data.items.Testen} type={"checkbox"} id="logcheck" name={"Testen"}></input>
-                            Testen van betalingssystemen
-                        </label>
-                        <br />
-
-                        <h3 className="text-xl pt-2 font-semibold">Verzendingen</h3>
-                        <label className="form-control" htmlFor="SendCloudUser">
-                            <input disabled defaultChecked={data.data.items.SendCloudUser} type={"checkbox"} id="logcheck" name={"SendCloudUser"}></input>
-                            Gebruiker aanmaken op SendCloud met placeholder_klant email. Klant zijn email ook koppelen.
-                        </label>
-                        <br />
-
-                        <label className="form-control" htmlFor="SendCloudVerrify">
-                            <input disabled defaultChecked={data.data.items.SendCloudVerrify} type={"checkbox"} id="logcheck" name={"SendCloudVerrify"}></input>
-                            Bankaccount verifiëren van klant met SendCloud
-                        </label>
-                        <br />
-                    </>
-                ) : null}
-
-
-                <h3 className="text-xl pt-2 font-semibold">Mobiel</h3>
-                <label className="form-control" htmlFor="Mobile">
-                    <input disabled defaultChecked={data.data.items.Mobile} type={"checkbox"} id="logcheck" name={"Mobile"}></input>
-                    Verifiëren dat site werkt en er goed uitziet op mobiel
-                </label>
-                <br />
-
-                <h3 className="text-xl pt-2 font-semibold">Hosting</h3>
-
-                <label className="form-control" htmlFor="Optimalisatie">
-                    <input disabled defaultChecked={data.data.items.Optimalisatie} type={"checkbox"} id="logcheck" name={"Optimalisatie"}></input>
-                    Site optimalisatie aanzetten
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="SSLCheckup">
-                    <input disabled defaultChecked={data.data.items.SSLCheckup} type={"checkbox"} id="logcheck" name={"SSLCheckup"}></input>
-                    SSL Checkup
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="MailCheckup">
-                    <input disabled defaultChecked={data.data.items.MailCheckup} type={"checkbox"} id="logcheck" name={"MailCheckup"}></input>
-                    Mail Checkup
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="FactuurHosting">
-                    <input disabled defaultChecked={data.data.items.FactuurHosting} type={"checkbox"} id="logcheck" name={"FactuurHosting"}></input>
-                    Facturatie opgestart voor hosting en onderhoud? Communiceren naar Kristof
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="KlantgegevensATMOS">
-                    <input disabled defaultChecked={data.data.items.KlantgegevensATMOS} type={"checkbox"} id="logcheck" name={"KlantgegevensATMOS"}></input>
-                    Klantgegevens in ATMOS portal?
-                </label>
-                <br />
-
-                <label className="form-control" htmlFor="Cloudflare">
-                    <input disabled defaultChecked={data.data.items.Cloudflare} type={"checkbox"} id="logcheck" name={"Cloudflare"}></input>
-                    Cloudflare opstart + Config + Rules (Door Atmos Admin)
-                </label>
-                <br />
-
-                <h3 className="text-xl pt-2 font-semibold">Finalisatie</h3>
-
-                <label className="form-control" htmlFor="CommPM">
-                    <input disabled defaultChecked={data.data.items.CommPM} type={"checkbox"} id="logcheck" name={"CommPM"}></input>
-                    Communicatie naar PM
-                </label>
-                <br />
-
-                <label className="" htmlFor="CloudFlareInWordpress">Cloudflare in wordpress active?</label>
-                <select disabled id="CloudFlareInWordpress" className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 " name="CloudFlareInWordpress" defaultValue={data.data.items.CloudFlareInWordpress} >
+                <label className="" htmlFor="AnalyticsCreate">Google Analytics aanmaken</label>
+                <select disabled id="AnalyticsCreate" name="AnalyticsCreate" defaultValue={data.data.items.AnalyticsCreate} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                     <option value="" hidden>Choose here</option>
                     <option value="DONE">DONE</option>
                     <option value="TODO">TO DO</option>
@@ -414,43 +51,8 @@ export default function LogTemplate(data: any) {
                 </select>
                 <br />
 
-                
-                <label className="" htmlFor="DoubleCheck">Double Check web SRV</label>
-                <select disabled id="DoubleCheck" name="DoubleCheck"  defaultValue={data.data.items.DoubleCheck} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 "  >
-                    <option value="" hidden>Choose here</option>
-                    <option value="DONE">DONE</option>
-                    <option value="TODO">TO DO</option>
-                    <option value="N.V.T.">N.V.T.</option>
-                    <option value="BUSY">BUSY</option>
-                    <option value="NOT OK">NOT OK</option>
-                </select>
-                <br />
-
-                <label className="" htmlFor="LEGALPACK"> Legal Pack</label>
-                <select disabled id="LEGALPACK" name="LEGALPACK"  defaultValue={data.data.items.LEGALPACK} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-3/12 p-1 "  >
-                    <option value="" hidden>Choose here</option>
-                    <option value="DONE">DONE</option>
-                    <option value="TODO">TO DO</option>
-                    <option value="N.V.T.">N.V.T.</option>
-                    <option value="BUSY">BUSY</option>
-                    <option value="NOT OK">NOT OK</option>
-                    <option value="AANVRAAG">Aanvraag ingediend</option>
-                </select>
-                <br />
-
-                <label className="" htmlFor="OnderhoudsAbonnement">OnderhoudsAbonnement</label>
-                <select disabled id="OnderhoudsAbonnement" name="OnderhoudsAbonnement"  defaultValue={data.data.items.OnderhoudsAbonnement} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 "  >
-                    <option value="" hidden>Choose here</option>
-                    <option value="DONE">DONE</option>
-                    <option value="TODO">TO DO</option>
-                    <option value="N.V.T.">N.V.T.</option>
-                    <option value="BUSY">BUSY</option>
-                    <option value="NOT OK">NOT OK</option>
-                </select>
-                <br />
-
-                <label className="" htmlFor="OnderhoudsProject">Onderhouds Project</label>
-                <select disabled id="OnderhoudsProject" name="OnderhoudsProject"  defaultValue={data.data.items.OnderhoudsProject} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 "  >
+                <label className="" htmlFor="ReCaptchaCreate">ReCaptcha aanmaken</label>
+                <select disabled id="ReCaptchaCreate" name="ReCaptchaCreate" defaultValue={data.data.items.ReCaptchaCreate} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                     <option value="" hidden>Choose here</option>
                     <option value="DONE">DONE</option>
                     <option value="TODO">TO DO</option>
@@ -461,18 +63,7 @@ export default function LogTemplate(data: any) {
                 <br />
 
                 <label className="" htmlFor="FacebookInstaShop">Facebook en Instagram Shop</label>
-                <select disabled id="FacebookInstaShop" name="FacebookInstaShop"  defaultValue={data.data.items.FacebookInstaShop} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 "  >
-                    <option value="" hidden>Choose here</option>
-                    <option value="DONE">DONE</option>
-                    <option value="TODO">TO DO</option>
-                    <option value="N.V.T.">N.V.T.</option>
-                    <option value="BUSY">BUSY</option>
-                    <option value="NOT OK">NOT OK</option>
-                </select>
-                <br />
-
-                <label className="" htmlFor="ReCaptcha">ReCaptcha</label>
-                <select disabled id="ReCaptcha" name="ReCaptcha"  defaultValue={data.data.items.ReCaptcha} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 "  >
+                <select disabled id="FacebookInstaShop" name="FacebookInstaShop" defaultValue={data.data.items.FacebookInstaShop} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                     <option value="" hidden>Choose here</option>
                     <option value="DONE">DONE</option>
                     <option value="TODO">TO DO</option>
@@ -483,7 +74,7 @@ export default function LogTemplate(data: any) {
                 <br />
 
                 <label className="" htmlFor="ActiveCampaign">Nieuwsbrief / Active Campaign</label>
-                <select disabled id="ActiveCampaign" name="ActiveCampaign"  defaultValue={data.data.items.ActiveCampaign} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 "  >
+                <select disabled id="ActiveCampaign" name="ActiveCampaign" defaultValue={data.data.items.ActiveCampaign} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                     <option value="" hidden>Choose here</option>
                     <option value="DONE">DONE</option>
                     <option value="TODO">TO DO</option>
@@ -492,9 +83,475 @@ export default function LogTemplate(data: any) {
                     <option value="NOT OK">NOT OK</option>
                 </select>
                 <br />
-                
+
                 <label className="" htmlFor="Mockups">Mockups</label>
-                <select disabled id="Mockups" name="Mockups"  defaultValue={data.data.items.Mockups} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 "  >
+                <select disabled id="Mockups" name="Mockups" defaultValue={data.data.items.Mockups} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <h3 className="text-xl pt-2 font-semibold">Development</h3>
+
+                <label className="" htmlFor="Compressie">Compressie aanzetten</label>
+                <select disabled id="Compressie" name="Compressie" defaultValue={data.data.items.Compressie} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="Copyright">Copyright met dynamisch jaartal in footer zetten</label>
+                <select disabled id="Copyright" name="Copyright" defaultValue={data.data.items.Copyright} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="SocialMediaMeta">Social media metatags</label>
+                <select disabled id="SocialMediaMeta" name="SocialMediaMeta" defaultValue={data.data.items.SocialMediaMeta} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="AnalyticsIntegrate">Google Analytics integratie</label>
+                <select disabled id="AnalyticsIntegrate" name="AnalyticsIntegrate" defaultValue={data.data.items.AnalyticsIntegrate} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="FacebookDebug">Facebook Debug testen</label>
+                <select disabled id="FacebookDebug" name="FacebookDebug" defaultValue={data.data.items.FacebookDebug} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="LinkedInShare">LinkedIn Share testen</label>
+                <select disabled id="LinkedInShare" name="LinkedInShare" defaultValue={data.data.items.LinkedInShare} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="Lorem">Geen Lorem Ipsum of placeholder teksten meer</label>
+                <select disabled id="Lorem" name="Lorem" defaultValue={data.data.items.Lorem} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="Links">Alle linken en knoppen werken en gaan naar de juiste pagina's</label>
+                <select disabled id="Links" name="Links" defaultValue={data.data.items.Links} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="SMTP">SMTP configureren en aanzetten</label>
+                <select disabled id="SMTP" name="SMTP" defaultValue={data.data.items.SMTP} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="TestMail">Test email laten sturen naar klant voor elk formulier en antwoord gehad van klant</label>
+                <select disabled id="TestMail" name="TestMail" defaultValue={data.data.items.TestMail} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="Loadspeed">Loadspeed (ms):</label>
+                <input defaultValue={data.data.items.LoadspeedTime} className={"appearance-none p-1 m-1 w-12 bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"LoadspeedTime"}></input>
+                <select disabled id="Loadspeed" name="Loadspeed" defaultValue={data.data.items.Loadspeed} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="ImageSize">Grootte van afbeeldingen (comprimeren)</label>
+                <select disabled id="ImageSize" name="ImageSize" defaultValue={data.data.items.ImageSize} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="AltTags">Alt tags voor elke afbeelding zetten</label>
+                <select disabled id="AltTags" name="AltTags" defaultValue={data.data.items.AltTags} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="Htaccess">.htaccess plaatsen </label>
+                <select disabled id="Htaccess" name="Htaccess" defaultValue={data.data.items.Htaccess} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="Robots">Robots.txt plaatsen</label>
+                <select disabled id="Robots" name="Robots" defaultValue={data.data.items.Robots} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="Sitemap">Sitemap.xml plaatsen</label>
+                <select disabled id="Sitemap" name="Sitemap" defaultValue={data.data.items.Sitemap} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="GDPR">GDPR: bij formulieren een akkoord zetten</label>
+                <select disabled id="GDPR" name="GDPR" defaultValue={data.data.items.GDPR} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <h3 className="text-xl pt-2 font-semibold">Plugins</h3>
+
+                <label className="" htmlFor="MaterialWP">Material WP: Aangepast met logo, huiskleur en afbeelding</label>
+                <select disabled id="MaterialWP" name="MaterialWP" defaultValue={data.data.items.MaterialWP} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="EasyWPSMTP">Easy WP SMTP: SMTP configureren en aanzetten</label>
+                <select disabled id="EasyWPSMTP" name="EasyWPSMTP" defaultValue={data.data.items.EasyWPSMTP} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="WPS">WPS Hide Login: redirect van login-url naar /login zetten</label>
+                <select disabled id="WPS" name="WPS" defaultValue={data.data.items.WPS} className="bg-gray-50 border m-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="WPOptimize">WP Optimize: caching van pagina's juist zetten (ContactForms excluden) + koppeling cloudflare cdn</label>
+                <select disabled id="WPOptimize" name="WPOptimize" defaultValue={data.data.items.WPOptimize} className="bg-gray-50 border mb-1 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="shortpixel">ShortPixel + ShortPixel AI (API Key aan Kristof vragen)</label>
+                <select disabled id="shortpixel" name="shortpixel" defaultValue={data.data.items.shortpixel} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+
+                <label className="" htmlFor="yoast">Yoast SEO + geconfigureerd.</label>
+                <select disabled id="yoast" name="yoast" defaultValue={data.data.items.yoast} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+                {/* fields that are only in the webshop list are not rendered in website checklist */}
+                {data.data.list.isWebshop ? (
+                    <>
+                        <label className="" htmlFor="SendCloud">SendCloud | Smart Shipping Service: connectie maken met WooCommerce en Sendcloud.</label>
+                        <select disabled id="SendCloud" name="SendCloud" defaultValue={data.data.items.SendCloud} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-2/12 p-1"  >
+                            <option value="" hidden>Choose here</option>
+                            <option value="DONE">DONE</option>
+                            <option value="TODO">TO DO</option>
+                            <option value="N.V.T.">N.V.T.</option>
+                            <option value="BUSY">BUSY</option>
+                            <option value="NOT OK">NOT OK</option>
+                        </select>
+                        <br />
+
+                        <label className="" htmlFor="WooCommerce">WooCommerce</label>
+                        <select disabled id="WooCommerce" name="WooCommerce" defaultValue={data.data.items.WooCommerce} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                            <option value="" hidden>Choose here</option>
+                            <option value="DONE">DONE</option>
+                            <option value="TODO">TO DO</option>
+                            <option value="N.V.T.">N.V.T.</option>
+                            <option value="BUSY">BUSY</option>
+                            <option value="NOT OK">NOT OK</option>
+                        </select>
+                        <br />
+
+                        <label className="" htmlFor="WooCommerceAJAX">WooCommerce Ajax Sidecart + Velden in juiste taal zetten</label>
+                        <select disabled id="WooCommerceAJAX" name="WooCommerceAJAX" defaultValue={data.data.items.WooCommerceAJAX} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                            <option value="" hidden>Choose here</option>
+                            <option value="DONE">DONE</option>
+                            <option value="TODO">TO DO</option>
+                            <option value="N.V.T.">N.V.T.</option>
+                            <option value="BUSY">BUSY</option>
+                            <option value="NOT OK">NOT OK</option>
+                        </select>
+                        <br />
+
+                        <label className="" htmlFor="WPML">WPML (Indien multi-language)</label>
+                        <select disabled id="WPML" name="WPML" defaultValue={data.data.items.WPML} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                            <option value="" hidden>Choose here</option>
+                            <option value="DONE">DONE</option>
+                            <option value="TODO">TO DO</option>
+                            <option value="N.V.T.">N.V.T.</option>
+                            <option value="BUSY">BUSY</option>
+                            <option value="NOT OK">NOT OK</option>
+                        </select>
+                        <br />
+
+                        <label className="" htmlFor="WooCommercePayPal">WooCommerce Paypal Checkout Gateway</label>
+                        <select disabled id="WooCommercePayPal" name="WooCommercePayPal" defaultValue={data.data.items.WooCommercePayPal} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                            <option value="" hidden>Choose here</option>
+                            <option value="DONE">DONE</option>
+                            <option value="TODO">TO DO</option>
+                            <option value="N.V.T.">N.V.T.</option>
+                            <option value="BUSY">BUSY</option>
+                            <option value="NOT OK">NOT OK</option>
+                        </select>
+                        <br />
+
+                        <label className="" htmlFor="WooCommercePDF">WooCommerce PDF Invoices & Packing Slips: facturen juist configureren met logo en gegevens van klant. In de footer verwijzing naar algemene voorwaarden.</label>
+                        <select disabled id="WooCommercePDF" name="WooCommercePDF" defaultValue={data.data.items.WooCommercePDF} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                            <option value="" hidden>Choose here</option>
+                            <option value="DONE">DONE</option>
+                            <option value="TODO">TO DO</option>
+                            <option value="N.V.T.">N.V.T.</option>
+                            <option value="BUSY">BUSY</option>
+                            <option value="NOT OK">NOT OK</option>
+                        </select>
+                        <br />
+
+                        <label className="" htmlFor="WooCommerceLoad">WooCommerce Load More (Van Be Rocket)</label>
+                        <select disabled id="WooCommerceLoad" name="WooCommerceLoad" defaultValue={data.data.items.WooCommerceLoad} className="bg-gray-50 border mt-3 mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                            <option value="" hidden>Choose here</option>
+                            <option value="DONE">DONE</option>
+                            <option value="TODO">TO DO</option>
+                            <option value="N.V.T.">N.V.T.</option>
+                            <option value="BUSY">BUSY</option>
+                            <option value="NOT OK">NOT OK</option>
+                        </select>
+                        <br />
+
+                        <label className="" htmlFor="WooCommerceStripe">WooCommerce Stripe Gateway: connectie maken met WooCommerce en Stripe. (NA OVERZET NAAR LIVE ZEKER SANDBOX MODE UITZETTEN EN CONFIGUREREN!!)</label>
+                        <select disabled id="WooCommerceStripe" name="WooCommerceStripe" defaultValue={data.data.items.WooCommerceStripe} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                            <option value="" hidden>Choose here</option>
+                            <option value="DONE">DONE</option>
+                            <option value="TODO">TO DO</option>
+                            <option value="N.V.T.">N.V.T.</option>
+                            <option value="BUSY">BUSY</option>
+                            <option value="NOT OK">NOT OK</option>
+                        </select>
+                        <br />
+                    </>
+                ) : null}
+
+
+
+                <label className="" htmlFor="KlantAanpassingen">Klant moet aanpassingen kunnen doen</label>
+                <select disabled id="KlantAanpassingen" name="KlantAanpassingen" defaultValue={data.data.items.KlantAanpassingen} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="CapabilityManager">Capability Manager Enhanced: restricted gebruiker aanmaken en configureren</label>
+                <select disabled id="CapabilityManager" name="CapabilityManager" defaultValue={data.data.items.CapabilityManager} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                {/* fields that are only in the webshop list are not rendered in website checklist */}
+                {data.data.list.isWebshop ? (
+                    <>
+                        <h4 className="text-lg pt-2 font-semibold">Betaling</h4>
+
+
+                        <label className="" htmlFor="Stripe">Stripe account aanmaken en configureren voor Mastercard/Visa & Bancontact</label>
+                        <select disabled id="Stripe" name="Stripe" defaultValue={data.data.items.CapabilityManager} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                            <option value="" hidden>Choose here</option>
+                            <option value="DONE">DONE</option>
+                            <option value="TODO">TO DO</option>
+                            <option value="N.V.T.">N.V.T.</option>
+                            <option value="BUSY">BUSY</option>
+                            <option value="NOT OK">NOT OK</option>
+                        </select>
+                        <br />
+
+
+                        <label className="" htmlFor="Betaalmethodes">Betaalmethodes correct configureren</label>
+                        <select disabled id="Betaalmethodes" name="Betaalmethodes" defaultValue={data.data.items.CapabilityManager} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                            <option value="" hidden>Choose here</option>
+                            <option value="DONE">DONE</option>
+                            <option value="TODO">TO DO</option>
+                            <option value="N.V.T.">N.V.T.</option>
+                            <option value="BUSY">BUSY</option>
+                            <option value="NOT OK">NOT OK</option>
+                        </select>
+                        <br />
+
+                        <label className="" htmlFor="Testen">Testen van betalingssystemen</label>
+                        <select disabled id="Testen" name="Testen" defaultValue={data.data.items.CapabilityManager} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                            <option value="" hidden>Choose here</option>
+                            <option value="DONE">DONE</option>
+                            <option value="TODO">TO DO</option>
+                            <option value="N.V.T.">N.V.T.</option>
+                            <option value="BUSY">BUSY</option>
+                            <option value="NOT OK">NOT OK</option>
+                        </select>
+                        <br />
+
+                        
+                    </>
+                ) : null}
+
+                <h4 className="text-lg pt-2 font-semibold">Mobiel</h4>
+
+                <label className="" htmlFor="Mobile">Verifiëren dat site werkt en er goed uitziet op mobiel</label>
+                <select disabled id="Mobile" name="Mobile" defaultValue={data.data.items.Mobile} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <h4 className="text-lg pt-2 font-semibold">PHP</h4>
+                <label className="" htmlFor="PHPManager">PHP manager meest recente versie</label>
+                <select disabled id="PHPManager" name="PHPManager" defaultValue={data.data.items.PHPManager} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="PHPIni">PHP.ini path zelfde versie</label>
+                <select disabled id="PHPIni" name="PHPIni" defaultValue={data.data.items.PHPIni} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="RecaptchaIntegratie">Recaptcha integratie</label>
+                <select disabled id="RecaptchaIntegratie" name="RecaptchaIntegratie" defaultValue={data.data.items.RecaptchaIntegratie} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                     <option value="" hidden>Choose here</option>
                     <option value="DONE">DONE</option>
                     <option value="TODO">TO DO</option>
@@ -505,7 +562,7 @@ export default function LogTemplate(data: any) {
                 <br />
 
                 <label className="" htmlFor="Blog">Blog / Nieuws</label>
-                <select disabled id="Blog" name="Blog"  defaultValue={data.data.items.Blog} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 "  >
+                <select disabled id="Blog" name="Blog" defaultValue={data.data.items.Blog} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                     <option value="" hidden>Choose here</option>
                     <option value="DONE">DONE</option>
                     <option value="TODO">TO DO</option>
@@ -516,7 +573,7 @@ export default function LogTemplate(data: any) {
                 <br />
 
                 <label className="" htmlFor="ProjectModule">ProjectModule</label>
-                <select disabled id="ProjectModule" name="ProjectModule"  defaultValue={data.data.items.ProjectModule} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 "  >
+                <select disabled id="ProjectModule" name="ProjectModule" defaultValue={data.data.items.ProjectModule} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                     <option value="" hidden>Choose here</option>
                     <option value="DONE">DONE</option>
                     <option value="TODO">TO DO</option>
@@ -527,7 +584,7 @@ export default function LogTemplate(data: any) {
                 <br />
 
                 <label className="" htmlFor="BookingsModule">BoekingsModule</label>
-                <select disabled id="BookingsModule" name="BookingsModule"  defaultValue={data.data.items.BookingsModule} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 "  >
+                <select disabled id="BookingsModule" name="BookingsModule" defaultValue={data.data.items.BookingsModule} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                     <option value="" hidden>Choose here</option>
                     <option value="DONE">DONE</option>
                     <option value="TODO">TO DO</option>
@@ -538,7 +595,7 @@ export default function LogTemplate(data: any) {
                 <br />
 
                 <label className="" htmlFor="BookingTool">BookingTool OV</label>
-                <select disabled id="BookingTool" name="BookingTool"  defaultValue={data.data.items.BookingTool} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 "  >
+                <select disabled id="BookingTool" name="BookingTool" defaultValue={data.data.items.BookingTool} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                     <option value="" hidden>Choose here</option>
                     <option value="DONE">DONE</option>
                     <option value="TODO">TO DO</option>
@@ -549,7 +606,7 @@ export default function LogTemplate(data: any) {
                 <br />
 
                 <label className="" htmlFor="RealisatieModule">RealisatieModule</label>
-                <select disabled id="RealisatieModule" name="RealisatieModule"  defaultValue={data.data.items.RealisatieModule} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 "  >
+                <select disabled id="RealisatieModule" name="RealisatieModule" defaultValue={data.data.items.RealisatieModule} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                     <option value="" hidden>Choose here</option>
                     <option value="DONE">DONE</option>
                     <option value="TODO">TO DO</option>
@@ -560,7 +617,7 @@ export default function LogTemplate(data: any) {
                 <br />
 
                 <label className="" htmlFor="SharingModule">SharingModule</label>
-                <select disabled id="SharingModule" name="SharingModule"  defaultValue={data.data.items.SharingModule} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 "  >
+                <select disabled id="SharingModule" name="SharingModule" defaultValue={data.data.items.SharingModule} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                     <option value="" hidden>Choose here</option>
                     <option value="DONE">DONE</option>
                     <option value="TODO">TO DO</option>
@@ -571,7 +628,7 @@ export default function LogTemplate(data: any) {
                 <br />
 
                 <label className="" htmlFor="NieuwsBriefKoppeling">NieuwsBriefKoppeling</label>
-                <select disabled id="NieuwsBriefKoppeling" name="NieuwsBriefKoppeling"  defaultValue={data.data.items.NieuwsBriefKoppeling} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 "  >
+                <select disabled id="NieuwsBriefKoppeling" name="NieuwsBriefKoppeling" defaultValue={data.data.items.NieuwsBriefKoppeling} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                     <option value="" hidden>Choose here</option>
                     <option value="DONE">DONE</option>
                     <option value="TODO">TO DO</option>
@@ -582,7 +639,7 @@ export default function LogTemplate(data: any) {
                 <br />
 
                 <label className="" htmlFor="MultiLanguage">MultiLanguage</label>
-                <select disabled id="MultiLanguage" name="MultiLanguage"  defaultValue={data.data.items.MultiLanguage} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 "  >
+                <select disabled id="MultiLanguage" name="MultiLanguage" defaultValue={data.data.items.MultiLanguage} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                     <option value="" hidden>Choose here</option>
                     <option value="DONE">DONE</option>
                     <option value="TODO">TO DO</option>
@@ -593,7 +650,7 @@ export default function LogTemplate(data: any) {
                 <br />
 
                 <label className="" htmlFor="DelDev">Delete Dev omgeving</label>
-                <select disabled id="DelDev" name="DelDev"  defaultValue={data.data.items.DelDev} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1 "  >
+                <select disabled id="DelDev" name="DelDev" defaultValue={data.data.items.DelDev} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                     <option value="" hidden>Choose here</option>
                     <option value="DONE">DONE</option>
                     <option value="TODO">TO DO</option>
@@ -602,6 +659,237 @@ export default function LogTemplate(data: any) {
                     <option value="NOT OK">NOT OK</option>
                 </select>
                 <br />
+
+                <label className="" htmlFor="Discussie">Discussie WP 3 vinkjes afzettern</label>
+                <select disabled id="Discussie" name="Discussie" defaultValue={data.data.items.Discussie} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <h3 className="text-xl pt-2 font-semibold">Project Manager</h3>
+
+                <label className="" htmlFor="QCFinal">Kwaliteitscontrole finale design</label>
+                <select disabled id="QCFinal" name="QCFinal" defaultValue={data.data.items.QCFinal} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="LEGALPACK"> Legal Pack</label>
+                <select disabled id="LEGALPACK" name="LEGALPACK" defaultValue={data.data.items.LEGALPACK} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-3/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                    <option value="AANVRAAG">Aanvraag ingediend</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="AlgemeneVoorwaarden">Algemene Voorwaarden</label>
+                <select disabled id="AlgemeneVoorwaarden" name="AlgemeneVoorwaarden" defaultValue={data.data.items.AlgemeneVoorwaarden} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="CookiePopUp">Cookie Policy pop-up</label>
+                <select disabled id="CookiePopUp" name="CookiePopUp" defaultValue={data.data.items.CookiePopUp} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="OnderhoudsAbonnement">OnderhoudsAbonnement</label>
+                <select disabled id="OnderhoudsAbonnement" name="OnderhoudsAbonnement" defaultValue={data.data.items.OnderhoudsAbonnement} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="OnderhoudsProject">Onderhouds Project</label>
+                <select disabled id="OnderhoudsProject" name="OnderhoudsProject" defaultValue={data.data.items.OnderhoudsProject} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <h3 className="text-xl pt-2 font-semibold">Technisch</h3>
+
+                <label className="" htmlFor="SSLActive">SSL actief</label>
+                <select disabled id="SSLActive" name="SSLActive" defaultValue={data.data.items.SSLActive} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="QCFirst">Kwaliteitscontrole eerste design</label>
+                <select disabled id="QCFirst" name="QCFirst" defaultValue={data.data.items.QCFirst} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="PlaceholderMail">Placeholder E-mail voor klant</label>
+                <select disabled id="PlaceholderMail" name="PlaceholderMail" defaultValue={data.data.items.PlaceholderMail} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="Optimalisatie">Site optimalisatie aanzetten</label>
+                <select disabled id="Optimalisatie" name="Optimalisatie" defaultValue={data.data.items.Optimalisatie} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="SSLCheckup">SSL Checkup</label>
+                <select disabled id="SSLCheckup" name="SSLCheckup" defaultValue={data.data.items.SSLCheckup} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="MailCheckup">Mail Checkup</label>
+                <select disabled id="MailCheckup" name="MailCheckup" defaultValue={data.data.items.MailCheckup} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="FactuurHosting">Facturatie opgestart voor hosting en onderhoud? Communiceren naar Kristof</label>
+                <select disabled id="FactuurHosting" name="FactuurHosting" defaultValue={data.data.items.FactuurHosting} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="KlantgegevensATMOS">Klantgegevens in ATMOS portal?</label>
+                <select disabled id="KlantgegevensATMOS" name="KlantgegevensATMOS" defaultValue={data.data.items.KlantgegevensATMOS} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="Cloudflare">Cloudflare opstart + Config + Rules (Door Atmos Admin)</label>
+                <select disabled id="Cloudflare" name="Cloudflare" defaultValue={data.data.items.Cloudflare} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="CloudFlareInWordpress">Cloudflare in wordpress active?</label>
+                <select disabled id="CloudFlareInWordpress" className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1" name="CloudFlareInWordpress" defaultValue={data.data.items.CloudFlareInWordpress} >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                <label className="" htmlFor="DoubleCheck">Double Check web SRV</label>
+                <select disabled id="DoubleCheck" name="DoubleCheck" defaultValue={data.data.items.DoubleCheck} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <option value="" hidden>Choose here</option>
+                    <option value="DONE">DONE</option>
+                    <option value="TODO">TO DO</option>
+                    <option value="N.V.T.">N.V.T.</option>
+                    <option value="BUSY">BUSY</option>
+                    <option value="NOT OK">NOT OK</option>
+                </select>
+                <br />
+
+                {data.data.list.isWebshop ? (
+                    <>
+                        <h4 className="text-l pt-2 font-semibold">Verzendingen</h4>
+
+                        <label className="" htmlFor="SendCloudUser">Gebruiker aanmaken op SendCloud met placeholder_klant email. Klant zijn email ook koppelen.</label>
+                        <select disabled id="CapabilityManager" name="CapabilityManager" defaultValue={data.data.items.CapabilityManager} className="bg-gray-50 border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-2/12 p-1"  >
+                            <option value="" hidden>Choose here</option>
+                            <option value="DONE">DONE</option>
+                            <option value="TODO">TO DO</option>
+                            <option value="N.V.T.">N.V.T.</option>
+                            <option value="BUSY">BUSY</option>
+                            <option value="NOT OK">NOT OK</option>
+                        </select>
+                        <br />
+
+                        <label className="" htmlFor="SendCloudVerrify">Bankaccount verifiëren van klant met SendCloud</label>
+                        <select disabled id="CapabilityManager" name="CapabilityManager" defaultValue={data.data.items.CapabilityManager} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                            <option value="" hidden>Choose here</option>
+                            <option value="DONE">DONE</option>
+                            <option value="TODO">TO DO</option>
+                            <option value="N.V.T.">N.V.T.</option>
+                            <option value="BUSY">BUSY</option>
+                            <option value="NOT OK">NOT OK</option>
+                        </select>
+                        <br />
+                    </>
+                ) : null}
 
                 <label className="text-xl pt-2 font-semibold" htmlFor="Opmerkingen">Opmerkingen
                 </label>

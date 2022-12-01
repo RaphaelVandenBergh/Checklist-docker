@@ -134,6 +134,7 @@ const badRequest = (data: ActionData) =>
 
 //action function handles form submission
 export const action: ActionFunction = async ({ params, request }) => {
+    
     //get the form data from the request
     const form = await request.formData();
     //put form data in variables
@@ -260,7 +261,7 @@ export const action: ActionFunction = async ({ params, request }) => {
 
 
     //check if all required fields are filled in
-    if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string" || typeof Compressie !== "boolean" || typeof Copyright !== "boolean") { return badRequest({ formError: "Form not submitted correctly" }) }
+    if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string") {console.log("wheeze"); return badRequest({ formError: "Form not submitted correctly" }) }
     const currentData = await db.checkList.findFirst({
         where: {
             Id: params.websiteid

@@ -199,6 +199,8 @@ model Logs{
   DoubleCheck String @default("")
   SendCloudUser String @default("")
   SendCloudVerrify String @default("")
+  Opmerkingen String @default("")
+  LastUser String @default("")
 
 }
 

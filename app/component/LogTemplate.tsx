@@ -1,6 +1,8 @@
 import { Textarea } from "@material-tailwind/react";
 import { Form } from "@remix-run/react";
 import { GrDocumentPdf } from "react-icons/gr";
+import MaintenanceTemplate from "./MaintenanceTemplate";
+import OnderhoudEntry from "./OnderhoudEntry";
 
 export default function LogTemplate(data: any) {
     function findlog(log: any) {
@@ -510,7 +512,7 @@ export default function LogTemplate(data: any) {
                         </select>
                         <br />
 
-                        
+
                     </>
                 ) : null}
 
@@ -890,6 +892,22 @@ export default function LogTemplate(data: any) {
                         <br />
                     </>
                 ) : null}
+
+                <h4 className="text-xl pt-2 font-semibold">Onderhoud</h4>
+                {data.data.Onderhoud.length > 0 ?
+                    (
+                        data.data.Onderhoud.map((item: any) => (
+                            item.Finished ?
+                                <OnderhoudEntry key={item.Id} onderhoud={item} />
+                                :
+                               null
+                        ))
+                    ) : (
+                        null
+                    )
+                }
+
+                <br />
 
                 <label className="text-xl pt-2 font-semibold" htmlFor="Opmerkingen">Opmerkingen
                 </label>

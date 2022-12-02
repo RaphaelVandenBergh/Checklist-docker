@@ -438,6 +438,10 @@ export const action: ActionFunction = async ({ request, params }) => {
             SendCloudVerrify: currentData.CheckListItems.SendCloudVerrify,
             Opmerkingen: currentData.CheckListItems.Opmerkingen,
             LastUser: currentData.CheckListItems.LastUser,
+            Onderhoud:{
+                connect:
+                    currentData.Onderhoud.map((item) => ({ Id: item.Id }))
+            }
         }
     })
     //update the database entry

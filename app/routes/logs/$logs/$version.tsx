@@ -1,4 +1,4 @@
-import type { CheckList,  Logs } from '@prisma/client';
+import type { CheckList,  Logs, Onderhoud } from '@prisma/client';
 import type { LoaderFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
@@ -25,15 +25,15 @@ export function links() {
         { rel: "stylesheet", href: main },
     ];
 }
- type LoaderData ={list: CheckList, items: Logs, Version: number}
+ type LoaderData ={list: CheckList, items: Logs, Version: number, Onderhoud: Onderhoud[]}
 export const loader: LoaderFunction = async ({ params})=>{
     const logs = await db.logs.findUnique({
         where:{Id: params.version},
-        include: {Checklist: true},
+        include: {Checklist: true, Onderhoud: true},
     })
     if(!logs){ throw new Error('List not found')}
     if(!params.version){throw new Error('Version not found')}
-    const data: LoaderData = {list:logs.Checklist, items:logs, Version: parseInt(params.version)}
+    const data: LoaderData = {list:logs.Checklist, items:logs, Version: parseInt(params.version), Onderhoud: logs.Onderhoud}
     return json(data)
     
 }

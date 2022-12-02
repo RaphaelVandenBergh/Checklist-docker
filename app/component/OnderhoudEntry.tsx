@@ -19,7 +19,7 @@ export default function OnderhoudEntry(onderhoud: any) {
                     <h4 className="text-xl p-2 text-center">onderhoud {moment(new Date( onderhoud.onderhoud.UpdatedAt)).format("DD/MM/yyyy HH:mm:ss")}</h4>
                     <label className="form-control" htmlFor="VerantwoordelijkeOnderhoud">Uitgevoerd door: </label>
 
-                    <input disabled className={"appearance-none p-1 m-1 bg-gray-300 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"}></input>
+                    <input disabled defaultValue={onderhoud.onderhoud.Verantwoordelijke} className={"appearance-none p-1 m-1 bg-gray-300 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"}></input>
 
                    
 

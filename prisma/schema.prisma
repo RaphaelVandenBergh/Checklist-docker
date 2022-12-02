@@ -120,6 +120,7 @@ model CheckListItems{
 model Logs{
   Id String @id @default(uuid())
   Checklist CheckList @relation(fields: [CheckListId], references: [Id])
+  Onderhoud Onderhoud[]
   CheckListId String
   Version Int
   createdAt DateTime
@@ -208,6 +209,7 @@ model Onderhoud{
   Id String @id @default(uuid())
   Checklist CheckList @relation(fields: [CheckListId], references: [Id])
   CheckListId String
+  Logs Logs[]
   CreatedAt DateTime @default(now())
   UpdatedAt DateTime @updatedAt
   Finished Boolean @default(false)

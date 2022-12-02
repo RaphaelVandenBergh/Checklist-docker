@@ -25,8 +25,6 @@ export function links() {
     ];
 }
 
-
-
 //define types for the data returned by the loader function
 type LoaderData = { list: CheckList, items: CheckListItems, onderhoud: Onderhoud[] };
 //loader function fetches data from the database every time the page is loaded
@@ -134,7 +132,7 @@ const badRequest = (data: ActionData) =>
 
 //action function handles form submission
 export const action: ActionFunction = async ({ params, request }) => {
-    
+
     //get the form data from the request
     const form = await request.formData();
     //put form data in variables
@@ -144,7 +142,6 @@ export const action: ActionFunction = async ({ params, request }) => {
     const ProjectNaam = form.get("ProjectNaam")?.toString();
     const Budget = form.get("Budget")?.toString();
     const Verantwoordelijke = form.get("Verantwoordelijke")?.toString();
-
 
     const Opmerkingen = form.get("Opmerkingen")?.toString();
     const LastUser = form.get("LastUser")?.toString();
@@ -225,7 +222,6 @@ export const action: ActionFunction = async ({ params, request }) => {
     const SendCloudUser = form.get("SendCloudUser")?.toString();
     const SendCloudVerrify = form.get("SendCloudVerrify")?.toString();
 
-
     const VerantwoordelijkeOnderhoud = form.get("VerantwoordelijkeOnderhoud")?.toString() == null ? "" : form.get("VerantwoordelijkeOnderhoud")?.toString();
     const Finished = form.get("Finished") == "on" ? true : false;
     const Checklistbl = form.get("Checklistbl") == "on" ? true : false;
@@ -257,11 +253,8 @@ export const action: ActionFunction = async ({ params, request }) => {
     const BTWField = form.get("BTWField") == "on" ? true : false;
     const Tracking = form.get("Tracking") == "on" ? true : false;
 
-
-
-
     //check if all required fields are filled in
-    if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string") {console.log("wheeze"); return badRequest({ formError: "Form not submitted correctly" }) }
+    if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string") { console.log("wheeze"); return badRequest({ formError: "Form not submitted correctly" }) }
     const currentData = await db.checkList.findFirst({
         where: {
             Id: params.websiteid
@@ -439,6 +432,10 @@ export const action: ActionFunction = async ({ params, request }) => {
             SendCloudVerrify: currentData.CheckListItems.SendCloudVerrify,
             Opmerkingen: currentData.CheckListItems.Opmerkingen,
             LastUser: currentData.CheckListItems.LastUser,
+            Onderhoud: {
+                connect:
+                    currentData.Onderhoud.map((item) => ({ Id: item.Id }))
+            }
         }
     })
     //update checklist with new data

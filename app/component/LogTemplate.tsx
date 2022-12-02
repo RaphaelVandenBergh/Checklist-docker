@@ -900,7 +900,7 @@ export default function LogTemplate(data: any) {
                             item.Finished ?
                                 <OnderhoudEntry key={item.Id} onderhoud={item} />
                                 :
-                               null
+                                null
                         ))
                     ) : (
                         null

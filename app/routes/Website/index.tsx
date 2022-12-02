@@ -386,7 +386,7 @@ export default function Website() {
           <span className="contact2-form-title">
             <h1>Checklist Website</h1>
           </span>
-          <FormTemplate data={templatedata} isLog={false}/>
+          <FormTemplate data={templatedata} isLog={false} />
         </div>
       </div>
     </div>

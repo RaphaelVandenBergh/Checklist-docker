@@ -916,41 +916,54 @@ export default function FormTemplate(props: any) {
                             )
                     }
 
+                    {!props.isLog ? (
+                        <>
+                            <label className="text-xl pt-2 font-semibold" htmlFor="Opmerkingen">Opmerkingen</label>
+                            <br />
+                            <Textarea resize className="no-padding bg-gray-200 " color="pink" variant="standard" defaultValue={props.data.items.Opmerkingen} name={"Opmerkingen"} placeholder={"Opmerkingen"}></Textarea>
 
-                    <label className="text-xl pt-2 font-semibold" htmlFor="Opmerkingen">Opmerkingen</label>
-                    <br />
-                    <Textarea resize className="no-padding bg-gray-200 " color="pink" variant="standard" defaultValue={props.data.items.Opmerkingen} name={"Opmerkingen"} placeholder={"Opmerkingen"}></Textarea>
+                            <br />
 
-                    <br />
-
-                    <label className="print:hidden" htmlFor="LastUser">Naam developer</label>
-                    <br />
-                    <input className={" no-padding print:hidden appearance-none bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} required type="text" name="LastUser" placeholder="git blame" />
+                            <label className="print:hidden" htmlFor="LastUser">Naam developer</label>
+                            <br />
+                            <input className={" no-padding print:hidden appearance-none bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} required type="text" name="LastUser" placeholder="git blame" />
 
 
 
-                    <div className="container-contact2-form-btn">
-                        <div className="wrap-contact2-form-btn">
-                            <div className="contact2-form-bgbtn"></div>
-                            <div className="print:hidden">
-                                <button className="contact2-form-btn" type={"submit"}>submit</button>
+                            <div className="container-contact2-form-btn">
+                                <div className="wrap-contact2-form-btn">
+                                    <div className="contact2-form-bgbtn"></div>
+                                    <div className="print:hidden">
+                                        <button className="contact2-form-btn" type={"submit"}>submit</button>
+                                    </div>
+                                </div>
                             </div>
+
+                            <div>
+                                {props.data.list.Id == undefined ? (null) : (
+                                    <Link className="hover:text-gray-900" to={'/logs/' + props.data.list.Id} >
+                                        <MdOutlineHistory className="print:hidden float-left" size={'35px'} />
+                                    </Link>
+                                )}
+                                {/* button for PDF print note type=button to not submit the form */}
+                                <button type="button" className="float-right print:hidden">
+                                    <GrDocumentPdf onClick={() => print()} size={'30px'} />
+                                </button>
+                            </div>
+                        </>
+                    ) : (
+                        <div>
+                            {/* button for PDF print note type=button to not submit the form */}
+                            <button type="button" className="float-right print:hidden">
+                                <GrDocumentPdf onClick={() => print()} size={'30px'} />
+                            </button>
                         </div>
-                    </div>
-
-                    <div>
-                        {props.data.list.Id == undefined ? (null) : (
-                            <Link className="hover:text-gray-900" to={'/logs/' + props.data.list.Id} >
-                                <MdOutlineHistory className="print:hidden float-left" size={'35px'} />
-                            </Link>
-                        )}
+                    )}
 
 
-                        {/* button for PDF print note type=button to not submit the form */}
-                        <button type="button" className="float-right print:hidden">
-                            <GrDocumentPdf onClick={() => print()} size={'30px'} />
-                        </button>
-                    </div>
+
+
+
                 </ConditionalWrap>
             </Form>
         </>

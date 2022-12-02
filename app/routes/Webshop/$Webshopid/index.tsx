@@ -602,7 +602,7 @@ export default function webshopid() {
                             </Dialog>
                         </Fragment>
                     }
-                    <FormTemplate data={data} />
+                    <FormTemplate data={data} isLog={false}/>
 
                 </div>
             </div>

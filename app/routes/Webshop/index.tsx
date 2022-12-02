@@ -412,7 +412,7 @@ export default function Webshop() {
                         <h1>Checklist Webshop</h1>
                     </span>
                     {/* call form component */}
-                    <FormTemplate data={templatedata} />
+                    <FormTemplate data={templatedata} isLog={false}/>
 
 
 

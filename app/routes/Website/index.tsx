@@ -113,6 +113,7 @@ const badRequest = (data: ActionData) =>
 
 //action function gets called when form is submitted
 export const action: ActionFunction = async ({ request }) => {
+  console.log('okay')
   //get the data from the form
   const form = await request.formData();
   //get the values from the form
@@ -385,7 +386,7 @@ export default function Website() {
           <span className="contact2-form-title">
             <h1>Checklist Website</h1>
           </span>
-          <FormTemplate data={templatedata} />
+          <FormTemplate data={templatedata} isLog={false}/>
         </div>
       </div>
     </div>

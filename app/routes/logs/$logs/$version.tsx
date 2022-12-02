@@ -15,8 +15,8 @@ import styles from '../../../styles/app.css';
 import main from '../../../styles/main.css';
 
 import React, { Fragment } from 'react';
-import LogTemplate from '~/component/LogTemplate';
 import moment from 'moment';
+import FormTemplate from '~/component/FormTemplate';
 
 // link imported styles to the page
 export function links() {
@@ -86,7 +86,7 @@ export default function Index(){
                             </Dialog>
                         </Fragment>
                     }
-                    <LogTemplate data={data}/>
+                    <FormTemplate data={data} isLog={true}/>
 
                 </div>
             </div>

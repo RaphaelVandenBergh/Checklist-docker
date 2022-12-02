@@ -37,7 +37,7 @@ export const loader: LoaderFunction = async ({ params }) => {
             Id: params.Webshopid
         },
         include: {
-            CheckListItems: true, 
+            CheckListItems: true,
             Onderhoud: true
         }
     })
@@ -264,24 +264,24 @@ export const action: ActionFunction = async ({ request, params }) => {
         where: {
             Id: params.Webshopid
         },
-        include: { CheckListItems: true, Onderhoud:true }
+        include: { CheckListItems: true, Onderhoud: true }
     })
     if (currentData == null) return badRequest({ formError: "Form not submitted correctly" })
     let isediting = false;
     let editing
-    for (const onderhoud of currentData.Onderhoud){
-        if(onderhoud.Finished == false){
+    for (const onderhoud of currentData.Onderhoud) {
+        if (onderhoud.Finished == false) {
             isediting = true;
             editing = onderhoud
         }
     }
-    if(isediting == true){
-        if(editing == undefined) return badRequest({ formError: "Form not submitted correctly" })
+    if (isediting == true) {
+        if (editing == undefined) return badRequest({ formError: "Form not submitted correctly" })
         await db.onderhoud.update({
-            where:{
+            where: {
                 Id: editing.Id
             },
-            data:{
+            data: {
                 Verantwoordelijke: VerantwoordelijkeOnderhoud,
                 Finished: Finished,
                 Checklistbl: Checklistbl,
@@ -315,10 +315,10 @@ export const action: ActionFunction = async ({ request, params }) => {
             }
         })
     }
-    if(isediting == false && VerantwoordelijkeOnderhoud != ""){
+    if (isediting == false && VerantwoordelijkeOnderhoud != "") {
         if (typeof VerantwoordelijkeOnderhoud !== "string" || typeof TYPE !== "string") return badRequest({ formError: "Form not submitted correctly" })
         await db.onderhoud.create({
-            data:{
+            data: {
                 Opmerkingen: "",
                 CheckListId: currentData.Id,
                 Verantwoordelijke: VerantwoordelijkeOnderhoud,
@@ -355,7 +355,7 @@ export const action: ActionFunction = async ({ request, params }) => {
             }
         })
     }
-   
+
     await db.logs.create({
         data: {
             CheckListId: currentData.Id,
@@ -438,7 +438,7 @@ export const action: ActionFunction = async ({ request, params }) => {
             SendCloudVerrify: currentData.CheckListItems.SendCloudVerrify,
             Opmerkingen: currentData.CheckListItems.Opmerkingen,
             LastUser: currentData.CheckListItems.LastUser,
-            Onderhoud:{
+            Onderhoud: {
                 connect:
                     currentData.Onderhoud.map((item) => ({ Id: item.Id }))
             }
@@ -446,9 +446,9 @@ export const action: ActionFunction = async ({ request, params }) => {
     })
     //update the database entry
 
-   
+
     //check if the values are valid
-    if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string" ) { return badRequest({ formError: "Form not submitted correctly" }) }
+    if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string") { return badRequest({ formError: "Form not submitted correctly" }) }
 
     //create a new checklist in db
     await db.checkList.update({
@@ -465,7 +465,7 @@ export const action: ActionFunction = async ({ request, params }) => {
             isWebshop: true,
             CheckListItems: {
                 update: {
-                    Version:{increment: 1},
+                    Version: { increment: 1 },
                     AnalyticsCreate: AnalyticsCreate,
                     ReCaptchaCreate: ReCaptchaCreate,
                     FacebookInstaShop: FacebookInstaShop,
@@ -602,7 +602,7 @@ export default function webshopid() {
                             </Dialog>
                         </Fragment>
                     }
-                    <FormTemplate data={data} />
+                    <FormTemplate data={data} isLog={false} />
 
                 </div>
             </div>

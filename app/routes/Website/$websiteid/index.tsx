@@ -587,7 +587,7 @@ export default function listid() {
                                 </DialogFooter>
                             </Dialog>
                         </Fragment>}
-                    <FormTemplate data={data} />
+                    <FormTemplate data={data} isLog={false} />
                 </div>
             </div>
         </div>

@@ -209,6 +209,7 @@ export const action: ActionFunction = async ({ request }) => {
   const flexcheckout = form.get("flexcheckout")?.toString();
   const Themify = form.get("Themify")?.toString();
   const WoocomerceVAT = form.get("WoocomerceVAT")?.toString();
+  const DiviBuilder = form.get("DiviBuilder")?.toString();
 
 
   //check if all required fields are filled in
@@ -311,6 +312,7 @@ export const action: ActionFunction = async ({ request }) => {
           flexcheckout: flexcheckout,
           Themify: Themify,
           WoocomerceVAT: WoocomerceVAT,
+          DiviBuilder: DiviBuilder,
         }
       }
     }
@@ -420,6 +422,8 @@ export default function Website() {
         flexcheckout: "",
         Themify: "",
         WoocomerceVAT: "",
+        DiviBuilder: "",
+
     }
   }
   return (

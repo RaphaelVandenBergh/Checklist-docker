@@ -62,7 +62,7 @@ export default function success() {
     const data = useLoaderData<LoaderData>();
     //define variables to render pagination buttons
     let pagination
-    //logic for pagination
+    //logic for pagination buttons
     if (data.lists.length / paginationAmount == 0) {
         pagination = null
     } if (data.lists.length >= paginationAmount && data.page == 1) {
@@ -88,7 +88,7 @@ export default function success() {
                             <BsSearch className="mr-2 mt-3" /><input name="search" placeholder="Search Project nummer" className=" py-3 w-full appearance-none bg-gray-100 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500" type={"search"}></input>
                         </Form>
                     </div>
-                    {/* render the all the lists */}
+                    {/* render all the lists */}
                     {data.lists.map((list) => (
                         //if list is a webshop redirect to webshop link
                         list.isWebshop ? (

@@ -27,6 +27,7 @@ export function links() {
 }
 type LoaderData = { list: CheckList, items: Logs, Version: number, Onderhoud: Onderhoud[] }
 export const loader: LoaderFunction = async ({ params }) => {
+    //find unique log from the checklist
     const logs = await db.logs.findUnique({
         where: { Id: params.version },
         include: { Checklist: true, Onderhoud: true },
@@ -39,7 +40,9 @@ export const loader: LoaderFunction = async ({ params }) => {
 }
 
 export default function Index() {
+    //get data returned by the loader function
     const data = useLoaderData<LoaderData>();
+    //define state for the dialog
     const [open, setOpen] = React.useState(true)
     const handleClickOpen = () => {
         setOpen(true);
@@ -68,7 +71,7 @@ export default function Index() {
                             </span>
                         </span>
 
-                        {/* form for the checklist */}
+                        {/* If there is something in the opmerkingen field render the dialog pop-up */}
                         {data.items.Opmerkingen == "" ? null :
                             <Fragment>
                                 <Dialog open={open} handler={handleClickOpen}>

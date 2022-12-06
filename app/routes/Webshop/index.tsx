@@ -212,11 +212,12 @@ export const action: ActionFunction = async ({ request }) => {
     const flexcheckout = form.get("flexcheckout")?.toString();
     const Themify = form.get("Themify")?.toString();
     const WoocomerceVAT = form.get("WoocomerceVAT")?.toString();
+    const DiviBuilder = form.get("DiviBuilder")?.toString();
 
-    //create a new checklist in db
 
-    if (!KlantNaam || !KlantNummer || !ProjectNaam || !ProjectNummer || !Budget || !Verantwoordelijke || !LastUser) { return badRequest({ formError: "Analytics en ReCaptcha zijn verplicht" }) }
-
+//check if fields are filled in correctly
+    if (!KlantNaam || !KlantNummer || !ProjectNaam || !ProjectNummer || !Budget || !Verantwoordelijke || !LastUser) { return badRequest({ formError: "Form not filled in correctly" }) }
+//create a new checklist in db with provided data
     await db.checkList.create({
         data: {
             KlantNaam: KlantNaam,
@@ -313,6 +314,7 @@ export const action: ActionFunction = async ({ request }) => {
                     flexcheckout: flexcheckout,
                     Themify: Themify,
                     WoocomerceVAT: WoocomerceVAT,
+                    DiviBuilder: DiviBuilder,
                 }
             }
         }
@@ -324,7 +326,8 @@ export const action: ActionFunction = async ({ request }) => {
 
 
 export default function Webshop() {
-    //dummy data to fill the form
+    //dummy data to fill the formtemplate we use this so we can use the same template for all the forms and logs
+    //when adding a new field to the form you need to add it here as well
     const templatedata = {
         isnew: true,
         list: {
@@ -421,6 +424,7 @@ export default function Webshop() {
             flexcheckout: "",
             Themify: "",
             WoocomerceVAT: "",
+            DiviBuilder: "",
         }
 
 

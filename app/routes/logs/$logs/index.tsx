@@ -13,13 +13,15 @@ export function links() {
         { rel: "stylesheet", href: main },
     ];
 }
-
+//maximum amount of items to be displayed per page
 const paginationAmount = 5;
 
 type LoaderData = { Logs: Array<Logs>, page: number }
 export const loader: LoaderFunction = async ({ request, params }) => {
+    //get url and search parameters for pagination otherwise default to 1
     const url = new URL(request.url);
     const page = url.searchParams.get('page') || '1';
+    //get the logs from the database with pagination
     const logs = await db.logs.findMany({
         where: { CheckListId: params.logs },
         orderBy: { Version: 'asc' },
@@ -35,6 +37,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
 
 export default function logs() {
     const data = useLoaderData<LoaderData>();
+    //logic for pagination button rendering
     let pagination
     if (data.Logs.length / paginationAmount == 0) {
         pagination = null
@@ -68,8 +71,6 @@ export default function logs() {
                                 </Link>
                             ))
                         }
-                        {/* render all the lists */}
-                        {/* render buttons for pagination */}
                         {/* method=get to call loaderfunction instead of action */}
                         <Form method="get">
                             <div className="flex justify-center">

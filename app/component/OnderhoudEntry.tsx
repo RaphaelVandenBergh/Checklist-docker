@@ -4,9 +4,9 @@ import React from "react";
 export default function OnderhoudEntry(onderhoud: any) {
     const [isShown, setIsShown] = React.useState(false);
     const handleClick = () => setIsShown(!isShown);
-
     return (
         <>
+        {/* Disabled version of the maintenance template with custom styling to make checkboxes more readable */}
             {!isShown ?
                 <>
                     <div onClick={handleClick} key={onderhoud.onderhoud.Id} className="w-full p-2 mt-2 mb-2 bg-gray-200 rounded-xl overflow-hdden shadow-md undefined hover:cursor-pointer">

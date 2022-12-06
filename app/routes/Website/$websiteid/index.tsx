@@ -228,6 +228,7 @@ export const action: ActionFunction = async ({ params, request }) => {
     const flexcheckout = form.get("flexcheckout")?.toString();
     const Themify = form.get("Themify")?.toString();
     const WoocomerceVAT = form.get("WoocomerceVAT")?.toString();
+    const DiviBuilder = form.get("DiviBuilder")?.toString();
 
     const VerantwoordelijkeOnderhoud = form.get("VerantwoordelijkeOnderhoud")?.toString() == null ? "" : form.get("VerantwoordelijkeOnderhoud")?.toString();
     const Finished = form.get("Finished") == "on" ? true : false;
@@ -446,6 +447,7 @@ export const action: ActionFunction = async ({ params, request }) => {
             flexcheckout: currentData.CheckListItems.flexcheckout,
             Themify: currentData.CheckListItems.Themify,
             WoocomerceVAT: currentData.CheckListItems.WoocomerceVAT,
+            DiviBuilder: currentData.CheckListItems.DiviBuilder,
             Onderhoud: {
                 connect:
                     currentData.Onderhoud.map((item) => ({ Id: item.Id }))
@@ -550,7 +552,9 @@ export const action: ActionFunction = async ({ params, request }) => {
                     facebookwoocomerce: facebookwoocomerce,
                     flexcheckout: flexcheckout,
                     Themify: Themify,
-                    WoocomerceVAT: WoocomerceVAT
+                    WoocomerceVAT: WoocomerceVAT,
+                    DiviBuilder: DiviBuilder,
+
                     
                 }
             }

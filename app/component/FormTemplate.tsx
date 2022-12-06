@@ -1,5 +1,6 @@
 import { Textarea } from "@material-tailwind/react";
 import { Form, Link } from "@remix-run/react";
+import React from "react";
 import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from "react";
 import { GrDocumentPdf } from "react-icons/gr";
 import { MdOutlineHistory } from "react-icons/md";
@@ -8,6 +9,8 @@ import OnderhoudEntry from "./OnderhoudEntry";
 
 export default function FormTemplate(props: any) {
     const ConditionalWrap = ({ condition, wrap, children }: any) => condition ? wrap(children) : children;
+    const [isBlog, setIsBlog] = React.useState(props.data.items.Blog);
+    const handleblog = (event:any) => setIsBlog(event.target.value);
     return (
         <>
             {/* reusable form component */}
@@ -34,7 +37,7 @@ export default function FormTemplate(props: any) {
                     <br />
 
                     <label htmlFor="Budget">Budget: €</label>
-                    <input defaultValue={props.data.list.Budget} className={"appearance-none p-1 m-1 bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"Budget"}></input>
+                    <input defaultValue={props.data.list.Budget} className={"appearance-none p-1 m-1 bg-gray-200 border border-gray-200 rounded leading-tight focus:border-gray-500"} type={"text"} name={"Budget"}></input>
                     <br />
 
                     <label htmlFor="Verantwoordelijke">Verantwoordelijke project: </label>
@@ -305,7 +308,7 @@ export default function FormTemplate(props: any) {
                     </select>
                     <br />
 
-                    
+
 
                     <h4 className="text-lg pt-2 font-semibold">Plugins</h4>
 
@@ -674,9 +677,8 @@ export default function FormTemplate(props: any) {
                     <br />
 
                     <h4 className="text-lg font-semibold mt-2">Modules</h4>
-
                     <label className="" htmlFor="Blog">Blog / Nieuws</label>
-                    <select id="Blog" name="Blog" defaultValue={props.data.items.Blog} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <select id="Blog" onChange={handleblog} value={isBlog} name="Blog" className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                         <option value="" hidden>Choose here</option>
                         <option value="DONE">DONE</option>
                         <option value="TODO">TO DO</option>
@@ -685,6 +687,25 @@ export default function FormTemplate(props: any) {
                         <option value="NOT OK">NOT OK</option>
                     </select>
                     <br />
+
+                    {
+                        isBlog == "DONE" ? (<>
+                            <label className="mx-4 mt-0" htmlFor="DiviBuilder">Divi -&#62; rol editor -&#62; divi builder uitschakelen bij auteur/redacteur</label>
+                            <select id="DiviBuilder" name="DiviBuilder" defaultValue={props.data.items.DiviBuilder} className="bg-gray-50 border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                                <option value="" hidden>Choose here</option>
+                                <option value="DONE">DONE</option>
+                                <option value="TODO">TO DO</option>
+                                <option value="N.V.T.">N.V.T.</option>
+                                <option value="BUSY">BUSY</option>
+                                <option value="NOT OK">NOT OK</option>
+                            </select>
+                            <br />
+                        </>) : (null)
+                    }
+
+
+
+
 
                     <label className="" htmlFor="ProjectModule">ProjectModule</label>
                     <select id="ProjectModule" name="ProjectModule" defaultValue={props.data.items.ProjectModule} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
@@ -993,7 +1014,7 @@ export default function FormTemplate(props: any) {
                         props.isLog ?
                             (
                                 <>
-                                {/* when in a log only show the finished onderhouden */}
+                                    {/* when in a log only show the finished onderhouden */}
                                     <h4 className="text-xl pt-2 font-semibold">Onderhoud</h4>
                                     {props.data.Onderhoud.map((item: any) => (
                                         item.Finished ?
@@ -1006,9 +1027,10 @@ export default function FormTemplate(props: any) {
                                 null
                             )
                     }
-
+                    {/* when in a log don't render the submit button etc */}
                     {!props.isLog ? (
                         <>
+
                             <label className="text-xl pt-2 font-semibold" htmlFor="Opmerkingen">Opmerkingen</label>
                             <br />
                             <Textarea resize className="no-padding bg-gray-200 " color="pink" variant="standard" defaultValue={props.data.items.Opmerkingen} name={"Opmerkingen"} placeholder={"Opmerkingen"}></Textarea>
@@ -1018,8 +1040,6 @@ export default function FormTemplate(props: any) {
                             <label className="print:hidden" htmlFor="LastUser">Naam developer</label>
                             <br />
                             <input className={" no-padding print:hidden appearance-none bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} required type="text" name="LastUser" placeholder="git blame" />
-
-
 
                             <div className="container-contact2-form-btn">
                                 <div className="wrap-contact2-form-btn">
@@ -1054,5 +1074,4 @@ export default function FormTemplate(props: any) {
             </Form>
         </>
     )
-
 }

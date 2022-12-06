@@ -231,6 +231,7 @@ export const action: ActionFunction = async ({ request, params }) => {
     const flexcheckout = form.get("flexcheckout")?.toString();
     const Themify = form.get("Themify")?.toString();
     const WoocomerceVAT = form.get("WoocomerceVAT")?.toString();
+    const DiviBuilder = form.get("DiviBuilder")?.toString();
 
 
     const VerantwoordelijkeOnderhoud = form.get("VerantwoordelijkeOnderhoud")?.toString() == null ? "" : form.get("VerantwoordelijkeOnderhoud")?.toString();
@@ -274,6 +275,7 @@ export const action: ActionFunction = async ({ request, params }) => {
         include: { CheckListItems: true, Onderhoud: true }
     })
     if (currentData == null) return badRequest({ formError: "Form not submitted correctly" })
+    //variables for saving or editing onderhouden 
     let isediting = false;
     let editing
     for (const onderhoud of currentData.Onderhoud) {
@@ -452,6 +454,7 @@ export const action: ActionFunction = async ({ request, params }) => {
             flexcheckout: currentData.CheckListItems.flexcheckout,
             Themify: currentData.CheckListItems.Themify,
             WoocomerceVAT: currentData.CheckListItems.WoocomerceVAT,
+            DiviBuilder: currentData.CheckListItems.DiviBuilder,
             Onderhoud: {
                 connect:
                     currentData.Onderhoud.map((item) => ({ Id: item.Id }))
@@ -563,7 +566,8 @@ export const action: ActionFunction = async ({ request, params }) => {
                     facebookwoocomerce: facebookwoocomerce,
                     flexcheckout: flexcheckout,
                     Themify: Themify,
-                    WoocomerceVAT: WoocomerceVAT
+                    WoocomerceVAT: WoocomerceVAT,
+                    DiviBuilder: DiviBuilder,
                 }
             }
         }

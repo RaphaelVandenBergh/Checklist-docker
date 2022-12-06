@@ -223,6 +223,11 @@ export const action: ActionFunction = async ({ params, request }) => {
     const SendCloudVerrify = form.get("SendCloudVerrify")?.toString();
     const yoastDuplicate = form.get("yoastDuplicate")?.toString();
     const Smartphone = form.get("Smartphone")?.toString();
+    const footervoorwaarden = form.get("footervoorwaarden")?.toString();
+    const facebookwoocomerce = form.get("facebookwoocomerce")?.toString();
+    const flexcheckout = form.get("flexcheckout")?.toString();
+    const Themify = form.get("Themify")?.toString();
+    const WoocomerceVAT = form.get("WoocomerceVAT")?.toString();
 
     const VerantwoordelijkeOnderhoud = form.get("VerantwoordelijkeOnderhoud")?.toString() == null ? "" : form.get("VerantwoordelijkeOnderhoud")?.toString();
     const Finished = form.get("Finished") == "on" ? true : false;
@@ -436,6 +441,11 @@ export const action: ActionFunction = async ({ params, request }) => {
             LastUser: currentData.CheckListItems.LastUser,
             yoastDuplicate: currentData.CheckListItems.yoastDuplicate,
             Smartphone: currentData.CheckListItems.Smartphone,
+            footervoorwaarden: currentData.CheckListItems.footervoorwaarden,
+            facebookwoocomerce: currentData.CheckListItems.facebookwoocomerce,
+            flexcheckout: currentData.CheckListItems.flexcheckout,
+            Themify: currentData.CheckListItems.Themify,
+            WoocomerceVAT: currentData.CheckListItems.WoocomerceVAT,
             Onderhoud: {
                 connect:
                     currentData.Onderhoud.map((item) => ({ Id: item.Id }))
@@ -536,6 +546,12 @@ export const action: ActionFunction = async ({ params, request }) => {
                     LastUser: LastUser,
                     yoastDuplicate: yoastDuplicate,
                     Smartphone: Smartphone,
+                    footervoorwaarden: footervoorwaarden,
+                    facebookwoocomerce: facebookwoocomerce,
+                    flexcheckout: flexcheckout,
+                    Themify: Themify,
+                    WoocomerceVAT: WoocomerceVAT
+                    
                 }
             }
         }

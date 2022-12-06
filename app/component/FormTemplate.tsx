@@ -12,6 +12,7 @@ export default function FormTemplate(props: any) {
         <>
             {/* reusable form component */}
             <Form reloadDocument className="contact2-form" method="post">
+                {/* Wrapping component to disable all fields in the logs */}
                 <ConditionalWrap condition={props.isLog} wrap={(children: any) => <fieldset disabled>{children}</fieldset>}>
 
 
@@ -432,7 +433,7 @@ export default function FormTemplate(props: any) {
                             </select>
                             <br />
 
-                            <label className="" htmlFor="WooCommercePDF">WooCommerce PDF Invoices & Packing Slips: facturen juist configureren met logo en gegevens van klant. In de footer verwijzing naar algemene voorwaarden.</label>
+                            <label className="" htmlFor="WooCommercePDF">WooCommerce PDF Invoices & Packing Slips: facturen juist configureren met logo en gegevens van klant.</label>
                             <select id="WooCommercePDF" name="WooCommercePDF" defaultValue={props.data.items.WooCommercePDF} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                                 <option value="" hidden>Choose here</option>
                                 <option value="DONE">DONE</option>
@@ -456,6 +457,50 @@ export default function FormTemplate(props: any) {
 
                             <label className="" htmlFor="WooCommerceStripe">WooCommerce Stripe Gateway: connectie maken met WooCommerce en Stripe. (NA OVERZET NAAR LIVE ZEKER SANDBOX MODE UITZETTEN EN CONFIGUREREN!!)</label>
                             <select id="WooCommerceStripe" name="WooCommerceStripe" defaultValue={props.data.items.WooCommerceStripe} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                                <option value="" hidden>Choose here</option>
+                                <option value="DONE">DONE</option>
+                                <option value="TODO">TO DO</option>
+                                <option value="N.V.T.">N.V.T.</option>
+                                <option value="BUSY">BUSY</option>
+                                <option value="NOT OK">NOT OK</option>
+                            </select>
+                            <br />
+
+                            <label className="" htmlFor="Themify">Themify Woocomerce product filter</label>
+                            <select id="Themify" name="Themify" defaultValue={props.data.items.Themify} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                                <option value="" hidden>Choose here</option>
+                                <option value="DONE">DONE</option>
+                                <option value="TODO">TO DO</option>
+                                <option value="N.V.T.">N.V.T.</option>
+                                <option value="BUSY">BUSY</option>
+                                <option value="NOT OK">NOT OK</option>
+                            </select>
+                            <br />
+
+                            <label className="" htmlFor="facebookwoocomerce">Facebook for Woocomerce</label>
+                            <select id="facebookwoocomerce" name="facebookwoocomerce" defaultValue={props.data.items.facebookwoocomerce} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                                <option value="" hidden>Choose here</option>
+                                <option value="DONE">DONE</option>
+                                <option value="TODO">TO DO</option>
+                                <option value="N.V.T.">N.V.T.</option>
+                                <option value="BUSY">BUSY</option>
+                                <option value="NOT OK">NOT OK</option>
+                            </select>
+                            <br />
+
+                            <label className="" htmlFor="flexcheckout">flexible checkout fields</label>
+                            <select id="flexcheckout" name="flexcheckout" defaultValue={props.data.items.flexcheckout} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                                <option value="" hidden>Choose here</option>
+                                <option value="DONE">DONE</option>
+                                <option value="TODO">TO DO</option>
+                                <option value="N.V.T.">N.V.T.</option>
+                                <option value="BUSY">BUSY</option>
+                                <option value="NOT OK">NOT OK</option>
+                            </select>
+                            <br />
+
+                            <label className="" htmlFor="WoocomerceVAT">Woocomerce EU VAT Number</label>
+                            <select id="WoocomerceVAT" name="WoocomerceVAT" defaultValue={props.data.items.WoocomerceVAT} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                                 <option value="" hidden>Choose here</option>
                                 <option value="DONE">DONE</option>
                                 <option value="TODO">TO DO</option>
@@ -572,7 +617,7 @@ export default function FormTemplate(props: any) {
                     </select>
                     <br />
 
-                    <h4 className="text-lg pt-2 font-semibold">PHP</h4>
+                    <h4 className="text-lg pt-2 font-semibold">PHP/WP</h4>
                     <label className="" htmlFor="PHPManager">PHP manager meest recente versie</label>
                     <select id="PHPManager" name="PHPManager" defaultValue={props.data.items.PHPManager} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                         <option value="" hidden>Choose here</option>
@@ -586,6 +631,39 @@ export default function FormTemplate(props: any) {
 
                     <label className="" htmlFor="PHPIni">PHP.ini path zelfde versie</label>
                     <select id="PHPIni" name="PHPIni" defaultValue={props.data.items.PHPIni} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                        <option value="" hidden>Choose here</option>
+                        <option value="DONE">DONE</option>
+                        <option value="TODO">TO DO</option>
+                        <option value="N.V.T.">N.V.T.</option>
+                        <option value="BUSY">BUSY</option>
+                        <option value="NOT OK">NOT OK</option>
+                    </select>
+                    <br />
+
+                    <label className="" htmlFor="MultiLanguage">MultiLanguage</label>
+                    <select id="MultiLanguage" name="MultiLanguage" defaultValue={props.data.items.MultiLanguage} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                        <option value="" hidden>Choose here</option>
+                        <option value="DONE">DONE</option>
+                        <option value="TODO">TO DO</option>
+                        <option value="N.V.T.">N.V.T.</option>
+                        <option value="BUSY">BUSY</option>
+                        <option value="NOT OK">NOT OK</option>
+                    </select>
+                    <br />
+
+                    <label className="" htmlFor="DelDev">Delete Dev omgeving</label>
+                    <select id="DelDev" name="DelDev" defaultValue={props.data.items.DelDev} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                        <option value="" hidden>Choose here</option>
+                        <option value="DONE">DONE</option>
+                        <option value="TODO">TO DO</option>
+                        <option value="N.V.T.">N.V.T.</option>
+                        <option value="BUSY">BUSY</option>
+                        <option value="NOT OK">NOT OK</option>
+                    </select>
+                    <br />
+
+                    <label className="" htmlFor="Discussie">Instellingen -&#62; Discussie in WP dashboard 3 vinkjes afzetten</label>
+                    <select id="Discussie" name="Discussie" defaultValue={props.data.items.Discussie} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                         <option value="" hidden>Choose here</option>
                         <option value="DONE">DONE</option>
                         <option value="TODO">TO DO</option>
@@ -674,30 +752,8 @@ export default function FormTemplate(props: any) {
                     </select>
                     <br />
 
-                    <label className="" htmlFor="MultiLanguage">MultiLanguage</label>
-                    <select id="MultiLanguage" name="MultiLanguage" defaultValue={props.data.items.MultiLanguage} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
-                        <option value="" hidden>Choose here</option>
-                        <option value="DONE">DONE</option>
-                        <option value="TODO">TO DO</option>
-                        <option value="N.V.T.">N.V.T.</option>
-                        <option value="BUSY">BUSY</option>
-                        <option value="NOT OK">NOT OK</option>
-                    </select>
-                    <br />
-
-                    <label className="" htmlFor="DelDev">Delete Dev omgeving</label>
-                    <select id="DelDev" name="DelDev" defaultValue={props.data.items.DelDev} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
-                        <option value="" hidden>Choose here</option>
-                        <option value="DONE">DONE</option>
-                        <option value="TODO">TO DO</option>
-                        <option value="N.V.T.">N.V.T.</option>
-                        <option value="BUSY">BUSY</option>
-                        <option value="NOT OK">NOT OK</option>
-                    </select>
-                    <br />
-
-                    <label className="" htmlFor="Discussie">Discussie WP 3 vinkjes afzettern</label>
-                    <select id="Discussie" name="Discussie" defaultValue={props.data.items.Discussie} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                    <label className="" htmlFor="footervoorwaarden">In de footer verwijzing naar algemene voorwaarden.</label>
+                    <select id="footervoorwaarden" name="footervoorwaarden" defaultValue={props.data.items.footervoorwaarden} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                         <option value="" hidden>Choose here</option>
                         <option value="DONE">DONE</option>
                         <option value="TODO">TO DO</option>
@@ -927,6 +983,7 @@ export default function FormTemplate(props: any) {
                         </>
                     ) : null}
 
+                    {/* when making a new checklist or viewing the logs don't show the add onderhoud button */}
                     {props.data.isnew != true && !props.isLog ?
                         <>
                             <MaintenanceTemplate onderhoud={props.data.onderhoud} />
@@ -936,6 +993,7 @@ export default function FormTemplate(props: any) {
                         props.isLog ?
                             (
                                 <>
+                                {/* when in a log only show the finished onderhouden */}
                                     <h4 className="text-xl pt-2 font-semibold">Onderhoud</h4>
                                     {props.data.Onderhoud.map((item: any) => (
                                         item.Finished ?
@@ -992,11 +1050,6 @@ export default function FormTemplate(props: any) {
                             </button>
                         </div>
                     )}
-
-
-
-
-
                 </ConditionalWrap>
             </Form>
         </>

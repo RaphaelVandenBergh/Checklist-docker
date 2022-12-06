@@ -2,7 +2,7 @@ import React from "react";
 import { BsPlusLg } from "react-icons/bs";
 import OnderhoudEntry from "./OnderhoudEntry";
 
-
+// template for the onderhoud page
 export default function MaintenanceTemplate(onderhoud: any) {
     const [isShown, setIsShown] = React.useState(false);
     const handleClick = () => setIsShown(!isShown);
@@ -57,6 +57,7 @@ export default function MaintenanceTemplate(onderhoud: any) {
         <>
             <h4 className="text-xl pt-2 font-semibold">Onderhoud</h4>
             <>
+            {/* if there is one or more onderhoud render the list of onderhouden */}
                 {onderhoud.onderhoud.length > 0 ?
                     (
                         onderhoud.onderhoud.map((item: any) => (
@@ -71,6 +72,7 @@ export default function MaintenanceTemplate(onderhoud: any) {
                 }
 
                 {
+                    // when the add onderhoud button is clicked or the onderhoud wasn't finished yet render the onderhoud list otherwise render the add onderhoud button
                     isShown || isediting ?
                         <div className="w-full p-2 mt-2 mb-2 bg-gray-200 rounded-xl overflow-hdden shadow-md undefined">
 

@@ -204,6 +204,12 @@ export const action: ActionFunction = async ({ request }) => {
   const SendCloudVerrify = form.get("SendCloudVerrify")?.toString();
   const yoastDuplicate = form.get("yoastDuplicate")?.toString();
   const Smartphone = form.get("Smartphone")?.toString();
+  const footervoorwaarden = form.get("footervoorwaarden")?.toString();
+  const facebookwoocomerce = form.get("facebookwoocomerce")?.toString();
+  const flexcheckout = form.get("flexcheckout")?.toString();
+  const Themify = form.get("Themify")?.toString();
+  const WoocomerceVAT = form.get("WoocomerceVAT")?.toString();
+
 
   //check if all required fields are filled in
   if (!KlantNaam || !KlantNummer || !ProjectNaam || !ProjectNummer || !Budget || !Verantwoordelijke || !LastUser) { return badRequest({ formError: "Analytics en ReCaptcha zijn verplicht" }) }
@@ -300,6 +306,11 @@ export const action: ActionFunction = async ({ request }) => {
           LastUser: LastUser,
           yoastDuplicate: yoastDuplicate,
           Smartphone: Smartphone,
+          footervoorwaarden: footervoorwaarden,
+          facebookwoocomerce: facebookwoocomerce,
+          flexcheckout: flexcheckout,
+          Themify: Themify,
+          WoocomerceVAT: WoocomerceVAT,
         }
       }
     }
@@ -404,6 +415,11 @@ export default function Website() {
         lastUser: "",
         yoastDuplicate: "",
         Smartphone: "",
+        footervoorwaarden: "",
+        facebookwoocomerce: "",
+        flexcheckout: "",
+        Themify: "",
+        WoocomerceVAT: "",
     }
   }
   return (

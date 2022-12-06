@@ -114,6 +114,12 @@ model CheckListItems{
   SendCloudVerrify String @default("")
   yoastDuplicate String @default("")
   Smartphone String @default("")
+  footervoorwaarden String @default("")
+  facebookwoocomerce String @default("")
+  flexcheckout String @default("")
+  Themify String @default("")
+  WoocomerceVAT String @default("")
+
 
   Opmerkingen String @default("")
   LastUser String @default("")
@@ -206,6 +212,11 @@ model Logs{
   LastUser String @default("")
   yoastDuplicate String @default("")
   Smartphone String @default("")
+  footervoorwaarden String @default("")
+  facebookwoocomerce String @default("")
+  flexcheckout String @default("")
+  Themify String @default("")
+  WoocomerceVAT String @default("")
 
 }
 

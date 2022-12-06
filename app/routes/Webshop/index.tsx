@@ -207,6 +207,11 @@ export const action: ActionFunction = async ({ request }) => {
     const SendCloudVerrify = form.get("SendCloudVerrify")?.toString();
     const yoastDuplicate = form.get("yoastDuplicate")?.toString();
     const Smartphone = form.get("Smartphone")?.toString();
+    const footervoorwaarden = form.get("footervoorwaarden")?.toString();
+    const facebookwoocomerce = form.get("facebookwoocomerce")?.toString();
+    const flexcheckout = form.get("flexcheckout")?.toString();
+    const Themify = form.get("Themify")?.toString();
+    const WoocomerceVAT = form.get("WoocomerceVAT")?.toString();
 
     //create a new checklist in db
 
@@ -303,6 +308,11 @@ export const action: ActionFunction = async ({ request }) => {
                     LastUser: LastUser,
                     yoastDuplicate: yoastDuplicate,
                     Smartphone: Smartphone,
+                    footervoorwaarden: footervoorwaarden,
+                    facebookwoocomerce: facebookwoocomerce,
+                    flexcheckout: flexcheckout,
+                    Themify: Themify,
+                    WoocomerceVAT: WoocomerceVAT,
                 }
             }
         }
@@ -406,6 +416,11 @@ export default function Webshop() {
             lastUser: "",
             yoastDuplicate: "",
             Smartphone: "",
+            footervoorwaarden: "",
+            facebookwoocomerce: "",
+            flexcheckout: "",
+            Themify: "",
+            WoocomerceVAT: "",
         }
 
 

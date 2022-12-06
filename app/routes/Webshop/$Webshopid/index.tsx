@@ -226,6 +226,11 @@ export const action: ActionFunction = async ({ request, params }) => {
     const SendCloudUser = form.get("SendCloudUser")?.toString();
     const SendCloudVerrify = form.get("SendCloudVerrify")?.toString();
     const Smartphone = form.get("Smartphone")?.toString();
+    const footervoorwaarden = form.get("footervoorwaarden")?.toString();
+    const facebookwoocomerce = form.get("facebookwoocomerce")?.toString();
+    const flexcheckout = form.get("flexcheckout")?.toString();
+    const Themify = form.get("Themify")?.toString();
+    const WoocomerceVAT = form.get("WoocomerceVAT")?.toString();
 
 
     const VerantwoordelijkeOnderhoud = form.get("VerantwoordelijkeOnderhoud")?.toString() == null ? "" : form.get("VerantwoordelijkeOnderhoud")?.toString();
@@ -442,6 +447,11 @@ export const action: ActionFunction = async ({ request, params }) => {
             LastUser: currentData.CheckListItems.LastUser,
             yoastDuplicate: currentData.CheckListItems.yoastDuplicate,
             Smartphone: currentData.CheckListItems.Smartphone,
+            footervoorwaarden: currentData.CheckListItems.footervoorwaarden,
+            facebookwoocomerce: currentData.CheckListItems.facebookwoocomerce,
+            flexcheckout: currentData.CheckListItems.flexcheckout,
+            Themify: currentData.CheckListItems.Themify,
+            WoocomerceVAT: currentData.CheckListItems.WoocomerceVAT,
             Onderhoud: {
                 connect:
                     currentData.Onderhoud.map((item) => ({ Id: item.Id }))
@@ -549,6 +559,11 @@ export const action: ActionFunction = async ({ request, params }) => {
                     LastUser: LastUser,
                     yoastDuplicate: yoastDuplicate,
                     Smartphone: Smartphone,
+                    footervoorwaarden: footervoorwaarden,
+                    facebookwoocomerce: facebookwoocomerce,
+                    flexcheckout: flexcheckout,
+                    Themify: Themify,
+                    WoocomerceVAT: WoocomerceVAT
                 }
             }
         }

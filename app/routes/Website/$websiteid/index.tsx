@@ -221,6 +221,8 @@ export const action: ActionFunction = async ({ params, request }) => {
     const DoubleCheck = form.get("DoubleCheck")?.toString();
     const SendCloudUser = form.get("SendCloudUser")?.toString();
     const SendCloudVerrify = form.get("SendCloudVerrify")?.toString();
+    const yoastDuplicate = form.get("yoastDuplicate")?.toString();
+    const Smartphone = form.get("Smartphone")?.toString();
 
     const VerantwoordelijkeOnderhoud = form.get("VerantwoordelijkeOnderhoud")?.toString() == null ? "" : form.get("VerantwoordelijkeOnderhoud")?.toString();
     const Finished = form.get("Finished") == "on" ? true : false;
@@ -432,6 +434,8 @@ export const action: ActionFunction = async ({ params, request }) => {
             SendCloudVerrify: currentData.CheckListItems.SendCloudVerrify,
             Opmerkingen: currentData.CheckListItems.Opmerkingen,
             LastUser: currentData.CheckListItems.LastUser,
+            yoastDuplicate: currentData.CheckListItems.yoastDuplicate,
+            Smartphone: currentData.CheckListItems.Smartphone,
             Onderhoud: {
                 connect:
                     currentData.Onderhoud.map((item) => ({ Id: item.Id }))
@@ -530,6 +534,8 @@ export const action: ActionFunction = async ({ params, request }) => {
                     SendCloudVerrify: SendCloudVerrify,
                     Opmerkingen: Opmerkingen,
                     LastUser: LastUser,
+                    yoastDuplicate: yoastDuplicate,
+                    Smartphone: Smartphone,
                 }
             }
         }

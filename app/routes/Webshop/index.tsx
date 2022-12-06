@@ -205,6 +205,8 @@ export const action: ActionFunction = async ({ request }) => {
     const DoubleCheck = form.get("DoubleCheck")?.toString();
     const SendCloudUser = form.get("SendCloudUser")?.toString();
     const SendCloudVerrify = form.get("SendCloudVerrify")?.toString();
+    const yoastDuplicate = form.get("yoastDuplicate")?.toString();
+    const Smartphone = form.get("Smartphone")?.toString();
 
     //create a new checklist in db
 
@@ -299,6 +301,8 @@ export const action: ActionFunction = async ({ request }) => {
                     SendCloudVerrify: SendCloudVerrify,
                     Opmerkingen: Opmerkingen,
                     LastUser: LastUser,
+                    yoastDuplicate: yoastDuplicate,
+                    Smartphone: Smartphone,
                 }
             }
         }
@@ -400,6 +404,8 @@ export default function Webshop() {
             SendCloudVerrify: "",
             Opmerkingen: "",
             lastUser: "",
+            yoastDuplicate: "",
+            Smartphone: "",
         }
 
 

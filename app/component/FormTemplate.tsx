@@ -40,7 +40,7 @@ export default function FormTemplate(props: any) {
                     <input required defaultValue={props.data.list.Verantwoordelijke} className={"appearance-none p-1 m-1 bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"Verantwoordelijke"}></input>
                     <br />
                     <h2 className="text-2xl pt-2 font-semibold">Checklist</h2>
-                    <h3 className="text-xl pt-2 font-semibold">Marketing</h3>
+                    <h3 className="text-xl pt-2 my-3 font-semibold">Marketing</h3>
 
 
                     <label className="" htmlFor="AnalyticsCreate">Google Analytics aanmaken</label>
@@ -98,7 +98,8 @@ export default function FormTemplate(props: any) {
                     </select>
                     <br />
 
-                    <h3 className="text-xl pt-2 font-semibold">Development</h3>
+                    <h3 className="text-xl pt-2 my-3 font-semibold">Development</h3>
+                    <h4 className="text-lg font-semibold mt-2">Algemeen</h4>
 
                     <label className="" htmlFor="Compressie">Compressie aanzetten</label>
                     <select id="Compressie" name="Compressie" defaultValue={props.data.items.Compressie} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
@@ -135,6 +136,17 @@ export default function FormTemplate(props: any) {
 
                     <label className="" htmlFor="AnalyticsIntegrate">Google Analytics integratie</label>
                     <select id="AnalyticsIntegrate" name="AnalyticsIntegrate" defaultValue={props.data.items.AnalyticsIntegrate} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                        <option value="" hidden>Choose here</option>
+                        <option value="DONE">DONE</option>
+                        <option value="TODO">TO DO</option>
+                        <option value="N.V.T.">N.V.T.</option>
+                        <option value="BUSY">BUSY</option>
+                        <option value="NOT OK">NOT OK</option>
+                    </select>
+                    <br />
+
+                    <label className="" htmlFor="RecaptchaIntegratie">Recaptcha integratie</label>
+                    <select id="RecaptchaIntegratie" name="RecaptchaIntegratie" defaultValue={props.data.items.RecaptchaIntegratie} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                         <option value="" hidden>Choose here</option>
                         <option value="DONE">DONE</option>
                         <option value="TODO">TO DO</option>
@@ -210,6 +222,19 @@ export default function FormTemplate(props: any) {
                     </select>
                     <br />
 
+                    <label className="" htmlFor="GDPR">GDPR: bij formulieren een akkoord zetten</label>
+                    <select id="GDPR" name="GDPR" defaultValue={props.data.items.GDPR} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                        <option value="" hidden>Choose here</option>
+                        <option value="DONE">DONE</option>
+                        <option value="TODO">TO DO</option>
+                        <option value="N.V.T.">N.V.T.</option>
+                        <option value="BUSY">BUSY</option>
+                        <option value="NOT OK">NOT OK</option>
+                    </select>
+                    <br />
+
+                    <h4 className="text-lg font-semibold mt-2">afbeeldingen</h4>
+
                     <label className="" htmlFor="Loadspeed">Loadspeed (ms):</label>
                     <input defaultValue={props.data.items.LoadspeedTime} className={"appearance-none p-1 m-1 w-12 bg-gray-200 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"LoadspeedTime"}></input>
                     <select id="Loadspeed" name="Loadspeed" defaultValue={props.data.items.Loadspeed} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
@@ -244,6 +269,8 @@ export default function FormTemplate(props: any) {
                     </select>
                     <br />
 
+                    <h4 className="text-lg font-semibold mt-2">Bestanden</h4>
+
                     <label className="" htmlFor="Htaccess">.htaccess plaatsen </label>
                     <select id="Htaccess" name="Htaccess" defaultValue={props.data.items.Htaccess} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                         <option value="" hidden>Choose here</option>
@@ -277,18 +304,9 @@ export default function FormTemplate(props: any) {
                     </select>
                     <br />
 
-                    <label className="" htmlFor="GDPR">GDPR: bij formulieren een akkoord zetten</label>
-                    <select id="GDPR" name="GDPR" defaultValue={props.data.items.GDPR} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
-                        <option value="" hidden>Choose here</option>
-                        <option value="DONE">DONE</option>
-                        <option value="TODO">TO DO</option>
-                        <option value="N.V.T.">N.V.T.</option>
-                        <option value="BUSY">BUSY</option>
-                        <option value="NOT OK">NOT OK</option>
-                    </select>
-                    <br />
+                    
 
-                    <h3 className="text-xl pt-2 font-semibold">Plugins</h3>
+                    <h4 className="text-lg pt-2 font-semibold">Plugins</h4>
 
                     <label className="" htmlFor="MaterialWP">Material WP: Aangepast met logo, huiskleur en afbeelding</label>
                     <select id="MaterialWP" name="MaterialWP" defaultValue={props.data.items.MaterialWP} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
@@ -462,6 +480,19 @@ export default function FormTemplate(props: any) {
                     </select>
                     <br />
 
+                    <label className="" htmlFor="yoastDuplicate">Yoast Duplicate post en User role editor met de juiste instellingen</label>
+                    <select id="yoastDuplicate" name="yoastDuplicate" defaultValue={props.data.items.yoastDuplicate} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                        <option value="" hidden>Choose here</option>
+                        <option value="DONE">DONE</option>
+                        <option value="TODO">TO DO</option>
+                        <option value="N.V.T.">N.V.T.</option>
+                        <option value="BUSY">BUSY</option>
+                        <option value="NOT OK">NOT OK</option>
+                    </select>
+                    <br />
+
+
+
                     <label className="" htmlFor="CapabilityManager">Capability Manager Enhanced: restricted gebruiker aanmaken en configureren</label>
                     <select id="CapabilityManager" name="CapabilityManager" defaultValue={props.data.items.CapabilityManager} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                         <option value="" hidden>Choose here</option>
@@ -530,6 +561,17 @@ export default function FormTemplate(props: any) {
                     </select>
                     <br />
 
+                    <label className="" htmlFor="Smartphone">Op smartphone nakijken</label>
+                    <select id="Smartphone" name="Smartphone" defaultValue={props.data.items.Smartphone} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
+                        <option value="" hidden>Choose here</option>
+                        <option value="DONE">DONE</option>
+                        <option value="TODO">TO DO</option>
+                        <option value="N.V.T.">N.V.T.</option>
+                        <option value="BUSY">BUSY</option>
+                        <option value="NOT OK">NOT OK</option>
+                    </select>
+                    <br />
+
                     <h4 className="text-lg pt-2 font-semibold">PHP</h4>
                     <label className="" htmlFor="PHPManager">PHP manager meest recente versie</label>
                     <select id="PHPManager" name="PHPManager" defaultValue={props.data.items.PHPManager} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
@@ -553,16 +595,7 @@ export default function FormTemplate(props: any) {
                     </select>
                     <br />
 
-                    <label className="" htmlFor="RecaptchaIntegratie">Recaptcha integratie</label>
-                    <select id="RecaptchaIntegratie" name="RecaptchaIntegratie" defaultValue={props.data.items.RecaptchaIntegratie} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
-                        <option value="" hidden>Choose here</option>
-                        <option value="DONE">DONE</option>
-                        <option value="TODO">TO DO</option>
-                        <option value="N.V.T.">N.V.T.</option>
-                        <option value="BUSY">BUSY</option>
-                        <option value="NOT OK">NOT OK</option>
-                    </select>
-                    <br />
+                    <h4 className="text-lg font-semibold mt-2">Modules</h4>
 
                     <label className="" htmlFor="Blog">Blog / Nieuws</label>
                     <select id="Blog" name="Blog" defaultValue={props.data.items.Blog} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
@@ -674,7 +707,7 @@ export default function FormTemplate(props: any) {
                     </select>
                     <br />
 
-                    <h3 className="text-xl pt-2 font-semibold">Project Manager</h3>
+                    <h3 className="text-xl pt-2 my-3 font-semibold">Project Manager</h3>
 
                     <label className="" htmlFor="QCFinal">Kwaliteitscontrole finale design</label>
                     <select id="QCFinal" name="QCFinal" defaultValue={props.data.items.QCFinal} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
@@ -743,7 +776,7 @@ export default function FormTemplate(props: any) {
                     </select>
                     <br />
 
-                    <h3 className="text-xl pt-2 font-semibold">Technisch</h3>
+                    <h3 className="text-xl pt-2 my-3 font-semibold">Technisch</h3>
 
                     <label className="" htmlFor="SSLActive">SSL actief</label>
                     <select id="SSLActive" name="SSLActive" defaultValue={props.data.items.SSLActive} className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >

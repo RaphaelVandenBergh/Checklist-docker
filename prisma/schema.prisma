@@ -112,6 +112,8 @@ model CheckListItems{
   DoubleCheck String @default("")
   SendCloudUser String @default("")
   SendCloudVerrify String @default("")
+  yoastDuplicate String @default("")
+  Smartphone String @default("")
 
   Opmerkingen String @default("")
   LastUser String @default("")
@@ -202,6 +204,8 @@ model Logs{
   SendCloudVerrify String @default("")
   Opmerkingen String @default("")
   LastUser String @default("")
+  yoastDuplicate String @default("")
+  Smartphone String @default("")
 
 }
 

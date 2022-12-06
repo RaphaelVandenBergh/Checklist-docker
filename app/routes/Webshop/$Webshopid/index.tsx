@@ -225,6 +225,7 @@ export const action: ActionFunction = async ({ request, params }) => {
     const DoubleCheck = form.get("DoubleCheck")?.toString();
     const SendCloudUser = form.get("SendCloudUser")?.toString();
     const SendCloudVerrify = form.get("SendCloudVerrify")?.toString();
+    const Smartphone = form.get("Smartphone")?.toString();
 
 
     const VerantwoordelijkeOnderhoud = form.get("VerantwoordelijkeOnderhoud")?.toString() == null ? "" : form.get("VerantwoordelijkeOnderhoud")?.toString();
@@ -257,6 +258,7 @@ export const action: ActionFunction = async ({ request, params }) => {
     const StripeMnt = form.get("StripeMnt") == "on" ? true : false;
     const BTWField = form.get("BTWField") == "on" ? true : false;
     const Tracking = form.get("Tracking") == "on" ? true : false;
+    const yoastDuplicate = form.get("yoastDuplicate")?.toString();
 
 
     //get current data for log
@@ -438,6 +440,8 @@ export const action: ActionFunction = async ({ request, params }) => {
             SendCloudVerrify: currentData.CheckListItems.SendCloudVerrify,
             Opmerkingen: currentData.CheckListItems.Opmerkingen,
             LastUser: currentData.CheckListItems.LastUser,
+            yoastDuplicate: currentData.CheckListItems.yoastDuplicate,
+            Smartphone: currentData.CheckListItems.Smartphone,
             Onderhoud: {
                 connect:
                     currentData.Onderhoud.map((item) => ({ Id: item.Id }))
@@ -543,6 +547,8 @@ export const action: ActionFunction = async ({ request, params }) => {
                     SendCloudVerrify: SendCloudVerrify,
                     Opmerkingen: Opmerkingen,
                     LastUser: LastUser,
+                    yoastDuplicate: yoastDuplicate,
+                    Smartphone: Smartphone,
                 }
             }
         }

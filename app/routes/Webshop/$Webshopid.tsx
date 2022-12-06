@@ -12,8 +12,8 @@ import {
     DialogFooter,
 } from "@material-tailwind/react";
 //import stylesheets for the page
-import styles from '../../../styles/app.css';
-import main from '../../../styles/main.css';
+import styles from '../../styles/app.css';
+import main from '../../styles/main.css';
 import FormTemplate from '~/component/FormTemplate';
 
 import React, { Fragment } from 'react';
@@ -609,7 +609,6 @@ export default function webshopid() {
                         </span>
                     </span>
 
-                    {/* form for the checklist */}
                     {data.items.Opmerkingen == "" ? null :
                         <Fragment>
                             <Dialog open={open} handler={handleClickOpen}>

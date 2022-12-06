@@ -9,6 +9,7 @@ import OnderhoudEntry from "./OnderhoudEntry";
 
 export default function FormTemplate(props: any) {
     const ConditionalWrap = ({ condition, wrap, children }: any) => condition ? wrap(children) : children;
+    //need state for one of the fields
     const [isBlog, setIsBlog] = React.useState(props.data.items.Blog);
     const handleblog = (event:any) => setIsBlog(event.target.value);
     return (
@@ -17,7 +18,6 @@ export default function FormTemplate(props: any) {
             <Form reloadDocument className="contact2-form" method="post">
                 {/* Wrapping component to disable all fields in the logs */}
                 <ConditionalWrap condition={props.isLog} wrap={(children: any) => <fieldset disabled>{children}</fieldset>}>
-
 
                     <h2 className="text-2xl font-semibold">Gegevens Klant</h2>
                     <label htmlFor="KlantNummer">Klant Nummer: </label>
@@ -678,6 +678,7 @@ export default function FormTemplate(props: any) {
 
                     <h4 className="text-lg font-semibold mt-2">Modules</h4>
                     <label className="" htmlFor="Blog">Blog / Nieuws</label>
+                    {/* using state for this field so we can condition the render of the following field */}
                     <select id="Blog" onChange={handleblog} value={isBlog} name="Blog" className="bg-gray-50 border mt-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-5 w-2/12 p-1"  >
                         <option value="" hidden>Choose here</option>
                         <option value="DONE">DONE</option>
@@ -687,7 +688,7 @@ export default function FormTemplate(props: any) {
                         <option value="NOT OK">NOT OK</option>
                     </select>
                     <br />
-
+                        {/* only rendering when the previous field is set to DONE */}
                     {
                         isBlog == "DONE" ? (<>
                             <label className="mx-4 mt-0" htmlFor="DiviBuilder">Divi -&#62; rol editor -&#62; divi builder uitschakelen bij auteur/redacteur</label>

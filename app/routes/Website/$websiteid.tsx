@@ -588,8 +588,6 @@ export default function listid() {
                         <span className="text-sm text-center block ">
                             last updated: {date} <br />
                             by: {data.items.LastUser}
-
-
                         </span>
                     </span>
 

@@ -3,7 +3,7 @@ import type { CheckList, CheckListItems, Onderhoud } from "@prisma/client";
 import type { ActionFunction, LoaderFunction } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
 import { db } from "~/utils/db.server";
-import styles from '../../../styles/app.css';
+import styles from '../../styles/app.css';
 import main from 'app/styles/main.css';
 import FormTemplate from "~/component/FormTemplate";
 import { useLoaderData } from "@remix-run/react";

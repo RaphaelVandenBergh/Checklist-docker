@@ -65,11 +65,11 @@ export default function success() {
     //logic for pagination buttons
     if (data.lists.length / paginationAmount == 0) {
         pagination = null
-    } if (data.lists.length >= paginationAmount && data.page == 1) {
+    } else if (data.lists.length >= paginationAmount && data.page == 1) {
         pagination = <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full m-2" name="page" value={data.page + 1}>&#62;</button>
-    } if (data.lists.length <= paginationAmount && data.page > 1) {
+    } else if (data.lists.length <= paginationAmount && data.page > 1) {
         pagination = <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" name="page" value={data.page - 1}>&#60;</button>
-    } if (data.lists.length >= paginationAmount && data.page > 1) {
+    } else if (data.lists.length >= paginationAmount && data.page > 1) {
 
         pagination = <>
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-1" name="page" value={data.page + 1}>&#62;</button>

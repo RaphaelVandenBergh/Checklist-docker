@@ -5,7 +5,6 @@ import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from 
 import { GrDocumentPdf } from "react-icons/gr";
 import { MdOutlineHistory } from "react-icons/md";
 import MaintenanceTemplate from "./MaintenanceTemplate";
-import OnderhoudEntry from "./OnderhoudEntry";
 
 export default function FormTemplate(props: any) {
     const ConditionalWrap = ({ condition, wrap, children }: any) => condition ? wrap(children) : children;
@@ -1019,7 +1018,7 @@ export default function FormTemplate(props: any) {
                                     <h4 className="text-xl pt-2 font-semibold">Onderhoud</h4>
                                     {props.data.Onderhoud.map((item: any) => (
                                         item.Finished ?
-                                            <OnderhoudEntry key={item.Id} onderhoud={item} />
+                                            <MaintenanceTemplate key={item.Id} log={item} onderhoud={[]} />
                                             :
                                             null
                                     ))}

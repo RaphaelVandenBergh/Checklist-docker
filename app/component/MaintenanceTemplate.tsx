@@ -1,7 +1,6 @@
 import moment from "moment";
 import React from "react";
 import { BsPlusLg } from "react-icons/bs";
-import OnderhoudEntry from "./OnderhoudEntry";
 
 // template for the onderhoud page
 export default function MaintenanceTemplate(props: any) {

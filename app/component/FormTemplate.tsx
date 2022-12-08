@@ -6,8 +6,9 @@ import { GrDocumentPdf } from "react-icons/gr";
 import { MdOutlineHistory } from "react-icons/md";
 import MaintenanceTemplate from "./MaintenanceTemplate";
 
+const ConditionalWrap = ({ condition, wrap, children }: any) => condition ? wrap(children) : children;
 export default function FormTemplate(props: any) {
-    const ConditionalWrap = ({ condition, wrap, children }: any) => condition ? wrap(children) : children;
+    
     //need state for one of the fields
     const [isBlog, setIsBlog] = React.useState(props.data.items.Blog);
     const handleblog = (event:any) => setIsBlog(event.target.value);

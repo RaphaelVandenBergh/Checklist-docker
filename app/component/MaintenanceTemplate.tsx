@@ -3,10 +3,11 @@ import React from "react";
 import { BsPlusLg } from "react-icons/bs";
 
 // template for the onderhoud page
+const ConditionalWrap = ({ condition, wrap, children }: any) => condition ? wrap(children) : children;
 export default function MaintenanceTemplate(props: any) {
     const [isShown, setIsShown] = React.useState(false);
     const handleClick = () => setIsShown(!isShown);
-    const ConditionalWrap = ({ condition, wrap, children }: any) => condition ? wrap(children) : children;
+    
 
     let isediting
     let editing

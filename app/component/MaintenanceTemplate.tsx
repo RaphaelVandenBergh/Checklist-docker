@@ -61,7 +61,6 @@ export default function MaintenanceTemplate(props: any) {
     return (
         <>
             {props.isfirst ? <h4 className="text-xl pt-2 font-semibold">Onderhoud</h4> : null}
-            {console.log(props.isfirst)}
             <>
                 {/* if there is one or more onderhoud render the list of onderhouden */}
                 {props.isfirst && props.onderhoud.length > 0 ?

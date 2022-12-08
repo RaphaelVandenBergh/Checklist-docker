@@ -1008,7 +1008,7 @@ export default function FormTemplate(props: any) {
                     {/* when making a new checklist or viewing the logs don't show the add onderhoud button */}
                     {props.data.isnew != true && !props.isLog ?
                         <>
-                            <MaintenanceTemplate onderhoud={props.data.onderhoud} />
+                            <MaintenanceTemplate onderhoud={props.data.onderhoud} isfirst />
                             <br />
                         </>
                         :

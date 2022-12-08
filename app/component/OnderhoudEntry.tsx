@@ -4,6 +4,7 @@ import React from "react";
 export default function OnderhoudEntry(onderhoud: any) {
     const [isShown, setIsShown] = React.useState(false);
     const handleClick = () => setIsShown(!isShown);
+    console.log(onderhoud)
     return (
         <>
         {/* Disabled version of the maintenance template with custom styling to make checkboxes more readable */}

@@ -21,8 +21,6 @@ export default function OnderhoudEntry(onderhoud: any) {
 
                     <input disabled defaultValue={onderhoud.onderhoud.Verantwoordelijke} className={"appearance-none p-1 m-1 bg-gray-300 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"}></input>
 
-
-
                     <br />
 
 

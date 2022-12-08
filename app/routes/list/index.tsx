@@ -90,42 +90,6 @@ export default function success() {
                     </div>
                     {/* render all the lists */}
                     {data.lists.map((list) => (
-                        //if list is a webshop redirect to webshop link
-                        // list.isWebshop ? (
-                        //     <Link to={"../webshop/" + list.Id} key={list.Id}>
-                        //         <div className="w-full my-5 bg-gray-200 rounded-xl overflow-hdden shadow-md p-4 undefined" >
-                        //             <h4 className="text-center">Webshop</h4>
-                        //             <h4 className="text-lg text-left">ProjectNaam: {list.ProjectNaam}</h4>
-                        //             <h4 className="text-lg">  ProjectNummer: {list.ProjectNummer}</h4>
-                        //             <h4 className="text-lg">KlantNaam: {list.KlantNaam}</h4>
-                        //             <h4 className="text-lg">KlantNummer: {list.KlantNummer}</h4>
-                        //             <h4 className="text-lg text-left">
-                        //                 Verantwoordelijke: {list.Verantwoordelijke}
-                        //                 <span className="text-lg float-right">Budget: € {list.Budget}</span>
-                        //             </h4>
-                        //         </div>
-                        //     </Link>
-                        // ) : (
-                        //     <Link to={"../website/" + list.Id} key={list.Id}>
-                        //         <div className="w-full my-5 bg-gray-200 rounded-xl overflow-hdden shadow-md p-4 undefined" >
-                        //             <h4 className="text-center">Website</h4>
-
-
-                        //             <h4 className="text-lg text-left">ProjectNaam: {list.ProjectNaam}</h4>
-                        //             <h4 className="text-lg">  ProjectNummer: {list.ProjectNummer}</h4>
-                        //             <h4 className="text-lg">KlantNaam: {list.KlantNaam}</h4>
-                        //             <h4 className="text-lg">KlantNummer: {list.KlantNummer}</h4>
-                        //             <h4 className="text-lg text-left">
-                        //                 Verantwoordelijke: {list.Verantwoordelijke}
-                        //                 <span className="text-lg float-right">Budget: € {list.Budget}</span>
-                        //             </h4>
-                        //         </div>
-                        //     </Link>
-                        // )
-
-
-
-
 
                         <Link to={"../list/" + list.Id} key={list.Id}>
                                 <div className="w-full my-5 bg-gray-200 rounded-xl overflow-hdden shadow-md p-4 undefined" >

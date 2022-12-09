@@ -42,9 +42,9 @@ export default function logs() {
     if (data.Logs.length / paginationAmount == 0) {
         pagination = null
     } else if (data.Logs.length >= paginationAmount && data.page == 1) {
-        pagination = <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full m-2" name="page" value={data.page + 1}>&#62;</button>
+        pagination = <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full m-2" name="page" value={data.page + 1}>&#62;</button>
     } else if (data.Logs.length <= paginationAmount && data.page > 1) {
-        pagination = <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" name="page" value={data.page - 1}>&#60;</button>
+        pagination = <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full" name="page" value={data.page - 1}>&#60;</button>
     } else if (data.Logs.length >= paginationAmount && data.page > 1) {
 
         pagination = <>

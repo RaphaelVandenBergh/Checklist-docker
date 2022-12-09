@@ -90,16 +90,18 @@ export default function MaintenanceTemplate(props: any) {
                                     <input id="Finished" defaultChecked={editing.Finished} type={"checkbox"} name={"Finished"} ></input>
                                     <label className="p-1 m-1" htmlFor="Finished">Finished</label>
                                 </div>
-
                                 <br />
-
 
                                 <input id="Checklistbl" defaultChecked={editing.Checklistbl} type={"checkbox"} name={"Checklistbl"} ></input>
                                 <label className="p-1 m-1" htmlFor="Checklistbl">Checklist</label>
                                 <br />
 
                                 <label className="" htmlFor="TYPE">TYPE: </label>
-                                <input id="TYPE" defaultValue={editing.TYPE} className={"appearance-none bg-gray-300 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"text"} name={"TYPE"} ></input>
+                                <select id="TYPE" defaultValue={editing.TYPE} className={"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-2/12 p-1"} name={"TYPE"} >
+                                    <option value="">choose here</option>
+                                    <option value="Wordpress">Wordpress</option>
+                                    <option value="HTML">HTML</option>
+                                </select>
                                 <br />
 
                                 <input id="SMTPCheck" defaultChecked={editing.SMTPCheck} type={"checkbox"} name={"SMTPCheck"} ></input>
@@ -151,7 +153,9 @@ export default function MaintenanceTemplate(props: any) {
                                 <br />
 
                                 <input id="Speedcheck" defaultChecked={editing.Speedcheck} type={"checkbox"} name={"Speedcheck"} ></input>
-                                <label className="p-1 m-1" htmlFor="Speedcheck">SpeedCheck</label>
+                                <label className="p-1 m-1" htmlFor="Speedcheck">SpeedCheck ms:</label>
+                                <input required defaultValue={editing.SpeedCheckspeed} className={"appearance-none p-1 m-1 bg-gray-300 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"number"} name={"SpeedCheckspeed"}></input>
+
                                 <br />
 
                                 <input id="SSLMnt" defaultChecked={editing.SSLMnt} type={"checkbox"} name={"SSLMnt"} ></input>
@@ -164,6 +168,8 @@ export default function MaintenanceTemplate(props: any) {
 
                                 <input id="DeadLinks" defaultChecked={editing.DeadLinks} type={"checkbox"} name={"DeadLinks"} ></input>
                                 <label className="p-1 m-1" htmlFor="DeadLinks">Deadlinks?</label>
+                                <input required defaultValue={editing.DeadlinkAmount} className={"appearance-none p-1 m-1 bg-gray-300 border border-gray-200 rounded  leading-tight focus:border-gray-500"} type={"number"} name={"DeadlinkAmount"}></input>
+
                                 <br />
 
                                 <input id="AnalyticsMnt" defaultChecked={editing.AnalyticsMnt} type={"checkbox"} name={"AnalyticsMnt"} ></input>

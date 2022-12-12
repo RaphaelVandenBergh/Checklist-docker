@@ -260,7 +260,7 @@ model Onderhoud{
   StripeMnt Boolean
   BTWField Boolean
   Tracking Boolean
-  DeadlinkAmount String
-  SpeedCheckspeed String
+  DeadlinkAmount String @default("")
+  SpeedCheckspeed String @default("")
 
 }

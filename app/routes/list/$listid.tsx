@@ -182,6 +182,8 @@ export const action: ActionFunction = async ({ params, request }) => {
     const StripeMnt = form.get("StripeMnt") == "on" ? true : false;
     const BTWField = form.get("BTWField") == "on" ? true : false;
     const Tracking = form.get("Tracking") == "on" ? true : false;
+    const DeadlinkAmount = form.get("DeadlinkAmount")?.toString() == null ? "" : form.get("DeadlinkAmount")?.toString();
+    const SpeedCheckspeed = form.get("SpeedCheckspeed")?.toString() == null ? "" : form.get("SpeedCheckspeed")?.toString();
 
     //check if all required fields are filled in
     if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string") { console.log("wheeze"); return badRequest({ formError: "Form not submitted correctly" }) }
@@ -237,6 +239,8 @@ export const action: ActionFunction = async ({ params, request }) => {
                 StripeMnt: StripeMnt,
                 BTWField: BTWField,
                 Tracking: Tracking,
+                DeadlinkAmount: DeadlinkAmount,
+                SpeedCheckspeed: SpeedCheckspeed
             }
         })
     }
@@ -276,6 +280,8 @@ export const action: ActionFunction = async ({ params, request }) => {
                 StripeMnt: StripeMnt,
                 BTWField: BTWField,
                 Tracking: Tracking,
+                DeadlinkAmount: DeadlinkAmount,
+                SpeedCheckspeed: SpeedCheckspeed
             }
         })
     }

@@ -1058,7 +1058,7 @@ export default function FormTemplate(props: any) {
                                     </Link>
                                 )}
                                 {/* button for PDF print note type=button to not submit the form */}
-                                <button type="button" className="float-right print:hidden">
+                                <button type="button" className="float-right text-gray-700 hover:text-gray-900 print:hidden">
                                     <GrDocumentPdf onClick={() => print()} size={'30px'} />
                                 </button>
                             </div>

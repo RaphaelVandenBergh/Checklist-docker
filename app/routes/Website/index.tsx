@@ -25,7 +25,6 @@ const badRequest = (data: ActionData) =>
 
 //action function gets called when form is submitted
 export const action: ActionFunction = async ({ request }) => {
-  console.log('okay')
   //get the data from the form
   const form = await request.formData();
   //get the values from the form
@@ -225,6 +224,7 @@ export const action: ActionFunction = async ({ request }) => {
           Themify: Themify,
           WoocomerceVAT: WoocomerceVAT,
           DiviBuilder: DiviBuilder,
+     
         }
       }
     }
@@ -335,6 +335,7 @@ export default function Website() {
         Themify: "",
         WoocomerceVAT: "",
         DiviBuilder: "",
+        
 
     }
   }

@@ -25,6 +25,7 @@ model CheckList{
   isWebshop Boolean @default(false)
   CheckListItemsId String @unique
   CheckListItems CheckListItems @relation(fields: [CheckListItemsId], references: [Id])
+  isActive Boolean @default(true)
   Logs Logs[]
   Onderhoud Onderhoud[]
 

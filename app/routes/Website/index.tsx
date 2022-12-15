@@ -34,6 +34,7 @@ export const action: ActionFunction = async ({ request }) => {
   const ProjectNaam = form.get("ProjectNaam")?.toString();
   const Budget = form.get("Budget")?.toString();
   const Verantwoordelijke = form.get("Verantwoordelijke")?.toString();
+  const isActive = form.get("isActive")?.toString();
 
   const Opmerkingen = form.get("Opmerkingen")?.toString();
   const LastUser = form.get("LastUser")?.toString();
@@ -248,6 +249,7 @@ export default function Website() {
         Budget: "",
         Verantwoordelijke: "",
         isWebshop: false,
+        isActive: true,
     },
     items: {
         AnalyticsCreate: "",

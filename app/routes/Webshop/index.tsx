@@ -139,6 +139,7 @@ export const action: ActionFunction = async ({ request }) => {
             Budget: Budget,
             Verantwoordelijke: Verantwoordelijke,
             isWebshop: true,
+            isActive: true,
             CheckListItems: {
                 create: {
                     Version: 1,
@@ -250,6 +251,7 @@ export default function Webshop() {
             Budget: "",
             Verantwoordelijke: "",
             isWebshop: true,
+            isActive: true,
         },
         items: {
             AnalyticsCreate: "",

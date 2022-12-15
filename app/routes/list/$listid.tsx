@@ -64,6 +64,7 @@ export const action: ActionFunction = async ({ params, request }) => {
     const ProjectNaam = form.get("ProjectNaam")?.toString();
     const Budget = form.get("Budget")?.toString();
     const Verantwoordelijke = form.get("Verantwoordelijke")?.toString();
+    const isActive = form.get("isActive") == "on" ? true : false;
 
     const Opmerkingen = form.get("Opmerkingen")?.toString();
     const LastUser = form.get("LastUser")?.toString();
@@ -394,6 +395,7 @@ export const action: ActionFunction = async ({ params, request }) => {
             ProjectNaam: ProjectNaam,
             Budget: Budget,
             Verantwoordelijke: Verantwoordelijke,
+            isActive: isActive,
             CheckListItems: {
                 update: {
                     Version: { increment: 1 },
@@ -523,14 +525,17 @@ export default function listid() {
 
                     </span>
                     {/* use form component */}
-                    {data.items.Opmerkingen == "" ? null :
+                    {data.items.Opmerkingen == "" && data.list.isActive ? null :
                         <Fragment>
                             <Dialog open={open} handler={handleClickOpen}>
                                 <DialogHeader className="text-red-600">WARNING!</DialogHeader>
                                 <DialogBody className="grid" divider>
+                                {!data.list.isActive ? <><p className="text-black text-xl">Dit project heeft geen actief onderhoud</p> </>: null}
+                                {data.items.Opmerkingen == "" ? null :<hr style={{height:2}} className="bg-gray-300 m-2 w-full"/> }
                                     {data.items.Opmerkingen.split("\r\n").map((item: any, index: any) => {
-                                        return <p className="text-black" key={index}>{item}</p>
+                                        return <p className="text-black text-base" key={index}>{item}</p>
                                     })}
+                                    
                                 </DialogBody>
                                 <DialogFooter>
                                     <Button variant="gradient" color="green" onClick={handleClose}>

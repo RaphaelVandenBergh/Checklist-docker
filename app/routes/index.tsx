@@ -1,4 +1,4 @@
-import { json, LinksFunction, LoaderFunction, redirect } from '@remix-run/node';
+import { json, LinksFunction, LoaderFunction, MetaFunction, redirect } from '@remix-run/node';
 import { Link } from 'react-router-dom';
 import main from '../styles/main.css';
 
@@ -6,6 +6,15 @@ export const links: LinksFunction = () => {
         return [
                 { rel: "stylesheet", href: main },
         ];
+}
+
+export const meta: MetaFunction = () => {
+        return {
+                robots: "noindex",
+                googlebot: "noindex",
+                title: "Checklist",
+                description: "Checklist oplevering",
+        };
 }
 
 

@@ -67,7 +67,7 @@ export const loader: LoaderFunction = async ({ request }) => {
             take: paginationAmount,
         });
     }else if(active == "true"){
-        console.log("active")
+       
         lists = await db.checkList.findMany({
             skip: (Number(page) - 1) * paginationAmount,
             take: paginationAmount,

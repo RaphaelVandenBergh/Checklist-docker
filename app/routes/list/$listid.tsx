@@ -187,7 +187,7 @@ export const action: ActionFunction = async ({ params, request }) => {
     const SpeedCheckspeed = form.get("SpeedCheckspeed")?.toString() == null ? "" : form.get("SpeedCheckspeed")?.toString();
 
     //check if all required fields are filled in
-    if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string") { console.log("wheeze"); return badRequest({ formError: "Form not submitted correctly" }) }
+    if (typeof KlantNummer !== "string" || typeof KlantNaam !== "string" || typeof ProjectNummer !== "string" || typeof ProjectNaam !== "string" || typeof Budget !== "string" || typeof Verantwoordelijke !== "string") { return badRequest({ formError: "Form not submitted correctly" }) }
     const currentData = await db.checkList.findFirst({
         where: {
             Id: params.listid
@@ -485,7 +485,7 @@ export const action: ActionFunction = async ({ params, request }) => {
                     WoocomerceVAT: WoocomerceVAT,
                     DiviBuilder: DiviBuilder,
 
-                    
+
                 }
             }
         }
@@ -513,7 +513,7 @@ export default function listid() {
             <div className="container-contact2">
                 <div className="wrap-contact2">
                     <span className="contact2-form-title">
-                        <h1>Checklist {data.list.isWebshop? <>Webshop</> : <>Website</>}</h1>
+                        <h1>Checklist {data.list.isWebshop ? <>Webshop</> : <>Website</>}</h1>
 
                         <span className="text-sm text-center block ">
                             last updated: {date} <br />
@@ -530,12 +530,12 @@ export default function listid() {
                             <Dialog open={open} handler={handleClickOpen}>
                                 <DialogHeader className="text-red-600">WARNING!</DialogHeader>
                                 <DialogBody className="grid" divider>
-                                {!data.list.isActive ? <><p className="text-black text-xl">Dit project heeft geen actief onderhoud</p> </>: null}
-                                {data.items.Opmerkingen == "" ? null :<hr style={{height:2}} className="bg-gray-300 m-2 w-full"/> }
+                                    {!data.list.isActive ? <><p className="text-black text-xl">Dit project heeft geen actief onderhoud</p> </> : null}
+                                    {data.items.Opmerkingen == "" || data.list.isActive? null : <hr style={{ height: 2 }} className="bg-gray-300 m-2 w-full" />}
                                     {data.items.Opmerkingen.split("\r\n").map((item: any, index: any) => {
                                         return <p className="text-black text-base" key={index}>{item}</p>
                                     })}
-                                    
+
                                 </DialogBody>
                                 <DialogFooter>
                                     <Button variant="gradient" color="green" onClick={handleClose}>

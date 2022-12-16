@@ -8,7 +8,7 @@ import MaintenanceTemplate from "./MaintenanceTemplate";
 
 const ConditionalWrap = ({ condition, wrap, children }: any) => condition ? wrap(children) : children;
 export default function FormTemplate(props: any) {
-    console.log(props.data.list)
+
     const [openactive, setopenactive] = React.useState(false)
     const handleClickActiveOpen = () => {
         setopenactive(true);

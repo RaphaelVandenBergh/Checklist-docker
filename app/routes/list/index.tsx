@@ -34,9 +34,26 @@ export const loader: LoaderFunction = async ({ request }) => {
             return new Error("Search must be a string")
         }
         //if search parameter is a string, search the database for lists with a name that contains the search parameter
-        const list = await db.checkList.findMany({
+        var list = await db.checkList.findMany({
             where: { ProjectNummer: { contains: Search } },
+            
         })
+        if (list.length == 0) {
+            list = await db.checkList.findMany({
+                where: { ProjectNaam: { contains: Search } },
+            })
+
+        }
+        if(list.length == 0) {
+            list = await db.checkList.findMany({
+                where: { KlantNaam: { contains: Search } },
+            })
+        }
+        if(list.length == 0) {
+            list = await db.checkList.findMany({
+                where: { KlantNummer: { contains: Search } },
+            })
+        }
         //return the found lists and the page number
         const data: LoaderData = { lists: list, page: parseInt(page) }
         return json(data)
@@ -85,7 +102,7 @@ export default function success() {
                     <div className="w-full mb-10 bg-gray-100 rounded-xl overflow-hidden shadow-md p-4 undefined">
                         {/* search form */}
                         <Form className="flex">
-                            <BsSearch className="mr-2 mt-3" /><input name="search" placeholder="Search Project nummer" className=" py-3 w-full appearance-none bg-gray-100 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500" type={"search"}></input>
+                            <BsSearch className="mr-2 mt-3" /><input name="search" placeholder="Search Project" className=" py-3 w-full appearance-none bg-gray-100 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500" type={"search"}></input>
                         </Form>
                     </div>
                     {/* render all the lists */}

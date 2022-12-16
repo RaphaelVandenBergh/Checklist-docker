@@ -1,5 +1,6 @@
 services:
   database:
+    container_name: database
     image: postgres:latest
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -9,9 +10,11 @@ services:
     volumes:
       - "checklistdata:/var/lib/postgresql/data"
     ports:
-      - "2345:5432"
+      - "5432:5432"
     restart: unless-stopped
+
   frontend:
+    container_name: frontend
     build: 
       context: .
       dockerfile: Dockerstartup
@@ -21,10 +24,42 @@ services:
       - "checklistnetwork"
     environment:
       - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database:5432/checklist?schema=public
+  
+  nginx-proxy:
+    container_name: nginx
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - checklistnetwork
+    volumes:
+      - nginxdata:/etc/nginx/
+    restart: always
+
+  # nginx-proxy-manager:
+  #   container_name: nginx
+  #   image: jc21/nginx-proxy-manager:latest
+  #   networks:
+  #    - checklistnetwork
+  #   ports:
+  #     - 81:81
+  #     - 80:80
+  #     - 443:443
+  #   volumes:
+  #     - nginxdata:/data
+  #     - proxyencrypt:/etc/letsencrypt
+  #   restart: always
 
 volumes:
   checklistdata:
     driver: local
+
+  nginxdata:
+    driver: local
+
+  # proxyencrypt:
+  #   driver: local 
 
 networks:
   checklistnetwork:

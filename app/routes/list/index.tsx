@@ -116,7 +116,7 @@ export default function success() {
                         {/* search form */}
                         <Form className="">
                             <div className="flex w-full">
-                                <BsSearch className="mr-2 mt-3" /><input name="search" placeholder="Search Project" className=" py-3 w-full appearance-none bg-gray-100 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500" type={"search"}></input>
+                                <BsSearch className="mr-2 mt-3" /><input name="search" placeholder="Search Project" className=" pt-3 w-full appearance-none bg-gray-100 text-gray-700 border border-gray-200 rounded  leading-tight focus:border-gray-500" type={"search"}></input>
                             </div>
                             <div className="flex flex-col">
                                 <div className="flex justify-center items-center">
